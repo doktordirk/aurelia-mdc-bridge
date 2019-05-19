@@ -21,8 +21,6 @@ template
       a(href="https://material.io/guidelines/components/chips.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer") Material design guidelines
       hr
 
-
-    // MORE TO COME
     mdc-grid-cell(span="12")
       section
         h5 html
@@ -34,4 +32,46 @@ template
               &lt;mdc-chip&gt;Chip 3&lt;/mdc-chip&gt;
               &lt;mdc-chip&gt;Chip 4&lt;/mdc-chip&gt;
             &lt;/mdc-chip-set&gt;
-        p more to come..
+
+    mdc-grid-cell(span="12")
+      section
+        h5 Custom Styling
+        br
+        mdc-grid-cell(span="12")
+          mdc-chip-set
+            mdc-chip.chip-primary Chip 1
+            mdc-chip.chip-secondary-stroked Chip 2
+
+        mdc-grid-cell(span="12")
+            pre
+              code-prism.
+                &lt;mdc-chip-set&gt;
+                  &lt;mdc-chip class="chip-primary"&gt;Chip 1&lt;/mdc-chip&gt;
+                  &lt;mdc-chip class="chip-secondary-stroked"&gt;Chip 2&lt;/mdc-chip&gt;
+                &lt;/mdc-chip-set&gt;
+
+              code-prism(language="css").
+                .chip-primary {
+                  @include mdc-chip-fill-color-accessible($mdc-theme-primary);
+                }
+                .chip-secondary-stroked {
+                  @include mdc-chip-fill-color(white);
+                  @include mdc-chip-ink-color($mdc-theme-secondary);
+                  @include mdc-chip-stroke(2px, solid, $mdc-theme-secondary);
+                }
+    mdc-grid-cell(span="12")
+      section
+        h5 Icons
+        br
+        mdc-grid-cell(span="12")
+          mdc-chip-set
+            mdc-chip(icon="faces") Chip 1
+            mdc-chip(icon="faces" icon-trailing) Chip 2
+
+        mdc-grid-cell(span="12")
+            pre
+              code-prism.
+                &lt;mdc-chip-set&gt;
+                  &lt;mdc-chip icon="faces"&gt;Chip 1&lt;/mdc-chip&gt;
+                  &lt;mdc-chip icon="faces" icon-trailing&gt;Chip 2&lt;/mdc-chip&gt;
+                &lt;/mdc-chip-set&gt;
