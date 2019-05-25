@@ -94,8 +94,8 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
   const noSlot = DOMHelper.createElement('div');
 
   // loop child nodes
-  while (node.firstChild) {
-    const childNode = node.firstChild;
+  while (node.firstElementChild) {
+    const childNode = node.firstElementChild;
     if (childNode.attributes) {
 
       const slotAtr = childNode.attributes.getNamedItem('slot');

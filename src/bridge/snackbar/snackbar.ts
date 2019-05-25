@@ -65,7 +65,8 @@ export class MdcSnackbar {
     if (!util.hasProp(options, 'actionHandler')) {
       if (options.actionText) { options.actionHandler = this.onAction.bind(this); }
     }
-    this.mdcSnackbar.show(options);
+    //this.mdcSnackbar.open(options);
+    this.mdcSnackbar.open();
   }
 
   private onAction() {
@@ -89,7 +90,7 @@ export class MdcSnackbar {
     this.elementSnackbar.classList[value ? 'add' : 'remove']('mdc-snackbar--align-start');
   }
   private dismissesOnActionChanged(newValue: boolean) {
-    this.mdcSnackbar.dismissesOnAction = util.getBoolean(newValue);
+    //this.mdcSnackbar.dismissesOnAction = util.getBoolean(newValue);
   }
 
   private addToElement() {
@@ -117,12 +118,12 @@ export class MdcSnackbar {
 
     this.elementSnackbar = main;
     this.attached();
-    this.mdcSnackbar.foundation_.adapter_.registerTransitionEndHandler(this.onTransitionEndHandler.bind(this));
+    //this.mdcSnackbar.foundation_.adapter_.registerTransitionEndHandler(this.onTransitionEndHandler.bind(this));
   }
 
   private onTransitionEndHandler(event) {
     if (event.target !== this.elementSnackbar) { return; }
-    this.mdcSnackbar.foundation_.adapter_.deregisterTransitionEndHandler(this.onTransitionEndHandler.bind(this));
+    //this.mdcSnackbar.foundation_.adapter_.deregisterTransitionEndHandler(this.onTransitionEndHandler.bind(this));
     this.mdcSnackbar.destroy();
     this.element.removeChild(this.elementTheme);
   }

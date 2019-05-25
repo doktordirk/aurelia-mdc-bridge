@@ -1,6 +1,6 @@
 import { autoinject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCTabBar, MDCTabBarFoundation } from '@material/tabs';
+import { MDCTabBar, MDCTabBarFoundation } from '@material/tab-bar';
 import * as util from '../util';
 
 export interface IMdcTabBarChangeEvent extends CustomEvent {

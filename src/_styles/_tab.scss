@@ -1,5 +1,5 @@
 .my-tab-cusom-color {
-  @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+  @include mdc-tab-indicator-underline-color($mdc-theme-primary);
 
   .mdc-tab:not(.mdc-tab--active) {
     @include mdc-tab-ink-color($mdc-theme-primary);

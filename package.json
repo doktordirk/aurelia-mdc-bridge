@@ -72,14 +72,14 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "~0.31.0"
+    "material-components-web": "2.2.0"
   },
   "peerDependencies": {},
   "devDependencies": {
     "@types/node": "^9.4.6",
     "@types/prismjs": "^1.9.0",
-    "aurelia-bootstrapper": "^2.2.0",
-    "aurelia-cli": "^0.32.0",
+    "aurelia-bootstrapper": "^2.3.3",
+    "aurelia-cli": "^1.0.0-beta.15",
     "aurelia-google-analytics": "^2.3.1",
     "aurelia-tools": "^2.0.0",
     "bluebird": "^3.5.1",
@@ -114,7 +114,7 @@
     "text": "github:requirejs/text#latest",
     "through2": "^2.0.3",
     "tslint": "^5.9.1",
-    "typescript": "2.7.2",
+    "typescript": "3.4.3",
     "uglify-js": "^3.3.11",
     "vinyl-fs": "^3.0.2"
   },
@@ -167,9 +167,9 @@
               "main": "mdc.gridList"
             },
             {
-              "name": "@material/icon-toggle",
-              "path": "../node_modules/@material/icon-toggle/dist",
-              "main": "mdc.iconToggle"
+              "name": "@material/icon-button",
+              "path": "../node_modules/@material/icon-button/dist",
+              "main": "mdc.iconButton"
             },
             {
               "name": "@material/linear-progress",
@@ -208,8 +208,23 @@
             },
             {
               "name": "@material/tabs",
-              "path": "../node_modules/@material/tabs/dist",
-              "main": "mdc.tabs"
+              "path": "../node_modules/@material/tab/dist",
+              "main": "mdc.tab"
+            },
+            {
+              "name": "@material/tabs",
+              "path": "../node_modules/@material/tab-bar/dist",
+              "main": "mdc.tabBar"
+            },
+            {
+              "name": "@material/tabs",
+              "path": "../node_modules/@material/tab-scroller/dist",
+              "main": "mdc.tabScroller"
+            },
+            {
+              "name": "@material/tab-indicator",
+              "path": "../node_modules/@material/tab-indicator/dist",
+              "main": "mdc.tabIndicator"
             },
             {
               "name": "@material/textfield",

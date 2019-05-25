@@ -1,6 +1,6 @@
 import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCPersistentDrawer } from '@material/drawer';
+import { MDCDrawer } from '@material/drawer';
 import * as util from '../util';
 
 @customElement('mdc-drawer-persistent')
@@ -10,7 +10,7 @@ export class MdcDrawerPersistent {
   private log: Logger;
 
   private elementDrawer: HTMLElement;
-  private mdcDrawer: MDCPersistentDrawer;
+  private mdcDrawer: MDCDrawer;
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-drawer-persistent');
@@ -21,21 +21,21 @@ export class MdcDrawerPersistent {
 
   private attached() {
     // TODO: https://github.com/material-components/material-components-web/issues/1004
-    if (!MDCPersistentDrawer.prototype.getDefaultFoundation_) {
-      MDCPersistentDrawer.prototype.getDefaultFoundation_ = MDCPersistentDrawer.prototype.getDefaultFoundation;
-      MDCPersistentDrawer.prototype.getDefaultFoundation = function() {
-        const foundation = this.getDefaultFoundation_();
+    // if (!MDCDrawer.prototype.getDefaultFoundation_) {
+    //   MDCDrawer.prototype.getDefaultFoundation_ = MDCDrawer.prototype.getDefaultFoundation;
+    //   MDCDrawer.prototype.getDefaultFoundation = function() {
+    //     const foundation = this.getDefaultFoundation_();
 
-        foundation.drawerClickHandler_ = (e) => {
-          if (e.target.tagName !== 'A') {
-            e.stopPropagation();
-          }
-        };
+    //     foundation.drawerClickHandler_ = (e) => {
+    //       if (e.target.tagName !== 'A') {
+    //         e.stopPropagation();
+    //       }
+    //     };
 
-        return foundation;
-      };
-    }
-    this.mdcDrawer = new MDCPersistentDrawer(this.elementDrawer);
+    //     return foundation;
+    //   };
+    // }
+    this.mdcDrawer = new MDCDrawer(this.elementDrawer);
     this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
     this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));
     this.openChanged(this.open);

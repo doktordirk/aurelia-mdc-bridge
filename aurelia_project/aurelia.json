@@ -131,9 +131,9 @@
             "main": "mdc.gridList"
           },
           {
-            "name": "@material/icon-toggle",
-            "path": "../node_modules/@material/icon-toggle/dist",
-            "main": "mdc.iconToggle"
+            "name": "@material/icon-button",
+            "path": "../node_modules/@material/icon-button/dist",
+            "main": "mdc.iconButton"
           },
           {
             "name": "@material/linear-progress",
@@ -172,8 +172,23 @@
           },
           {
             "name": "@material/tabs",
-            "path": "../node_modules/@material/tabs/dist",
-            "main": "mdc.tabs"
+            "path": "../node_modules/@material/tab/dist",
+            "main": "mdc.tab"
+          },
+          {
+            "name": "@material/tab-bar",
+            "path": "../node_modules/@material/tab-bar/dist",
+            "main": "mdc.tabBar"
+          },
+          {
+            "name": "@material/tab-scroller",
+            "path": "../node_modules/@material/tab-scroller/dist",
+            "main": "mdc.tabScroller"
+          },
+          {
+            "name": "@material/tab-indicator",
+            "path": "../node_modules/@material/tab-indicator/dist",
+            "main": "mdc.tabIndicator"
           },
           {
             "name": "@material/textfield",

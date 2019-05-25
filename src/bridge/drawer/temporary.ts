@@ -1,6 +1,6 @@
 import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCTemporaryDrawer } from '@material/drawer';
+import { MDCDrawer } from '@material/drawer';
 import * as util from '../util';
 
 @customElement('mdc-drawer-temporary')
@@ -10,7 +10,7 @@ export class MdcDrawerTemporary {
   private log: Logger;
 
   private elementDrawer: HTMLElement;
-  private mdcDrawer: MDCTemporaryDrawer;
+  private mdcDrawer: MDCDrawer;
 
   constructor(private element: Element) {
     this.log = getLogger('mdc-drawer-temporary');
@@ -21,22 +21,22 @@ export class MdcDrawerTemporary {
 
   private attached() {
     // TODO: https://github.com/material-components/material-components-web/issues/1004
-    if (!MDCTemporaryDrawer.prototype.getDefaultFoundation_) {
-      MDCTemporaryDrawer.prototype.getDefaultFoundation_ = MDCTemporaryDrawer.prototype.getDefaultFoundation;
-      MDCTemporaryDrawer.prototype.getDefaultFoundation = function() {
-        const foundation = this.getDefaultFoundation_();
+    // if (!MDCTemporaryDrawer.prototype.getDefaultFoundation_) {
+    //   MDCTemporaryDrawer.prototype.getDefaultFoundation_ = MDCTemporaryDrawer.prototype.getDefaultFoundation;
+    //   MDCTemporaryDrawer.prototype.getDefaultFoundation = function() {
+    //     const foundation = this.getDefaultFoundation_();
 
-        foundation.drawerClickHandler_ = (e) => {
-          if (e.target.tagName !== 'A') {
-            e.stopPropagation();
-          }
-        };
+    //     foundation.drawerClickHandler_ = (e) => {
+    //       if (e.target.tagName !== 'A') {
+    //         e.stopPropagation();
+    //       }
+    //     };
 
-        return foundation;
-      };
-    }
+    //     return foundation;
+    //   };
+    // }
 
-    this.mdcDrawer = new MDCTemporaryDrawer(this.elementDrawer);
+    this.mdcDrawer = new MDCDrawer(this.elementDrawer);
     this.elementDrawer.addEventListener('MDCTemporaryDrawer:open', this.onOpenEvent.bind(this));
     this.elementDrawer.addEventListener('MDCTemporaryDrawer:close', this.onCloseEvent.bind(this));
     this.openChanged(this.open);

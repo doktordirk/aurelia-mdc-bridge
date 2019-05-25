@@ -36,45 +36,47 @@ export class MdcSelect {
   private unbind() { /** */ }
 
   private attached() {
-    this.taskQueue.queueTask(() => {
+    // this.taskQueue.queueTask(() => {
       this.mdcSelect = new MDCSelect(this.elementSelect);
 
       // TODO: temporary override of click event target
       // set target to closest parent element with class 'mdc-list-item'
-      this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = (target) => {
-        while (target) {
-          if (target.classList.contains('mdc-list-item')) {
-            if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
-            break;
-          } else if (target.classList.contains('mdc-menu')) {
-            break;
-          }
-          target = target.parentElement;
-        }
-        return this.mdcSelect.menu_.items.indexOf(target);
-      };
+
+      // this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = (target) => {
+      //   while (target) {
+      //     if (target.classList.contains('mdc-list-item')) {
+      //       if (target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
+      //       break;
+      //     } else if (target.classList.contains('mdc-menu')) {
+      //       break;
+      //     }
+      //     target = target.parentElement;
+      //   }
+      //   return this.mdcSelect.menu_.items.indexOf(target);
+      // };
 
       this.mdcSelect.listen('MDCSelect:change', this.raiseChangeEvent.bind(this));
-      const mdcSelectFoundation = this.mdcSelect.foundation_.adapter_;
+      //const mdcSelectFoundation = this.mdcSelect.foundation_.adapter_;
+      this.mdcSelect.getDefaultFoundation();
 
       // override fundation getTextForOptionAtIndex to support items with icons
-      mdcSelectFoundation.getTextForOptionAtIndex = this.getTextForOptionAtIndex.bind(this);
+      //mdcSelectFoundation.getTextForOptionAtIndex = this.getTextForOptionAtIndex.bind(this);
       // override fundation. value returns model
-      mdcSelectFoundation.getValueForOptionAtIndex = this.getValueForOptionAtIndex.bind(this);
+      //mdcSelectFoundation.getValueForOptionAtIndex = this.getValueForOptionAtIndex.bind(this);
 
       this.disabledChanged(this.disabled);
       this.boxChanged(this.box);
 
       // if value is set, find option index and select it
-      if (!this.value) { return; }
-      this.mdcSelect.selectedIndex = this.findIndex(this.value);
+      // if (!this.value) { return; }
+      // this.mdcSelect.selectedIndex = this.findIndex(this.value);
 
       // let label float to top
       const labelElement = this.elementSelect.getElementsByClassName('mdc-select__label');
       if (labelElement[0]) {
         labelElement[0].classList.add('mdc-select__label--float-above');
       }
-    });
+    // });
   }
 
   private detached() {
@@ -101,25 +103,25 @@ export class MdcSelect {
   }
 
   // find index and select item
-  private valueChanged(newValue) {
-    // do not select if value is changed in raiseChangeEvent
-    if (this.internalValueChanged) {
-      this.internalValueChanged = false;
-      return;
-    }
-    const index = this.findIndex(newValue);
-    this.mdcSelect.selectedIndex = index;
-  }
+  // private valueChanged(newValue) {
+  //   // do not select if value is changed in raiseChangeEvent
+  //   if (this.internalValueChanged) {
+  //     this.internalValueChanged = false;
+  //     return;
+  //   }
+  //   const index = this.mdcSelect.getSelectedIndex();
+  //   this.mdcSelect.selectedIndex = index;
+  // }
 
   // search through option`s, compare model and value and return index
-  private findIndex(value): number {
-    for (let index = 0; index < this.mdcSelect.options.length; index++) {
-      if (this.compareModels(this.mdcSelect.item(index).model, value)) {
-        return index;
-      }
-    }
-    return -1;
-  }
+  // private findIndex(value): number {
+  //   for (let index = 0; index < this.mdcSelect.options.length; index++) {
+  //     if (this.compareModels(this.mdcSelect.item(index).model, value)) {
+  //       return index;
+  //     }
+  //   }
+  //   return -1;
+  // }
 
   // compare models. if matcher is defined, use it
   private compareModels(model1, model2): boolean {
@@ -139,23 +141,23 @@ export class MdcSelect {
 
   // override fundation function
   // getTextForOptionAtIndex: (index) => this.options[index].textContent,
-  private getTextForOptionAtIndex(index: number): string {
-    const item = this.mdcSelect.options[index];
-    if (!item) {  return null; }
-    const textArea = item.getElementsByClassName('amb-mdc-list-item-text');
-    if (textArea && textArea.length > 0) {
-      return (textArea[0] as HTMLElement).innerText;
-    } else {
-      return item.textContent;
-    }
-  }
+  // private getTextForOptionAtIndex(index: number): string {
+  //   const item = this.mdcSelect.options[index];
+  //   if (!item) {  return null; }
+  //   const textArea = item.getElementsByClassName('amb-mdc-list-item-text');
+  //   if (textArea && textArea.length > 0) {
+  //     return (textArea[0] as HTMLElement).innerText;
+  //   } else {
+  //     return item.textContent;
+  //   }
+  // }
 
   // override fundation function
   // getValueForOptionAtIndex: (index) => this.options[index].id || this.options[index].textContent,
-  private getValueForOptionAtIndex(index: number): any {
-    const item = this.mdcSelect.options[index];
-    if (!item) { return null; }
-    return item.model;
-  }
+  // private getValueForOptionAtIndex(index: number): any {
+  //   const item = this.mdcSelect.options[index];
+  //   if (!item) { return null; }
+  //   return item.model;
+  // }
 
 }

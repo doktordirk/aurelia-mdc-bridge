@@ -1,6 +1,6 @@
 import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
-import { MDCIconToggle } from '@material/icon-toggle';
+import { MDCIconButtonToggle } from '@material/icon-button';
 import * as util from '../../util';
 
 export interface IMdcIconToggleEvent extends CustomEvent {
@@ -35,7 +35,7 @@ export class MdcIconToggle {
   private unbind() { /** */ }
 
   private attached() {
-    this.mdcIconToggle = new MDCIconToggle(this.elementI);
+    this.mdcIconToggle = new MDCIconButtonToggle(this.elementI);
     this.elementI.addEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
     this.disabledChanged(this.disabled);
   }

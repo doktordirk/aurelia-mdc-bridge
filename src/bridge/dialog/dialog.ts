@@ -43,7 +43,7 @@ export class MdcDialog {
 
   public show(showDialog = true) {
     if (showDialog) {
-      this.mdcElement.show();
+      this.mdcElement.open();
     } else {
       this.mdcElement.close();
     }
@@ -51,7 +51,7 @@ export class MdcDialog {
 
   public get foundation(): any {
     if (this.mdcElement) {
-      return this.mdcElement.foundation_;
+      return this.mdcElement.getDefaultFoundation();
     }
     return null;
   }
@@ -63,8 +63,10 @@ export class MdcDialog {
     this.scrollableChanged(this.scrollable);
     this.headerChanged(this.header);
     this.mdcElement = new MDCDialog(this.diagElement);
-    this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
-    this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
+    //this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
+    //this.mdcDialogFoundation = 
+    this.mdcElement.listen('MDCDialog:closed', this.onTransitionEnd.bind(this));
+    this.mdcElement.listen('MDCDialog:opened', this.onTransitionEnd.bind(this));
 
     // check if accept button is present
     if (this.acceptButtonElement) {
@@ -81,14 +83,15 @@ export class MdcDialog {
     // <input type="text" ref="focusMeOnOpen" ..
     // <mdc-dialog focus-at.bind="focusMeOnOpen" ..
     if (this.focusAt) {
-      this.log.debug('this.focusAt:', this.focusAt);
-      this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
+      //this.log.debug('this.focusAt:', this.focusAt);
+      //this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
     }
   }
   private detached() {
     this.mdcElement.unlisten('MDCDialog:accept', this.onButtonAccept.bind(this));
     this.mdcElement.unlisten('MDCDialog:cancel', this.onButtonCancel.bind(this));
-    this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
+    this.mdcElement.unlisten('MDCDialog:close', this.onTransitionEnd.bind(this));
+    this.mdcElement.unlisten('MDCDialog:open', this.onTransitionEnd.bind(this));
     this.mdcDialogFoundation = null;
     this.mdcElement.destroy();
   }
@@ -102,29 +105,32 @@ export class MdcDialog {
   private onButtonAccept() {
     util.fireEvent(this.diagElement, 'on-click', true);
   }
+
   private onButtonCancel() {
     util.fireEvent(this.diagElement, 'on-click', false);
   }
+
   private acceptActionChanged(newValue) {
     const value = util.getBoolean(newValue);
     this.acceptButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
   }
+
   private cancelActionChanged(newValue) {
     const value = util.getBoolean(newValue);
     this.cancelButtonElement.classList[value ? 'add' : 'remove']('mdc-dialog__action');
   }
+
   private scrollableChanged(newValue) {
     this.scrollable = util.getBoolean(newValue);
   }
+
   private onTransitionEnd(evt) {
-    if (this.mdcDialogFoundation.isDialog(evt.target)) {
-      if (evt.propertyName === 'opacity') {
-        if (this.mdcElement.open) {
-          util.fireEvent(this.diagElement, 'on-opened', {});
-        } else {
-          util.fireEvent(this.diagElement, 'on-closed', {});
-        }
+    if (evt.propertyName === 'opacity') {
+      if (this.mdcElement.open) {
+        util.fireEvent(this.diagElement, 'on-opened', {});
+      } else {
+        util.fireEvent(this.diagElement, 'on-closed', {});
       }
     }
-  }
+  }  
 }

@@ -1,5 +1,5 @@
 import { inject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
-import { MDCTabBarScroller } from '@material/tabs';
+import { MDCTabScroller } from '@material/tab-scroller'
 import * as util from '../util';
 
 @inject(Element, TaskQueue)
@@ -23,7 +23,7 @@ export class MdcTabBarScroller {
     this.taskQueue.queueTask(() => {
       this.icon = this.hasChildIcons();
       this.text = this.hasChildText();
-      this.mdcTabBarScroller = new MDCTabBarScroller(this.elementTabBarScroller);
+      this.mdcTabBarScroller = new MDCTabScroller(this.elementTabBarScroller);
       this.activeTabIndexChanged(this.activeTabIndex);
       if (this.mdcTabBarScroller.tabBar) {
         this.mdcTabBarScroller.tabBar.listen('MDCTabBar:change', this.onChange.bind(this));

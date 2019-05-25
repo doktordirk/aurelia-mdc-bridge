@@ -2,6 +2,7 @@ import { inject, bindable, bindingMode, containerless, customElement, TaskQueue 
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCMenu, Corner } from '@material/menu';
 import * as util from '../util';
+import { DefaultFocusState } from '@material/menu/constants';
 
 export interface IMdcMenuSelectedEvent extends CustomEvent {
 
@@ -79,24 +80,24 @@ export class MdcMenu {
     focusValue?: boolean }): void {
 
     if (options && options.focusIndex) {
-      this.mdcMenu.show({ focusIndex: options.focusIndex });
+      this.mdcMenu.open = true;
       return;
     }
     if (options && options.focusValue) {
       const index = this.findIndex(this.value);
       if (index === -1) {
-        this.mdcMenu.show();
+        this.mdcMenu.open = true;
       } else {
-        this.mdcMenu.show({ focusIndex: index });
+        //this.mdcMenu.setDefaultFocusState(DefaultFocusState.FIRST_ITEM)
       }
       return;
     }
-    this.mdcMenu.show();
+    this.mdcMenu.open = true;
   }
 
   // Close menu
   public hide(): void {
-    this.mdcMenu.hide();
+    this.mdcMenu.open = false;
   }
 
   private bind() {/** */}
@@ -113,19 +114,19 @@ export class MdcMenu {
 
     // TODO: temporary override of click event target
     // set target to closest parent element with class 'mdc-list-item'
-    this.mdcMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
-      while (target) {
-        if (target.classList.contains('mdc-list-item')) {
-          if (target.attributes.getNamedItem('aria-disabled') &&
-              target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
-          break;
-        } else if (target.classList.contains('mdc-menu')) {
-          break;
-        }
-        target = target.parentElement;
-      }
-      return this.mdcMenu.items.indexOf(target);
-    };
+    // this.mdcMenu.foundation_.adapter_.getIndexForEventTarget = (target: Element) => {
+    //   while (target) {
+    //     if (target.classList.contains('mdc-list-item')) {
+    //       if (target.attributes.getNamedItem('aria-disabled') &&
+    //           target.attributes.getNamedItem('aria-disabled').value === 'true') { target = null; }
+    //       break;
+    //     } else if (target.classList.contains('mdc-menu')) {
+    //       break;
+    //     }
+    //     target = target.parentElement;
+    //   }
+    //   return this.mdcMenu.items.indexOf(target);
+    // };
 
     this.mdcMenu.listen('MDCMenu:selected', this.raiseSelectEvent.bind(this));
     this.mdcMenu.listen('MDCMenu:cancel', this.raiseCancelEvent.bind(this));
@@ -188,12 +189,12 @@ export class MdcMenu {
     }
     const index = this.findIndex(newValue);
     if (index === -1) { return; }
-    this.mdcMenu.items[index].focus();
+    this.mdcMenu.items[index].setAttribute("focous", "true");
   }
   private findIndex(value): number {
     for (let index = 0; index < this.mdcMenu.items.length; index++) {
       const item = this.mdcMenu.items[index];
-      if (item.model && this.compareModels(item.model, value)) {
+      if (item.nodeValue && this.compareModels(item.nodeValue, value)) {
         return index;
       }
     }
