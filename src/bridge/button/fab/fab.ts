@@ -2,12 +2,15 @@ import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framewor
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import * as util from '../../util';
+import { DOMHelper } from '../../dom-helper';
 
 @customAttribute('mdc-fab')
 @inject(Element)
 export class MdcFab {
   @bindable() public mini = false;
   @bindable() public exited = false;
+  @bindable() public extended = false;
+  @bindable() public label = '';
   @bindable() public ariaLabel = '';
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
@@ -22,16 +25,32 @@ export class MdcFab {
   }
 
   private attached() {
-    this.element.classList.add('mdc-fab', 'material-icons');
+    this.element.classList.add('mdc-fab');
 
     // add icon node
-    const spanNode = document.createElement('span');
-    spanNode.classList.add('mdc-fab__icon');
-    if (this.icon) { spanNode.appendChild(this.icon); }
-    this.element.appendChild(spanNode);
+    if(!this.extended) {
+      const iconNode = DOMHelper.createElement('span');
+      iconNode.classList.add('mdc-fab__icon', 'material-icons');
+      if (this.icon) { iconNode.appendChild(this.icon); }
+      this.element.appendChild(iconNode);
+    } else {
+      if (this.icon) { 
+        const iconNode = DOMHelper.createElement('span');
+        iconNode.classList.add('mdc-fab__icon', 'material-icons');
+        if (this.icon) { iconNode.appendChild(this.icon); }
+        this.element.appendChild(iconNode);
+      }
+
+      // append label node
+      const labelNode = DOMHelper.createElement('span');
+      labelNode.classList.add('mdc-fab__label');
+      if (this.label) { labelNode.innerText = this.label; }
+      this.element.appendChild(labelNode);
+    }
 
     this.miniChanged(this.mini);
     this.exitedChanged(this.exited);
+    this.extendedChanged(this.extended);
     this.ariaLabelChanged(this.ariaLabel);
 
     // add ripple effect
@@ -45,7 +64,8 @@ export class MdcFab {
       'mdc-fab',
       'material-icons',
       'mdc-fab--mini',
-      'mdc-fab--exited'
+      'mdc-fab--exited',
+      'mdc-fab--extended'
     ];
     this.element.classList.remove(...classes);
     this.element.removeAttribute('aria-label');
@@ -60,6 +80,11 @@ export class MdcFab {
   private exitedChanged(newValue) {
     const value = util.getBoolean(newValue);
     this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
+  }
+
+  private extendedChanged(newValue) {
+    const value = util.getBoolean(newValue);
+    this.element.classList[value ? 'add' : 'remove']('mdc-fab--extended');
   }
 
   private ariaLabelChanged(newValue) {
