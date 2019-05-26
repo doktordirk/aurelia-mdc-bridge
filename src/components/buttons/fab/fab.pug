@@ -11,10 +11,15 @@ template
       mdc-checkbox(checked.bind="mini") mini
       br
       mdc-checkbox(checked.bind="exited") exited
+      br
+      mdc-checkbox(checked.bind="extended") extended
+      br
+      mdc-checkbox(checked.bind="shaped") shaped
 
     // DEMO AREA
     mdc-grid-cell(span="8")
-      button(mdc-fab="exited.bind: exited; mini.bind: mini; aria-label: Star;") star
+      button(if.bind="!extended" class="${shaped ? 'fab-shaped' : ''}" mdc-fab="exited.bind: exited; mini.bind: mini; aria-label: Star;") star
+      button(if.bind="extended"  class="${shaped ? 'fab-shaped-extended' : ''}" mdc-fab="exited.bind: exited; extended.bind: extended; aria-label: Star; label: Favorite;") star
       button.my-fab--fixed(mdc-fab="aria-label: Accessibility;") accessibility
 
 
@@ -32,10 +37,38 @@ template
     mdc-grid-cell(span="12")
       pre
         code-prism.
-          &lt;button mdc-fab="aria-label: Hello World; mini: true; exited: false;"&gt;
+          &lt;button mdc-fab="aria-label: Star; mini: true; exited: false;"&gt;
             favorite_border
           &lt;/button&gt;
 
+    // EXAMPLE
+    mdc-grid-cell(span="12")
+      section
+        h5 Extended
+      pre
+        code-prism.
+          &lt;button mdc-fab="extended: true; exited: exited; label: Favorite; aria-label: Star;"&gt;
+            favorite_border
+          &lt;/button&gt;
+
+        // EXAMPLE
+    mdc-grid-cell(span="12")
+      section
+        h5 Shaped
+      pre
+        code-prism.
+          &lt;button class="fab-shaped-extended" mdc-fab="extended: true; label: Favorite; aria-label: Star;"&gt;
+            favorite_border
+          &lt;/button&gt;
+      pre
+        code-prism(language="css").
+          .fab-shaped {
+            @include mdc-fab-shape-radius(8px);
+          }
+
+          .fab-shaped-extended {
+            @include mdc-fab-extended-shape-radius(50% 0);
+          }
 
     // RIPPLE
     mdc-grid-cell(span="12")

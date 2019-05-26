@@ -1,0 +1,7 @@
+.fab-shaped {
+  @include mdc-fab-shape-radius(8px);
+}
+
+.fab-shaped-extended {
+  @include mdc-fab-extended-shape-radius(50% 0);
+}
