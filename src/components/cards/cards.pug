@@ -42,12 +42,11 @@ template
             button(mdc-button) Read
             button(mdc-button) Bookmark
           .mdc-card__action-icons
-            mdc-icon-toggle(
+            mdc-icon-button(
               icon-on="favorite"
               icon-off="favorite_border"
               aria-label-on="Remove from favorites"
-              aria-label-off="Add to favorites"
-            )
+              aria-label-off="Add to favorites")
             i.material-icons.mdc-ripple-surface(
               tabindex="0"
               role="button"
@@ -335,7 +334,7 @@ template
             button(mdc-button) Read
             button(mdc-button) Bookmark
           .mdc-card__action-icons
-            mdc-icon-toggle(
+            mdc-icon-button(
               icon-on="favorite"
               icon-off="favorite_border"
               aria-label-on="Remove from favorites"

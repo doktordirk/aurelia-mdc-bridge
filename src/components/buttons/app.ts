@@ -7,7 +7,7 @@ export class App {
     config.map([
       { route: '',                moduleId: './buttons',                  nav: true,  title: '' },
       { route: 'fab',             moduleId: './fab/fab',                  nav: true,  title: 'FAB' },
-      { route: 'icon-toggle',     moduleId: './icon-toggle/icon-toggle',  nav: true,  title: 'Icon Toggle' }
+      { route: 'icon-button',     moduleId: './icon-button/icon-button',  nav: true,  title: 'Icon Button' }
     ]);
     this.router = router;
   }
