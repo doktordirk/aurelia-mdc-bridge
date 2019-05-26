@@ -13,7 +13,7 @@ export class ConfigBuilder {
     return this
       .useButtons()
       .useFab()
-      .useIconToggle()
+      .useIconButton()
       .useCards()
       .useChips()
       .useDialogs()
@@ -45,8 +45,8 @@ export class ConfigBuilder {
     this.globalResources.push(PLATFORM.moduleName('./button/fab/fab'));
     return this;
   }
-  public useIconToggle(): ConfigBuilder {
-    this.globalResources.push(PLATFORM.moduleName('./button/icon-toggle/icon-toggle'));
+  public useIconButton(): ConfigBuilder {
+    this.globalResources.push(PLATFORM.moduleName('./button/icon-button/icon-button'));
     return this;
   }
   public useCards(): ConfigBuilder {

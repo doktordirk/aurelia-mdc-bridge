@@ -19,7 +19,7 @@ export * from './config-builder';
 
 export * from './button/button';
 export * from './button/fab/fab';
-export * from './button/icon-toggle/icon-toggle';
+export * from './button/icon-button/icon-button';
 export * from './card/card-actions';
 export * from './card/card-media';
 export * from './card/card';
