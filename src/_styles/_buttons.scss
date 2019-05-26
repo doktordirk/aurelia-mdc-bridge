@@ -7,16 +7,16 @@ button.secondary-filled {
   @include mdc-button-filled-accessible($mdc-theme-secondary);
 }
 
-button.secondary-stroked {
+button.secondary-outline {
   @include mdc-button-ink-color($mdc-theme-secondary);
-  @include mdc-button-stroke-color($mdc-theme-secondary);
+  @include mdc-button-outline-color($mdc-theme-secondary);
   @include mdc-states(secondary);
 }
 
-button.big-round-corner {
-  @include mdc-button-corner-radius(8px);
+button.big-round-shape {
+  @include mdc-button-shape-radius(18px);
 }
 
-button.thick-stroke {
-  @include mdc-button-stroke-width(4px);
+button.thick-outline {
+  @include mdc-button-outline-width(4px);
 }

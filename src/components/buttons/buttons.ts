@@ -3,8 +3,7 @@ export class Buttons {
   private aureliaDisabled = false;
   private raised = false;
   private dense = false;
-  private compact = false;
-  private stroked = false;
+  private outlined = false;
   private unelevated = false;
   private panelId = 0;
 }
