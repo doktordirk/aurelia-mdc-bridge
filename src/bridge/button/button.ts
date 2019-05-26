@@ -1,15 +1,15 @@
-import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customAttribute, ComponentAttached, ComponentDetached, autoinject } from 'aurelia-framework';
 import { getLogger, Logger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import * as util from '../util';
 
 @customAttribute('mdc-button')
-@inject(Element)
-export class MdcButton {
+@autoinject
+export class MdcButton implements ComponentAttached, ComponentDetached {
   @bindable() public compact = false;
   @bindable() public dense = false;
   @bindable() public raised = false;
-  @bindable() public stroked = false;
+  @bindable() public outlined = false;
   @bindable() public unelevated = false;
   @bindable({ defaultBindingMode: bindingMode.oneTime }) public ripple = true;
   private log: Logger;
@@ -18,13 +18,11 @@ export class MdcButton {
     this.log = getLogger('mdc-button');
   }
 
-  private attached() {
+  attached(): void {
     this.element.classList.add('mdc-button');
-
-    this.compactChanged(this.compact);
     this.denseChanged(this.dense);
     this.raisedChanged(this.raised);
-    this.strokedChanged(this.stroked);
+    this.outlinedChanged(this.outlined);
     this.unelevatedChanged(this.unelevated);
 
     // add ripple effect
@@ -33,23 +31,18 @@ export class MdcButton {
     }
   }
 
-  private detached() {
+  detached(): void {
     const classes = [
       'mdc-button',
       'mdc-button--dense',
       'mdc-button--raised',
       'mdc-button--compact',
-      'mdc-button--stroked',
+      'mdc-button--outlined',
       'mdc-button--unelevated',
       'mdc-card__action',
       'mdc-card__action--button'
     ];
     this.element.classList.remove(...classes);
-  }
-
-  private compactChanged(newValue) {
-    const value = util.getBoolean(newValue);
-    this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
   }
 
   private denseChanged(newValue) {
@@ -62,9 +55,9 @@ export class MdcButton {
     this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
   }
 
-  private strokedChanged(newValue) {
+  private outlinedChanged(newValue) {
     const value = util.getBoolean(newValue);
-    this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+    this.element.classList[value ? 'add' : 'remove']('mdc-button--outlined');
   }
 
   private unelevatedChanged(newValue) {
