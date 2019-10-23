@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.17.1...v0.18.0) (2019-10-23)
+
+
+### Features
+
+* material-componets-web version 0.31.0 ([d504990](https://github.com/ullfis/aurelia-mdc-bridge/commit/d504990)), closes [#44](https://github.com/ullfis/aurelia-mdc-bridge/issues/44)
+* **buttons:** updated buttons to v2.2.0 ([2314917](https://github.com/ullfis/aurelia-mdc-bridge/commit/2314917))
+* **chips:** Handling leading/trailing icons / allow custom styling ([7adba81](https://github.com/ullfis/aurelia-mdc-bridge/commit/7adba81))
+* **fab:** updated fab to v2.2.0 ([c83f8ea](https://github.com/ullfis/aurelia-mdc-bridge/commit/c83f8ea))
+* **icon-button:** updated icon-button to v2.2.0 ([5111e90](https://github.com/ullfis/aurelia-mdc-bridge/commit/5111e90))
+
+
+
 <a name="0.17.1"></a>
 ## [0.17.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.17.0...v0.17.1) (2018-02-18)
 
