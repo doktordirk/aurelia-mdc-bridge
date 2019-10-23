@@ -8,7 +8,7 @@ var ConfigBuilder = (function () {
         return this
             .useButtons()
             .useFab()
-            .useIconToggle()
+            .useIconButton()
             .useCards()
             .useChips()
             .useDialogs()
@@ -39,8 +39,8 @@ var ConfigBuilder = (function () {
         this.globalResources.push(PLATFORM.moduleName('./button/fab/fab'));
         return this;
     };
-    ConfigBuilder.prototype.useIconToggle = function () {
-        this.globalResources.push(PLATFORM.moduleName('./button/icon-toggle/icon-toggle'));
+    ConfigBuilder.prototype.useIconButton = function () {
+        this.globalResources.push(PLATFORM.moduleName('./button/icon-button/icon-button'));
         return this;
     };
     ConfigBuilder.prototype.useCards = function () {

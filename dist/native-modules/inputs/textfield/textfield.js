@@ -226,6 +226,7 @@ var MdcTextField = (function () {
         var value = util.getBoolean(newValue);
         this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
     };
+    var MdcTextField_1;
     MdcTextField.id = 0;
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -329,6 +330,5 @@ var MdcTextField = (function () {
         __metadata("design:paramtypes", [Element, TaskQueue])
     ], MdcTextField);
     return MdcTextField;
-    var MdcTextField_1;
 }());
 export { MdcTextField };

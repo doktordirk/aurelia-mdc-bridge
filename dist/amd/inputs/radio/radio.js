@@ -47,6 +47,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             };
             util.fireEvent(this.element, 'on-change', event);
         };
+        var MdcRadio_1;
         MdcRadio.id = 0;
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -78,7 +79,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], MdcRadio);
         return MdcRadio;
-        var MdcRadio_1;
     }());
     exports.MdcRadio = MdcRadio;
 });

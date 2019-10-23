@@ -17,16 +17,16 @@ export declare class MdcGlidTile {
     private isActionIcon;
     private isSecondary;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private onClick();
-    private onSecondaryAction();
-    private imgSrcChanged(newValue);
-    private imgClassChanged(newValue);
-    private showPrimary();
-    private supportIconChanged(newValue);
-    private supportTextChanged(newValue);
-    private actionIconChanged(newValue);
-    private showSecondary();
+    private bind;
+    private unbind;
+    private attached;
+    private onClick;
+    private onSecondaryAction;
+    private imgSrcChanged;
+    private imgClassChanged;
+    private showPrimary;
+    private supportIconChanged;
+    private supportTextChanged;
+    private actionIconChanged;
+    private showSecondary;
 }

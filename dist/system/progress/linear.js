@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "@material/linear-progress", "../util"], f
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, linear_progress_1, util, MdcLinearProgress;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {

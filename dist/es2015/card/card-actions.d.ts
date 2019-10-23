@@ -8,6 +8,6 @@ export declare class MdcCardActions {
     bind(): void;
     unbind(): void;
     attached(): void;
-    private fullBleedChanged(newValue);
-    private decorateChildren(element);
+    private fullBleedChanged;
+    private decorateChildren;
 }

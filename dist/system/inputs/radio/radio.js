@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/radio", "../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, radio_1, util, MdcRadio;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -64,6 +64,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/radio", "../
                     };
                     util.fireEvent(this.element, 'on-change', event);
                 };
+                var MdcRadio_1;
                 MdcRadio.id = 0;
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -95,7 +96,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/radio", "../
                     __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
                 ], MdcRadio);
                 return MdcRadio;
-                var MdcRadio_1;
             }());
             exports_1("MdcRadio", MdcRadio);
         }

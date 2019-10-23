@@ -7,12 +7,12 @@ export declare class MdcLinearProgress {
     open: boolean;
     private elementDiv;
     private mdcElement;
-    private bind();
-    private attached();
-    private detached();
-    private indeterminateChanged(newValue);
-    private reversedChanged(newValue);
-    private progressChanged(newValue);
-    private bufferChanged(newValue);
-    private openChanged(newValue);
+    private bind;
+    private attached;
+    private detached;
+    private indeterminateChanged;
+    private reversedChanged;
+    private progressChanged;
+    private bufferChanged;
+    private openChanged;
 }

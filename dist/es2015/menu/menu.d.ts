@@ -34,14 +34,14 @@ export declare class MdcMenu {
         focusValue?: boolean;
     }): void;
     hide(): void;
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private raiseSelectEvent(e);
-    private raiseCancelEvent();
-    private anchorCornerChanged(newValue);
-    private valueChanged(newValue);
-    private findIndex(value);
-    private compareModels(model1, model2);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private raiseSelectEvent;
+    private raiseCancelEvent;
+    private anchorCornerChanged;
+    private valueChanged;
+    private findIndex;
+    private compareModels;
 }

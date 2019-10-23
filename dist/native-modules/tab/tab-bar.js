@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { autoinject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCTabBar } from '@material/tabs';
+import { MDCTabBar } from '@material/tab-bar';
 import * as util from '../util';
 var MdcTabBar = (function () {
     function MdcTabBar(element, taskQueue) {

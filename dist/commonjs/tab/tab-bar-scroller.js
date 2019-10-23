@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
-var tabs_1 = require("@material/tabs");
+var tab_scroller_1 = require("@material/tab-scroller");
 var util = require("../util");
 var MdcTabBarScroller = (function () {
     function MdcTabBarScroller(element, taskQueue) {
@@ -30,7 +30,7 @@ var MdcTabBarScroller = (function () {
         this.taskQueue.queueTask(function () {
             _this.icon = _this.hasChildIcons();
             _this.text = _this.hasChildText();
-            _this.mdcTabBarScroller = new tabs_1.MDCTabBarScroller(_this.elementTabBarScroller);
+            _this.mdcTabBarScroller = new tab_scroller_1.MDCTabScroller(_this.elementTabBarScroller);
             _this.activeTabIndexChanged(_this.activeTabIndex);
             if (_this.mdcTabBarScroller.tabBar) {
                 _this.mdcTabBarScroller.tabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));

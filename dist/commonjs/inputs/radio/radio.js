@@ -50,6 +50,7 @@ var MdcRadio = (function () {
         };
         util.fireEvent(this.element, 'on-change', event);
     };
+    var MdcRadio_1;
     MdcRadio.id = 0;
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -81,6 +82,5 @@ var MdcRadio = (function () {
         __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
     ], MdcRadio);
     return MdcRadio;
-    var MdcRadio_1;
 }());
 exports.MdcRadio = MdcRadio;

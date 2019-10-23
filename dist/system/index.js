@@ -1,5 +1,6 @@
-System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-toggle/icon-toggle", "./card/card-actions", "./card/card-media", "./card/card", "./chip/chip", "./chip/chip-set", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
+System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-button/icon-button", "./card/card-actions", "./card/card-media", "./card/card", "./chip/chip", "./chip/chip-set", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
     "use strict";
+    var config_builder_1;
     var __moduleName = context_1 && context_1.id;
     function configure(aurelia, configCallback) {
         var builder = aurelia.container.get(config_builder_1.ConfigBuilder);
@@ -14,7 +15,6 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
         }
     }
     exports_1("configure", configure);
-    var config_builder_1;
     var exportedNames_1 = {
         "configure": true
     };
@@ -37,8 +37,8 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
             function (fab_1_1) {
                 exportStar_1(fab_1_1);
             },
-            function (icon_toggle_1_1) {
-                exportStar_1(icon_toggle_1_1);
+            function (icon_button_1_1) {
+                exportStar_1(icon_button_1_1);
             },
             function (card_actions_1_1) {
                 exportStar_1(card_actions_1_1);

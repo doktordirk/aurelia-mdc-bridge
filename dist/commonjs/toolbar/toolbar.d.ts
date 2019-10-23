@@ -15,14 +15,14 @@ export declare class MdcToolbar {
     private elementToolbar;
     private mdcToolbar;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private onChange(evt);
-    private fixedChanged(newValue);
-    private waterfallChanged(newValue);
-    private fixedLastrowOnlyChanged(newValue);
-    private flexibleChanged(newValue);
-    private flexibleDefaultChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private onChange;
+    private fixedChanged;
+    private waterfallChanged;
+    private fixedLastrowOnlyChanged;
+    private flexibleChanged;
+    private flexibleDefaultChanged;
 }

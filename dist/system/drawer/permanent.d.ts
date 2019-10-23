@@ -3,6 +3,6 @@ export declare class MdcDrawerPermanent {
     private elementDrawer;
     private log;
     constructor(element: Element);
-    private bind();
-    private attached();
+    private bind;
+    private attached;
 }

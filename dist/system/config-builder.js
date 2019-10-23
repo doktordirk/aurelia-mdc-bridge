@@ -1,7 +1,7 @@
 System.register(["aurelia-pal"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var aurelia_pal_1, ConfigBuilder;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_pal_1_1) {
@@ -18,7 +18,7 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     return this
                         .useButtons()
                         .useFab()
-                        .useIconToggle()
+                        .useIconButton()
                         .useCards()
                         .useChips()
                         .useDialogs()
@@ -49,8 +49,8 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./button/fab/fab'));
                     return this;
                 };
-                ConfigBuilder.prototype.useIconToggle = function () {
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./button/icon-toggle/icon-toggle'));
+                ConfigBuilder.prototype.useIconButton = function () {
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./button/icon-button/icon-button'));
                     return this;
                 };
                 ConfigBuilder.prototype.useCards = function () {

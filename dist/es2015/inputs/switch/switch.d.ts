@@ -12,10 +12,10 @@ export declare class MdcSwitch {
     private inputElement;
     private controlId;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private handleChange();
-    private checkedChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private handleChange;
+    private checkedChanged;
 }

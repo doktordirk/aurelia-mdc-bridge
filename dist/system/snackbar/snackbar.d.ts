@@ -9,7 +9,7 @@ export interface IMdcSnackbarOptions {
     alignStart?: boolean;
 }
 export declare class MdcSnackbar {
-    private element;
+    private element?;
     class: string;
     message: string;
     timeout: number;
@@ -24,13 +24,13 @@ export declare class MdcSnackbar {
     private mdcSnackbar;
     constructor(element?: HTMLElement);
     show(options?: IMdcSnackbarOptions): void;
-    private onAction();
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private alignStartChanged(newValue);
-    private dismissesOnActionChanged(newValue);
-    private addToElement();
-    private onTransitionEndHandler(event);
+    private onAction;
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private alignStartChanged;
+    private dismissesOnActionChanged;
+    private addToElement;
+    private onTransitionEndHandler;
 }

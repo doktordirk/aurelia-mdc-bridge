@@ -7,11 +7,11 @@ export declare class MdcCard {
     private cssString;
     private elementCard;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private heightChanged(newValue);
-    private widthChanged(newValue);
-    private strokedChanged(newValue);
-    private createCss();
+    private bind;
+    private unbind;
+    private attached;
+    private heightChanged;
+    private widthChanged;
+    private strokedChanged;
+    private createCss;
 }

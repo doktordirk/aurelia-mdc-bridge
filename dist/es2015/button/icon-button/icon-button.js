@@ -7,11 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
+import { bindable, bindingMode, customElement, autoinject } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCIconToggle } from '@material/icon-toggle';
+import { MDCIconButtonToggle } from '@material/icon-button';
 import * as util from '../../util';
-let MdcIconToggle = class MdcIconToggle {
+let MdcIconButtonToggle = class MdcIconButtonToggle {
     constructor(element) {
         this.element = element;
         this.iconOn = 'star';
@@ -26,52 +26,59 @@ let MdcIconToggle = class MdcIconToggle {
     bind() { }
     unbind() { }
     attached() {
-        this.mdcIconToggle = new MDCIconToggle(this.elementI);
-        this.elementI.addEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
+        this.mdcIconToggle = new MDCIconButtonToggle(this.button);
+        this.mdcIconToggle.on = this.on;
+        this.button.addEventListener('MDCIconButtonToggle:change', this.raiseEvent.bind(this));
         this.disabledChanged(this.disabled);
+        this.raiseEvent();
     }
     detached() {
-        this.elementI.removeEventListener('MDCIconToggle:change', this.raiseEvent.bind(this));
+        this.button.removeEventListener('MDCIconButtonToggle:change', this.raiseEvent.bind(this));
         this.mdcIconToggle.destroy();
     }
     raiseEvent() {
         this.on = this.mdcIconToggle.on;
         util.fireEvent(this.element, 'on-toggle', this.on);
     }
-    onChanged(newValue) {
-        this.mdcIconToggle.on = util.getBoolean(newValue);
+    onChanged(on) {
+        this.mdcIconToggle.on = util.getBoolean(on);
     }
-    disabledChanged(newValue) {
-        this.mdcIconToggle.disabled = util.getBoolean(newValue);
+    disabledChanged(disabled) {
+        if (disabled === true) {
+            this.button.setAttribute('disabled', '');
+        }
+        else {
+            this.button.removeAttribute('disabled');
+        }
     }
 };
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "iconOn", void 0);
+], MdcIconButtonToggle.prototype, "iconOn", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "iconOff", void 0);
+], MdcIconButtonToggle.prototype, "iconOff", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "ariaLabelOn", void 0);
+], MdcIconButtonToggle.prototype, "ariaLabelOn", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneTime }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "ariaLabelOff", void 0);
+], MdcIconButtonToggle.prototype, "ariaLabelOff", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.oneWay }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "disabled", void 0);
+], MdcIconButtonToggle.prototype, "disabled", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Object)
-], MdcIconToggle.prototype, "on", void 0);
-MdcIconToggle = __decorate([
-    customElement('mdc-icon-toggle'),
-    inject(Element),
+], MdcIconButtonToggle.prototype, "on", void 0);
+MdcIconButtonToggle = __decorate([
+    customElement('mdc-icon-button'),
+    autoinject,
     __metadata("design:paramtypes", [Element])
-], MdcIconToggle);
-export { MdcIconToggle };
+], MdcIconButtonToggle);
+export { MdcIconButtonToggle };

@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/snackbar", "
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, snackbar_1, util, dom_helper_1, MdcSnackbar;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -72,7 +72,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/snackbar", "
                             options.actionHandler = this.onAction.bind(this);
                         }
                     }
-                    this.mdcSnackbar.show(options);
+                    this.mdcSnackbar.open();
                 };
                 MdcSnackbar.prototype.onAction = function () {
                     util.fireEvent(this.elementSnackbar, 'on-action');
@@ -91,7 +91,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/snackbar", "
                     this.elementSnackbar.classList[value ? 'add' : 'remove']('mdc-snackbar--align-start');
                 };
                 MdcSnackbar.prototype.dismissesOnActionChanged = function (newValue) {
-                    this.mdcSnackbar.dismissesOnAction = util.getBoolean(newValue);
                 };
                 MdcSnackbar.prototype.addToElement = function () {
                     this.element = document.body;
@@ -114,13 +113,11 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/snackbar", "
                     button.setAttribute('type', 'button');
                     this.elementSnackbar = main;
                     this.attached();
-                    this.mdcSnackbar.foundation_.adapter_.registerTransitionEndHandler(this.onTransitionEndHandler.bind(this));
                 };
                 MdcSnackbar.prototype.onTransitionEndHandler = function (event) {
                     if (event.target !== this.elementSnackbar) {
                         return;
                     }
-                    this.mdcSnackbar.foundation_.adapter_.deregisterTransitionEndHandler(this.onTransitionEndHandler.bind(this));
                     this.mdcSnackbar.destroy();
                     this.element.removeChild(this.elementTheme);
                 };

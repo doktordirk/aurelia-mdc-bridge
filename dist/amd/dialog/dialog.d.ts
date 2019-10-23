@@ -24,15 +24,15 @@ export declare class MdcDialog {
     constructor(element: Element);
     show(showDialog?: boolean): void;
     readonly foundation: any;
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private headerChanged(newValue);
-    private onButtonAccept();
-    private onButtonCancel();
-    private acceptActionChanged(newValue);
-    private cancelActionChanged(newValue);
-    private scrollableChanged(newValue);
-    private onTransitionEnd(evt);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private headerChanged;
+    private onButtonAccept;
+    private onButtonCancel;
+    private acceptActionChanged;
+    private cancelActionChanged;
+    private scrollableChanged;
+    private onTransitionEnd;
 }

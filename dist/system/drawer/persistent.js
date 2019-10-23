@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/drawer", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, drawer_1, util, MdcDrawerPersistent;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -36,19 +36,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/drawer", "..
                 MdcDrawerPersistent.prototype.bind = function () { };
                 MdcDrawerPersistent.prototype.unbind = function () { };
                 MdcDrawerPersistent.prototype.attached = function () {
-                    if (!drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation_) {
-                        drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation_ = drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation;
-                        drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
-                            var foundation = this.getDefaultFoundation_();
-                            foundation.drawerClickHandler_ = function (e) {
-                                if (e.target.tagName !== 'A') {
-                                    e.stopPropagation();
-                                }
-                            };
-                            return foundation;
-                        };
-                    }
-                    this.mdcDrawer = new drawer_1.MDCPersistentDrawer(this.elementDrawer);
+                    this.mdcDrawer = new drawer_1.MDCDrawer(this.elementDrawer);
                     this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
                     this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));
                     this.openChanged(this.open);

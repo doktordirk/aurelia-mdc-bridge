@@ -1,5 +1,6 @@
 System.register(["../util"], function (exports_1, context_1) {
     "use strict";
+    var util;
     var __moduleName = context_1 && context_1.id;
     function isDrawer(element) {
         return isClassPresent(element, 'mdc-drawer__drawer') ||
@@ -15,7 +16,6 @@ System.register(["../util"], function (exports_1, context_1) {
         }
         return false;
     }
-    var util;
     return {
         setters: [
             function (util_1) {

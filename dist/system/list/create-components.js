@@ -1,5 +1,6 @@
 System.register(["aurelia-pal", "../dom-helper"], function (exports_1, context_1) {
     "use strict";
+    var aurelia_pal_1, dom_helper_1;
     var __moduleName = context_1 && context_1.id;
     function CreateListComponent(compiler, resources, element, instruction) {
         var tag = instruction.attributes['tag'];
@@ -54,8 +55,8 @@ System.register(["aurelia-pal", "../dom-helper"], function (exports_1, context_1
         var textSlot = dom_helper_1.DOMHelper.createElement('span');
         var secondarySlot = dom_helper_1.DOMHelper.createElement('span');
         var noSlot = dom_helper_1.DOMHelper.createElement('div');
-        while (node.firstChild) {
-            var childNode = node.firstChild;
+        while (node.firstElementChild) {
+            var childNode = node.firstElementChild;
             if (childNode.attributes) {
                 var slotAtr = childNode.attributes.getNamedItem('slot');
                 if (slotAtr) {
@@ -138,7 +139,6 @@ System.register(["aurelia-pal", "../dom-helper"], function (exports_1, context_1
             }
         }
     }
-    var aurelia_pal_1, dom_helper_1;
     return {
         setters: [
             function (aurelia_pal_1_1) {

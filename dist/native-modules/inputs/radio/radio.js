@@ -48,6 +48,7 @@ var MdcRadio = (function () {
         };
         util.fireEvent(this.element, 'on-change', event);
     };
+    var MdcRadio_1;
     MdcRadio.id = 0;
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -79,6 +80,5 @@ var MdcRadio = (function () {
         __metadata("design:paramtypes", [Element, TaskQueue])
     ], MdcRadio);
     return MdcRadio;
-    var MdcRadio_1;
 }());
 export { MdcRadio };

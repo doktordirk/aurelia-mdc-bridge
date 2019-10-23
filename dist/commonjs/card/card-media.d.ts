@@ -10,13 +10,13 @@ export declare class MdcCardMedia {
     private cssString;
     private elementMedia;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private imageChanged();
-    private sizeChanged();
-    private repeatChanged();
-    private heightChanged();
-    private scaledChanged(newValue);
-    private createCss();
+    private bind;
+    private unbind;
+    private attached;
+    private imageChanged;
+    private sizeChanged;
+    private repeatChanged;
+    private heightChanged;
+    private scaledChanged;
+    private createCss;
 }

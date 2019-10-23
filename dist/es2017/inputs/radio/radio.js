@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var MdcRadio_1;
 import { autoinject, bindable, bindingMode, customElement, TaskQueue } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCRadio } from '@material/radio';
@@ -78,4 +79,3 @@ MdcRadio = MdcRadio_1 = __decorate([
     __metadata("design:paramtypes", [Element, TaskQueue])
 ], MdcRadio);
 export { MdcRadio };
-var MdcRadio_1;

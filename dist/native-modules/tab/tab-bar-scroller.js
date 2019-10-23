@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { inject, bindable, bindingMode, TaskQueue } from 'aurelia-framework';
-import { MDCTabBarScroller } from '@material/tabs';
+import { MDCTabScroller } from '@material/tab-scroller';
 import * as util from '../util';
 var MdcTabBarScroller = (function () {
     function MdcTabBarScroller(element, taskQueue) {
@@ -28,7 +28,7 @@ var MdcTabBarScroller = (function () {
         this.taskQueue.queueTask(function () {
             _this.icon = _this.hasChildIcons();
             _this.text = _this.hasChildText();
-            _this.mdcTabBarScroller = new MDCTabBarScroller(_this.elementTabBarScroller);
+            _this.mdcTabBarScroller = new MDCTabScroller(_this.elementTabBarScroller);
             _this.activeTabIndexChanged(_this.activeTabIndex);
             if (_this.mdcTabBarScroller.tabBar) {
                 _this.mdcTabBarScroller.tabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));

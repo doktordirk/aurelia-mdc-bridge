@@ -4,10 +4,10 @@ export declare class MdcToolbarSection {
     end: boolean;
     fit: boolean;
     private elementSection;
-    private bind();
-    private unbind();
-    private attached();
-    private startChanged(newValue);
-    private endChanged(newValue);
-    private fitChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private startChanged;
+    private endChanged;
+    private fitChanged;
 }

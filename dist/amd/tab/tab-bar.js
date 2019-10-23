@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/tabs", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, tabs_1, util) {
+define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/tab-bar", "../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, tab_bar_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcTabBar = (function () {
@@ -27,7 +27,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.taskQueue.queueTask(function () {
                 _this.icon = _this.hasChildIcons();
                 _this.text = _this.hasChildText();
-                _this.mdcTabBar = new tabs_1.MDCTabBar(_this.elementTabBar);
+                _this.mdcTabBar = new tab_bar_1.MDCTabBar(_this.elementTabBar);
                 _this.activeTabIndexChanged(_this.activeTabIndex);
                 _this.mdcTabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));
                 _this.mdcTabBar.preventDefaultOnClick = true;

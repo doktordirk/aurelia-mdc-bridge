@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, ripple_1, util, MdcRipple;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -45,6 +45,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     this.primaryChanged(this.primary);
                 };
                 MdcRipple.prototype.detached = function () {
+                    var _a;
                     var classes = [
                         'mdc-ripple-surface',
                         'mdc-ripple-surface--primary',
@@ -52,7 +53,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     ];
                     (_a = this.element.classList).remove.apply(_a, classes);
                     this.mdcRipple.destroy();
-                    var _a;
                 };
                 MdcRipple.prototype.unboundedChanged = function (newValue) {
                     this.mdcRipple.unbounded = util.getBoolean(newValue);

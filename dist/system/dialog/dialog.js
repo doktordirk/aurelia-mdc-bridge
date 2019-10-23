@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, dialog_1, util, MdcDialog;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -46,7 +46,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                 MdcDialog.prototype.show = function (showDialog) {
                     if (showDialog === void 0) { showDialog = true; }
                     if (showDialog) {
-                        this.mdcElement.show();
+                        this.mdcElement.open();
                     }
                     else {
                         this.mdcElement.close();
@@ -55,7 +55,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                 Object.defineProperty(MdcDialog.prototype, "foundation", {
                     get: function () {
                         if (this.mdcElement) {
-                            return this.mdcElement.foundation_;
+                            return this.mdcElement.getDefaultFoundation();
                         }
                         return null;
                     },
@@ -68,8 +68,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     this.scrollableChanged(this.scrollable);
                     this.headerChanged(this.header);
                     this.mdcElement = new dialog_1.MDCDialog(this.diagElement);
-                    this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
-                    this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
+                    this.mdcElement.listen('MDCDialog:closed', this.onTransitionEnd.bind(this));
+                    this.mdcElement.listen('MDCDialog:opened', this.onTransitionEnd.bind(this));
                     if (this.acceptButtonElement) {
                         this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
                         this.acceptActionChanged(this.acceptAction);
@@ -79,14 +79,13 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                         this.cancelActionChanged(this.cancelAction);
                     }
                     if (this.focusAt) {
-                        this.log.debug('this.focusAt:', this.focusAt);
-                        this.mdcElement.focusTrap_ = dialog_1.util.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
                     }
                 };
                 MdcDialog.prototype.detached = function () {
                     this.mdcElement.unlisten('MDCDialog:accept', this.onButtonAccept.bind(this));
                     this.mdcElement.unlisten('MDCDialog:cancel', this.onButtonCancel.bind(this));
-                    this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
+                    this.mdcElement.unlisten('MDCDialog:close', this.onTransitionEnd.bind(this));
+                    this.mdcElement.unlisten('MDCDialog:open', this.onTransitionEnd.bind(this));
                     this.mdcDialogFoundation = null;
                     this.mdcElement.destroy();
                 };
@@ -115,17 +114,16 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     this.scrollable = util.getBoolean(newValue);
                 };
                 MdcDialog.prototype.onTransitionEnd = function (evt) {
-                    if (this.mdcDialogFoundation.isDialog(evt.target)) {
-                        if (evt.propertyName === 'opacity') {
-                            if (this.mdcElement.open) {
-                                util.fireEvent(this.diagElement, 'on-opened', {});
-                            }
-                            else {
-                                util.fireEvent(this.diagElement, 'on-closed', {});
-                            }
+                    if (evt.propertyName === 'opacity') {
+                        if (this.mdcElement.open) {
+                            util.fireEvent(this.diagElement, 'on-opened', {});
+                        }
+                        else {
+                            util.fireEvent(this.diagElement, 'on-closed', {});
                         }
                     }
                 };
+                var MdcDialog_1;
                 MdcDialog.id = 0;
                 __decorate([
                     aurelia_framework_1.bindable(),
@@ -165,7 +163,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/dialog", "..
                     __metadata("design:paramtypes", [Element])
                 ], MdcDialog);
                 return MdcDialog;
-                var MdcDialog_1;
             }());
             exports_1("MdcDialog", MdcDialog);
         }

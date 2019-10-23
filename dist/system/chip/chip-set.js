@@ -1,7 +1,7 @@
 System.register(["@material/chips", "aurelia-logging"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var chips_1, aurelia_logging_1, MdcChipSet;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (chips_1_1) {

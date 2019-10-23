@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framework';
+import { bindable, bindingMode, customAttribute, autoinject } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import * as util from '../util';
@@ -17,17 +17,16 @@ let MdcButton = class MdcButton {
         this.compact = false;
         this.dense = false;
         this.raised = false;
-        this.stroked = false;
+        this.outlined = false;
         this.unelevated = false;
         this.ripple = true;
         this.log = getLogger('mdc-button');
     }
     attached() {
         this.element.classList.add('mdc-button');
-        this.compactChanged(this.compact);
         this.denseChanged(this.dense);
         this.raisedChanged(this.raised);
-        this.strokedChanged(this.stroked);
+        this.outlinedChanged(this.outlined);
         this.unelevatedChanged(this.unelevated);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
@@ -39,16 +38,12 @@ let MdcButton = class MdcButton {
             'mdc-button--dense',
             'mdc-button--raised',
             'mdc-button--compact',
-            'mdc-button--stroked',
+            'mdc-button--outlined',
             'mdc-button--unelevated',
             'mdc-card__action',
             'mdc-card__action--button'
         ];
         this.element.classList.remove(...classes);
-    }
-    compactChanged(newValue) {
-        const value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
     }
     denseChanged(newValue) {
         const value = util.getBoolean(newValue);
@@ -58,9 +53,9 @@ let MdcButton = class MdcButton {
         const value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
     }
-    strokedChanged(newValue) {
+    outlinedChanged(newValue) {
         const value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+        this.element.classList[value ? 'add' : 'remove']('mdc-button--outlined');
     }
     unelevatedChanged(newValue) {
         const value = util.getBoolean(newValue);
@@ -82,7 +77,7 @@ __decorate([
 __decorate([
     bindable(),
     __metadata("design:type", Object)
-], MdcButton.prototype, "stroked", void 0);
+], MdcButton.prototype, "outlined", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)
@@ -93,7 +88,7 @@ __decorate([
 ], MdcButton.prototype, "ripple", void 0);
 MdcButton = __decorate([
     customAttribute('mdc-button'),
-    inject(Element),
+    autoinject,
     __metadata("design:paramtypes", [Element])
 ], MdcButton);
 export { MdcButton };

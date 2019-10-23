@@ -38,6 +38,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../uti
         MdcSwitch.prototype.checkedChanged = function (newValue) {
             this.inputElement.checked = util.getBoolean(newValue);
         };
+        var MdcSwitch_1;
         MdcSwitch.id = 0;
         __decorate([
             aurelia_framework_1.bindable(),
@@ -61,7 +62,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "../../uti
             __metadata("design:paramtypes", [Element])
         ], MdcSwitch);
         return MdcSwitch;
-        var MdcSwitch_1;
     }());
     exports.MdcSwitch = MdcSwitch;
 });

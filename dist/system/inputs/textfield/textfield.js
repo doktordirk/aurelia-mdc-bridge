@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, textfield_1, util, MdcTextField;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -242,6 +242,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     var value = util.getBoolean(newValue);
                     this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
                 };
+                var MdcTextField_1;
                 MdcTextField.id = 0;
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -345,7 +346,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/textfield", 
                     __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
                 ], MdcTextField);
                 return MdcTextField;
-                var MdcTextField_1;
             }());
             exports_1("MdcTextField", MdcTextField);
         }

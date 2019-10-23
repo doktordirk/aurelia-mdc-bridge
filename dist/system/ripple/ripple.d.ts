@@ -6,11 +6,11 @@ export declare class MdcRipple {
     private log;
     private mdcRipple;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private unboundedChanged(newValue);
-    private accentChanged(newValue);
-    private primaryChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private unboundedChanged;
+    private accentChanged;
+    private primaryChanged;
 }

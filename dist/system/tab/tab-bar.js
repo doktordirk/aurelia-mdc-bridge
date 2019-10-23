@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/tab-bar", "../util"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var aurelia_framework_1, aurelia_logging_1, tab_bar_1, util, MdcTabBar;
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, tabs_1, util, MdcTabBar;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -19,8 +19,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
             function (aurelia_logging_1_1) {
                 aurelia_logging_1 = aurelia_logging_1_1;
             },
-            function (tabs_1_1) {
-                tabs_1 = tabs_1_1;
+            function (tab_bar_1_1) {
+                tab_bar_1 = tab_bar_1_1;
             },
             function (util_1) {
                 util = util_1;
@@ -44,7 +44,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/tabs", "../u
                     this.taskQueue.queueTask(function () {
                         _this.icon = _this.hasChildIcons();
                         _this.text = _this.hasChildText();
-                        _this.mdcTabBar = new tabs_1.MDCTabBar(_this.elementTabBar);
+                        _this.mdcTabBar = new tab_bar_1.MDCTabBar(_this.elementTabBar);
                         _this.activeTabIndexChanged(_this.activeTabIndex);
                         _this.mdcTabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));
                         _this.mdcTabBar.preventDefaultOnClick = true;

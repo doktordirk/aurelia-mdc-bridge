@@ -23,39 +23,15 @@ var MdcSelect = (function () {
     MdcSelect.prototype.bind = function () { };
     MdcSelect.prototype.unbind = function () { };
     MdcSelect.prototype.attached = function () {
-        var _this = this;
-        this.taskQueue.queueTask(function () {
-            _this.mdcSelect = new MDCSelect(_this.elementSelect);
-            _this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = function (target) {
-                while (target) {
-                    if (target.classList.contains('mdc-list-item')) {
-                        if (target.attributes.getNamedItem('aria-disabled').value === 'true') {
-                            target = null;
-                        }
-                        break;
-                    }
-                    else if (target.classList.contains('mdc-menu')) {
-                        break;
-                    }
-                    target = target.parentElement;
-                }
-                return _this.mdcSelect.menu_.items.indexOf(target);
-            };
-            _this.mdcSelect.listen('MDCSelect:change', _this.raiseChangeEvent.bind(_this));
-            var mdcSelectFoundation = _this.mdcSelect.foundation_.adapter_;
-            mdcSelectFoundation.getTextForOptionAtIndex = _this.getTextForOptionAtIndex.bind(_this);
-            mdcSelectFoundation.getValueForOptionAtIndex = _this.getValueForOptionAtIndex.bind(_this);
-            _this.disabledChanged(_this.disabled);
-            _this.boxChanged(_this.box);
-            if (!_this.value) {
-                return;
-            }
-            _this.mdcSelect.selectedIndex = _this.findIndex(_this.value);
-            var labelElement = _this.elementSelect.getElementsByClassName('mdc-select__label');
-            if (labelElement[0]) {
-                labelElement[0].classList.add('mdc-select__label--float-above');
-            }
-        });
+        this.mdcSelect = new MDCSelect(this.elementSelect);
+        this.mdcSelect.listen('MDCSelect:change', this.raiseChangeEvent.bind(this));
+        this.mdcSelect.getDefaultFoundation();
+        this.disabledChanged(this.disabled);
+        this.boxChanged(this.box);
+        var labelElement = this.elementSelect.getElementsByClassName('mdc-select__label');
+        if (labelElement[0]) {
+            labelElement[0].classList.add('mdc-select__label--float-above');
+        }
     };
     MdcSelect.prototype.detached = function () {
         this.mdcSelect.unlisten('MDCSelect:change', this.raiseChangeEvent.bind(this));
@@ -75,22 +51,6 @@ var MdcSelect = (function () {
         var value = util.getBoolean(newValue);
         this.elementSelect.classList[value ? 'add' : 'remove']('mdc-select--box');
     };
-    MdcSelect.prototype.valueChanged = function (newValue) {
-        if (this.internalValueChanged) {
-            this.internalValueChanged = false;
-            return;
-        }
-        var index = this.findIndex(newValue);
-        this.mdcSelect.selectedIndex = index;
-    };
-    MdcSelect.prototype.findIndex = function (value) {
-        for (var index = 0; index < this.mdcSelect.options.length; index++) {
-            if (this.compareModels(this.mdcSelect.item(index).model, value)) {
-                return index;
-            }
-        }
-        return -1;
-    };
     MdcSelect.prototype.compareModels = function (model1, model2) {
         if (this.matcher) {
             return this.matcher(model1, model2);
@@ -103,26 +63,6 @@ var MdcSelect = (function () {
         this.internalValueChanged = true;
         this.value = this.mdcSelect.value;
         util.fireEvent(this.element, 'on-change', e.detail);
-    };
-    MdcSelect.prototype.getTextForOptionAtIndex = function (index) {
-        var item = this.mdcSelect.options[index];
-        if (!item) {
-            return null;
-        }
-        var textArea = item.getElementsByClassName('amb-mdc-list-item-text');
-        if (textArea && textArea.length > 0) {
-            return textArea[0].innerText;
-        }
-        else {
-            return item.textContent;
-        }
-    };
-    MdcSelect.prototype.getValueForOptionAtIndex = function (index) {
-        var item = this.mdcSelect.options[index];
-        if (!item) {
-            return null;
-        }
-        return item.model;
     };
     __decorate([
         bindable(),

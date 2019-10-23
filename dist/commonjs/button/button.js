@@ -19,39 +19,34 @@ var MdcButton = (function () {
         this.compact = false;
         this.dense = false;
         this.raised = false;
-        this.stroked = false;
+        this.outlined = false;
         this.unelevated = false;
         this.ripple = true;
         this.log = aurelia_logging_1.getLogger('mdc-button');
     }
     MdcButton.prototype.attached = function () {
         this.element.classList.add('mdc-button');
-        this.compactChanged(this.compact);
         this.denseChanged(this.dense);
         this.raisedChanged(this.raised);
-        this.strokedChanged(this.stroked);
+        this.outlinedChanged(this.outlined);
         this.unelevatedChanged(this.unelevated);
         if (util.getBoolean(this.ripple)) {
             ripple_1.MDCRipple.attachTo(this.element);
         }
     };
     MdcButton.prototype.detached = function () {
+        var _a;
         var classes = [
             'mdc-button',
             'mdc-button--dense',
             'mdc-button--raised',
             'mdc-button--compact',
-            'mdc-button--stroked',
+            'mdc-button--outlined',
             'mdc-button--unelevated',
             'mdc-card__action',
             'mdc-card__action--button'
         ];
         (_a = this.element.classList).remove.apply(_a, classes);
-        var _a;
-    };
-    MdcButton.prototype.compactChanged = function (newValue) {
-        var value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--compact');
     };
     MdcButton.prototype.denseChanged = function (newValue) {
         var value = util.getBoolean(newValue);
@@ -61,9 +56,9 @@ var MdcButton = (function () {
         var value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-button--raised');
     };
-    MdcButton.prototype.strokedChanged = function (newValue) {
+    MdcButton.prototype.outlinedChanged = function (newValue) {
         var value = util.getBoolean(newValue);
-        this.element.classList[value ? 'add' : 'remove']('mdc-button--stroked');
+        this.element.classList[value ? 'add' : 'remove']('mdc-button--outlined');
     };
     MdcButton.prototype.unelevatedChanged = function (newValue) {
         var value = util.getBoolean(newValue);
@@ -84,7 +79,7 @@ var MdcButton = (function () {
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
-    ], MdcButton.prototype, "stroked", void 0);
+    ], MdcButton.prototype, "outlined", void 0);
     __decorate([
         aurelia_framework_1.bindable(),
         __metadata("design:type", Object)
@@ -95,7 +90,7 @@ var MdcButton = (function () {
     ], MdcButton.prototype, "ripple", void 0);
     MdcButton = __decorate([
         aurelia_framework_1.customAttribute('mdc-button'),
-        aurelia_framework_1.inject(Element),
+        aurelia_framework_1.autoinject,
         __metadata("design:paramtypes", [Element])
     ], MdcButton);
     return MdcButton;

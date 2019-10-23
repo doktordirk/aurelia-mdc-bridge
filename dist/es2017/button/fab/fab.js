@@ -11,11 +11,14 @@ import { bindable, bindingMode, customAttribute, inject } from 'aurelia-framewor
 import { getLogger } from 'aurelia-logging';
 import { MDCRipple } from '@material/ripple';
 import * as util from '../../util';
+import { DOMHelper } from '../../dom-helper';
 let MdcFab = class MdcFab {
     constructor(element) {
         this.element = element;
         this.mini = false;
         this.exited = false;
+        this.extended = false;
+        this.label = '';
         this.ariaLabel = '';
         this.ripple = true;
         this.icon = null;
@@ -24,15 +27,34 @@ let MdcFab = class MdcFab {
         this.removeChildren();
     }
     attached() {
-        this.element.classList.add('mdc-fab', 'material-icons');
-        const spanNode = document.createElement('span');
-        spanNode.classList.add('mdc-fab__icon');
-        if (this.icon) {
-            spanNode.appendChild(this.icon);
+        this.element.classList.add('mdc-fab');
+        if (!this.extended) {
+            const iconNode = DOMHelper.createElement('span');
+            iconNode.classList.add('mdc-fab__icon', 'material-icons');
+            if (this.icon) {
+                iconNode.appendChild(this.icon);
+            }
+            this.element.appendChild(iconNode);
         }
-        this.element.appendChild(spanNode);
+        else {
+            if (this.icon) {
+                const iconNode = DOMHelper.createElement('span');
+                iconNode.classList.add('mdc-fab__icon', 'material-icons');
+                if (this.icon) {
+                    iconNode.appendChild(this.icon);
+                }
+                this.element.appendChild(iconNode);
+            }
+            const labelNode = DOMHelper.createElement('span');
+            labelNode.classList.add('mdc-fab__label');
+            if (this.label) {
+                labelNode.innerText = this.label;
+            }
+            this.element.appendChild(labelNode);
+        }
         this.miniChanged(this.mini);
         this.exitedChanged(this.exited);
+        this.extendedChanged(this.extended);
         this.ariaLabelChanged(this.ariaLabel);
         if (util.getBoolean(this.ripple)) {
             MDCRipple.attachTo(this.element);
@@ -43,7 +65,8 @@ let MdcFab = class MdcFab {
             'mdc-fab',
             'material-icons',
             'mdc-fab--mini',
-            'mdc-fab--exited'
+            'mdc-fab--exited',
+            'mdc-fab--extended'
         ];
         this.element.classList.remove(...classes);
         this.element.removeAttribute('aria-label');
@@ -56,6 +79,10 @@ let MdcFab = class MdcFab {
     exitedChanged(newValue) {
         const value = util.getBoolean(newValue);
         this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
+    }
+    extendedChanged(newValue) {
+        const value = util.getBoolean(newValue);
+        this.element.classList[value ? 'add' : 'remove']('mdc-fab--extended');
     }
     ariaLabelChanged(newValue) {
         this.element.setAttribute('aria-label', newValue);
@@ -74,6 +101,14 @@ __decorate([
     bindable(),
     __metadata("design:type", Object)
 ], MdcFab.prototype, "exited", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcFab.prototype, "extended", void 0);
+__decorate([
+    bindable(),
+    __metadata("design:type", Object)
+], MdcFab.prototype, "label", void 0);
 __decorate([
     bindable(),
     __metadata("design:type", Object)

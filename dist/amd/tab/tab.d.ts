@@ -11,9 +11,9 @@ export declare class MdcTab {
     private showIconText;
     private ariaHidden;
     constructor();
-    private bind();
-    private unbind();
-    private attached();
-    private aClicked(event);
-    private activeChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private aClicked;
+    private activeChanged;
 }

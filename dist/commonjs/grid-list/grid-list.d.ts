@@ -10,14 +10,14 @@ export declare class MdcGlidList {
     private elementGridlist;
     private log;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private widthChanged(newValue);
-    private headerTopChanged(newValue);
-    private twoLineChanged(newValue);
-    private iconStartChanged(newValue);
-    private iconEndChanged(newValue);
-    private aspectChanged(newValue);
-    private gutterChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private widthChanged;
+    private headerTopChanged;
+    private twoLineChanged;
+    private iconStartChanged;
+    private iconEndChanged;
+    private aspectChanged;
+    private gutterChanged;
 }

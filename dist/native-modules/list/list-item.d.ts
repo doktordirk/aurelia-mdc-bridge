@@ -18,14 +18,14 @@ export declare class MdcListItem {
     private mdcRipple;
     private selectedClass;
     constructor(element: Element);
-    private elementClick(e);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private menuItem();
-    private selectMenuItem();
-    private rippleEffect();
-    private disabledChanged(newValue);
-    private selectedChanged(newValue);
+    private elementClick;
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private menuItem;
+    private selectMenuItem;
+    private rippleEffect;
+    private disabledChanged;
+    private selectedChanged;
 }

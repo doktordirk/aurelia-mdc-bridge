@@ -42,23 +42,22 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         });
         MdcMenu.prototype.show = function (options) {
             if (options && options.focusIndex) {
-                this.mdcMenu.show({ focusIndex: options.focusIndex });
+                this.mdcMenu.open = true;
                 return;
             }
             if (options && options.focusValue) {
                 var index = this.findIndex(this.value);
                 if (index === -1) {
-                    this.mdcMenu.show();
+                    this.mdcMenu.open = true;
                 }
                 else {
-                    this.mdcMenu.show({ focusIndex: index });
                 }
                 return;
             }
-            this.mdcMenu.show();
+            this.mdcMenu.open = true;
         };
         MdcMenu.prototype.hide = function () {
-            this.mdcMenu.hide();
+            this.mdcMenu.open = false;
         };
         MdcMenu.prototype.bind = function () { };
         MdcMenu.prototype.unbind = function () { };
@@ -70,22 +69,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.mdcMenu = new menu_1.MDCMenu(this.elementMenu);
             this.anchorCornerChanged(this.anchorCorner);
             this.mdcMenu.quickOpen = util.getBoolean(this.quickOpen);
-            this.mdcMenu.foundation_.adapter_.getIndexForEventTarget = function (target) {
-                while (target) {
-                    if (target.classList.contains('mdc-list-item')) {
-                        if (target.attributes.getNamedItem('aria-disabled') &&
-                            target.attributes.getNamedItem('aria-disabled').value === 'true') {
-                            target = null;
-                        }
-                        break;
-                    }
-                    else if (target.classList.contains('mdc-menu')) {
-                        break;
-                    }
-                    target = target.parentElement;
-                }
-                return _this.mdcMenu.items.indexOf(target);
-            };
             this.mdcMenu.listen('MDCMenu:selected', this.raiseSelectEvent.bind(this));
             this.mdcMenu.listen('MDCMenu:cancel', this.raiseCancelEvent.bind(this));
             this.taskQueue.queueMicroTask(function () {
@@ -144,12 +127,12 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             if (index === -1) {
                 return;
             }
-            this.mdcMenu.items[index].focus();
+            this.mdcMenu.items[index].setAttribute("focous", "true");
         };
         MdcMenu.prototype.findIndex = function (value) {
             for (var index = 0; index < this.mdcMenu.items.length; index++) {
                 var item = this.mdcMenu.items[index];
-                if (item.model && this.compareModels(item.model, value)) {
+                if (item.nodeValue && this.compareModels(item.nodeValue, value)) {
                     return index;
                 }
             }

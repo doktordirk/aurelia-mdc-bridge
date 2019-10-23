@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "@material/tabs", "../util"], function (require, exports, aurelia_framework_1, tabs_1, util) {
+define(["require", "exports", "aurelia-framework", "@material/tab-scroller", "../util"], function (require, exports, aurelia_framework_1, tab_scroller_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var MdcTabBarScroller = (function () {
@@ -28,7 +28,7 @@ define(["require", "exports", "aurelia-framework", "@material/tabs", "../util"],
             this.taskQueue.queueTask(function () {
                 _this.icon = _this.hasChildIcons();
                 _this.text = _this.hasChildText();
-                _this.mdcTabBarScroller = new tabs_1.MDCTabBarScroller(_this.elementTabBarScroller);
+                _this.mdcTabBarScroller = new tab_scroller_1.MDCTabScroller(_this.elementTabBarScroller);
                 _this.activeTabIndexChanged(_this.activeTabIndex);
                 if (_this.mdcTabBarScroller.tabBar) {
                     _this.mdcTabBarScroller.tabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));

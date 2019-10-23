@@ -55,8 +55,8 @@ function moveSlotElements(node, base) {
     var textSlot = dom_helper_1.DOMHelper.createElement('span');
     var secondarySlot = dom_helper_1.DOMHelper.createElement('span');
     var noSlot = dom_helper_1.DOMHelper.createElement('div');
-    while (node.firstChild) {
-        var childNode = node.firstChild;
+    while (node.firstElementChild) {
+        var childNode = node.firstElementChild;
         if (childNode.attributes) {
             var slotAtr = childNode.attributes.getNamedItem('slot');
             if (slotAtr) {

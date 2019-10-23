@@ -4,8 +4,8 @@ export declare class MdcChipSet {
     private chipSetElement;
     private mdcElement;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
 }

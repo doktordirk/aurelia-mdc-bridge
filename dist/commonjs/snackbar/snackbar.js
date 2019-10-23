@@ -56,7 +56,7 @@ var MdcSnackbar = (function () {
                 options.actionHandler = this.onAction.bind(this);
             }
         }
-        this.mdcSnackbar.show(options);
+        this.mdcSnackbar.open();
     };
     MdcSnackbar.prototype.onAction = function () {
         util.fireEvent(this.elementSnackbar, 'on-action');
@@ -75,7 +75,6 @@ var MdcSnackbar = (function () {
         this.elementSnackbar.classList[value ? 'add' : 'remove']('mdc-snackbar--align-start');
     };
     MdcSnackbar.prototype.dismissesOnActionChanged = function (newValue) {
-        this.mdcSnackbar.dismissesOnAction = util.getBoolean(newValue);
     };
     MdcSnackbar.prototype.addToElement = function () {
         this.element = document.body;
@@ -98,13 +97,11 @@ var MdcSnackbar = (function () {
         button.setAttribute('type', 'button');
         this.elementSnackbar = main;
         this.attached();
-        this.mdcSnackbar.foundation_.adapter_.registerTransitionEndHandler(this.onTransitionEndHandler.bind(this));
     };
     MdcSnackbar.prototype.onTransitionEndHandler = function (event) {
         if (event.target !== this.elementSnackbar) {
             return;
         }
-        this.mdcSnackbar.foundation_.adapter_.deregisterTransitionEndHandler(this.onTransitionEndHandler.bind(this));
         this.mdcSnackbar.destroy();
         this.element.removeChild(this.elementTheme);
     };

@@ -49,6 +49,7 @@ var MdcCheckbox = (function () {
     MdcCheckbox.prototype.indeterminateChanged = function (newValue) {
         this.mdcCheckbox.indeterminate = util.getBoolean(newValue);
     };
+    var MdcCheckbox_1;
     MdcCheckbox.id = 0;
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
@@ -68,6 +69,5 @@ var MdcCheckbox = (function () {
         __metadata("design:paramtypes", [Element])
     ], MdcCheckbox);
     return MdcCheckbox;
-    var MdcCheckbox_1;
 }());
 export { MdcCheckbox };

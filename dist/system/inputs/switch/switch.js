@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, util, MdcSwitch;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -52,6 +52,7 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
                 MdcSwitch.prototype.checkedChanged = function (newValue) {
                     this.inputElement.checked = util.getBoolean(newValue);
                 };
+                var MdcSwitch_1;
                 MdcSwitch.id = 0;
                 __decorate([
                     aurelia_framework_1.bindable(),
@@ -75,7 +76,6 @@ System.register(["aurelia-framework", "aurelia-logging", "../../util"], function
                     __metadata("design:paramtypes", [Element])
                 ], MdcSwitch);
                 return MdcSwitch;
-                var MdcSwitch_1;
             }());
             exports_1("MdcSwitch", MdcSwitch);
         }

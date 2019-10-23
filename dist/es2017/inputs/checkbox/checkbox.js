@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var MdcCheckbox_1;
 import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
 import { MDCCheckbox } from '@material/checkbox';
@@ -68,4 +69,3 @@ MdcCheckbox = MdcCheckbox_1 = __decorate([
     __metadata("design:paramtypes", [Element])
 ], MdcCheckbox);
 export { MdcCheckbox };
-var MdcCheckbox_1;

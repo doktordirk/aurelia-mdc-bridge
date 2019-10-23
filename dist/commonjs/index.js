@@ -20,7 +20,7 @@ exports.configure = configure;
 __export(require("./config-builder"));
 __export(require("./button/button"));
 __export(require("./button/fab/fab"));
-__export(require("./button/icon-toggle/icon-toggle"));
+__export(require("./button/icon-button/icon-button"));
 __export(require("./card/card-actions"));
 __export(require("./card/card-media"));
 __export(require("./card/card"));

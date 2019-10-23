@@ -8,10 +8,10 @@ export declare class MdcList {
     private log;
     private elementList;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private denseChanged(newValue);
-    private twoLineChanged(newValue);
-    private avatarChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private denseChanged;
+    private twoLineChanged;
+    private avatarChanged;
 }

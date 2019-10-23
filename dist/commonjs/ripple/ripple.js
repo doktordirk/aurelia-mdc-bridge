@@ -31,6 +31,7 @@ var MdcRipple = (function () {
         this.primaryChanged(this.primary);
     };
     MdcRipple.prototype.detached = function () {
+        var _a;
         var classes = [
             'mdc-ripple-surface',
             'mdc-ripple-surface--primary',
@@ -38,7 +39,6 @@ var MdcRipple = (function () {
         ];
         (_a = this.element.classList).remove.apply(_a, classes);
         this.mdcRipple.destroy();
-        var _a;
     };
     MdcRipple.prototype.unboundedChanged = function (newValue) {
         this.mdcRipple.unbounded = util.getBoolean(newValue);

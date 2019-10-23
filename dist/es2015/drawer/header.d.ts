@@ -3,7 +3,7 @@ export declare class MdcDrawerHeader {
     private elementHeader;
     private elementContent;
     constructor();
-    private bind();
-    private unbind();
-    private attached();
+    private bind;
+    private unbind;
+    private attached;
 }

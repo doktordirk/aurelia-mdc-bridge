@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
-var tabs_1 = require("@material/tabs");
+var tab_bar_1 = require("@material/tab-bar");
 var util = require("../util");
 var MdcTabBar = (function () {
     function MdcTabBar(element, taskQueue) {
@@ -30,7 +30,7 @@ var MdcTabBar = (function () {
         this.taskQueue.queueTask(function () {
             _this.icon = _this.hasChildIcons();
             _this.text = _this.hasChildText();
-            _this.mdcTabBar = new tabs_1.MDCTabBar(_this.elementTabBar);
+            _this.mdcTabBar = new tab_bar_1.MDCTabBar(_this.elementTabBar);
             _this.activeTabIndexChanged(_this.activeTabIndex);
             _this.mdcTabBar.listen('MDCTabBar:change', _this.onChange.bind(_this));
             _this.mdcTabBar.preventDefaultOnClick = true;

@@ -4,7 +4,7 @@ export declare class ConfigBuilder {
     useAll(): ConfigBuilder;
     useButtons(): ConfigBuilder;
     useFab(): ConfigBuilder;
-    useIconToggle(): ConfigBuilder;
+    useIconButton(): ConfigBuilder;
     useCards(): ConfigBuilder;
     useChips(): ConfigBuilder;
     useDialogs(): ConfigBuilder;
@@ -27,5 +27,5 @@ export declare class ConfigBuilder {
     useTabs(): ConfigBuilder;
     useToolbars(): ConfigBuilder;
     withoutGlobalResources(): ConfigBuilder;
-    private addDrawerAddons();
+    private addDrawerAddons;
 }

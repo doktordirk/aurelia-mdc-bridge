@@ -5,11 +5,11 @@ export declare class MdcDrawerTemporary {
     private elementDrawer;
     private mdcDrawer;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private openChanged(newValue);
-    private onOpenEvent();
-    private onCloseEvent();
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private openChanged;
+    private onOpenEvent;
+    private onCloseEvent;
 }

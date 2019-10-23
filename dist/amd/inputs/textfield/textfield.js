@@ -225,6 +225,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             var value = util.getBoolean(newValue);
             this.elementHelpText.classList[value ? 'add' : 'remove']('mdc-text-field-helper-text--validation-msg');
         };
+        var MdcTextField_1;
         MdcTextField.id = 0;
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -328,7 +329,6 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             __metadata("design:paramtypes", [Element, aurelia_framework_1.TaskQueue])
         ], MdcTextField);
         return MdcTextField;
-        var MdcTextField_1;
     }());
     exports.MdcTextField = MdcTextField;
 });

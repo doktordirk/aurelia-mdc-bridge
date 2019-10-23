@@ -22,10 +22,10 @@ export declare class MdcRadio {
     private isModel;
     private compareValue;
     constructor(element: Element, taskQueue: TaskQueue);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private disabledChanged(newValue);
-    private handleChange(e);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private disabledChanged;
+    private handleChange;
 }

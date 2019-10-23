@@ -23,38 +23,15 @@ let MdcSelect = class MdcSelect {
     bind() { }
     unbind() { }
     attached() {
-        this.taskQueue.queueTask(() => {
-            this.mdcSelect = new MDCSelect(this.elementSelect);
-            this.mdcSelect.menu_.foundation_.adapter_.getIndexForEventTarget = (target) => {
-                while (target) {
-                    if (target.classList.contains('mdc-list-item')) {
-                        if (target.attributes.getNamedItem('aria-disabled').value === 'true') {
-                            target = null;
-                        }
-                        break;
-                    }
-                    else if (target.classList.contains('mdc-menu')) {
-                        break;
-                    }
-                    target = target.parentElement;
-                }
-                return this.mdcSelect.menu_.items.indexOf(target);
-            };
-            this.mdcSelect.listen('MDCSelect:change', this.raiseChangeEvent.bind(this));
-            const mdcSelectFoundation = this.mdcSelect.foundation_.adapter_;
-            mdcSelectFoundation.getTextForOptionAtIndex = this.getTextForOptionAtIndex.bind(this);
-            mdcSelectFoundation.getValueForOptionAtIndex = this.getValueForOptionAtIndex.bind(this);
-            this.disabledChanged(this.disabled);
-            this.boxChanged(this.box);
-            if (!this.value) {
-                return;
-            }
-            this.mdcSelect.selectedIndex = this.findIndex(this.value);
-            const labelElement = this.elementSelect.getElementsByClassName('mdc-select__label');
-            if (labelElement[0]) {
-                labelElement[0].classList.add('mdc-select__label--float-above');
-            }
-        });
+        this.mdcSelect = new MDCSelect(this.elementSelect);
+        this.mdcSelect.listen('MDCSelect:change', this.raiseChangeEvent.bind(this));
+        this.mdcSelect.getDefaultFoundation();
+        this.disabledChanged(this.disabled);
+        this.boxChanged(this.box);
+        const labelElement = this.elementSelect.getElementsByClassName('mdc-select__label');
+        if (labelElement[0]) {
+            labelElement[0].classList.add('mdc-select__label--float-above');
+        }
     }
     detached() {
         this.mdcSelect.unlisten('MDCSelect:change', this.raiseChangeEvent.bind(this));
@@ -74,22 +51,6 @@ let MdcSelect = class MdcSelect {
         const value = util.getBoolean(newValue);
         this.elementSelect.classList[value ? 'add' : 'remove']('mdc-select--box');
     }
-    valueChanged(newValue) {
-        if (this.internalValueChanged) {
-            this.internalValueChanged = false;
-            return;
-        }
-        const index = this.findIndex(newValue);
-        this.mdcSelect.selectedIndex = index;
-    }
-    findIndex(value) {
-        for (let index = 0; index < this.mdcSelect.options.length; index++) {
-            if (this.compareModels(this.mdcSelect.item(index).model, value)) {
-                return index;
-            }
-        }
-        return -1;
-    }
     compareModels(model1, model2) {
         if (this.matcher) {
             return this.matcher(model1, model2);
@@ -102,26 +63,6 @@ let MdcSelect = class MdcSelect {
         this.internalValueChanged = true;
         this.value = this.mdcSelect.value;
         util.fireEvent(this.element, 'on-change', e.detail);
-    }
-    getTextForOptionAtIndex(index) {
-        const item = this.mdcSelect.options[index];
-        if (!item) {
-            return null;
-        }
-        const textArea = item.getElementsByClassName('amb-mdc-list-item-text');
-        if (textArea && textArea.length > 0) {
-            return textArea[0].innerText;
-        }
-        else {
-            return item.textContent;
-        }
-    }
-    getValueForOptionAtIndex(index) {
-        const item = this.mdcSelect.options[index];
-        if (!item) {
-            return null;
-        }
-        return item.model;
     }
 };
 __decorate([

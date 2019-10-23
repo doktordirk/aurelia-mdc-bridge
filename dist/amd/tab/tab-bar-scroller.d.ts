@@ -12,14 +12,14 @@ export declare class MdcTabBarScroller {
     private mdcTabBarScroller;
     private stopChangedEvent;
     constructor(element: Element, taskQueue: TaskQueue);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private onChange({detail: tabs});
-    private activeTabIndexChanged(newValue);
-    private hasChildIcons();
-    private hasChildText();
-    private iconChanged(newValue);
-    private textChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private onChange;
+    private activeTabIndexChanged;
+    private hasChildIcons;
+    private hasChildText;
+    private iconChanged;
+    private textChanged;
 }

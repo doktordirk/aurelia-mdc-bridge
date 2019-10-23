@@ -51,6 +51,7 @@ var MdcCheckbox = (function () {
     MdcCheckbox.prototype.indeterminateChanged = function (newValue) {
         this.mdcCheckbox.indeterminate = util.getBoolean(newValue);
     };
+    var MdcCheckbox_1;
     MdcCheckbox.id = 0;
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -70,6 +71,5 @@ var MdcCheckbox = (function () {
         __metadata("design:paramtypes", [Element])
     ], MdcCheckbox);
     return MdcCheckbox;
-    var MdcCheckbox_1;
 }());
 exports.MdcCheckbox = MdcCheckbox;

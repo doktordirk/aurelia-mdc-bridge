@@ -40,6 +40,7 @@ var MdcSwitch = (function () {
     MdcSwitch.prototype.checkedChanged = function (newValue) {
         this.inputElement.checked = util.getBoolean(newValue);
     };
+    var MdcSwitch_1;
     MdcSwitch.id = 0;
     __decorate([
         aurelia_framework_1.bindable(),
@@ -63,6 +64,5 @@ var MdcSwitch = (function () {
         __metadata("design:paramtypes", [Element])
     ], MdcSwitch);
     return MdcSwitch;
-    var MdcSwitch_1;
 }());
 exports.MdcSwitch = MdcSwitch;

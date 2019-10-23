@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { inject, bindable, bindingMode, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCTemporaryDrawer } from '@material/drawer';
+import { MDCDrawer } from '@material/drawer';
 import * as util from '../util';
 let MdcDrawerTemporary = class MdcDrawerTemporary {
     constructor(element) {
@@ -20,19 +20,7 @@ let MdcDrawerTemporary = class MdcDrawerTemporary {
     bind() { }
     unbind() { }
     attached() {
-        if (!MDCTemporaryDrawer.prototype.getDefaultFoundation_) {
-            MDCTemporaryDrawer.prototype.getDefaultFoundation_ = MDCTemporaryDrawer.prototype.getDefaultFoundation;
-            MDCTemporaryDrawer.prototype.getDefaultFoundation = function () {
-                const foundation = this.getDefaultFoundation_();
-                foundation.drawerClickHandler_ = (e) => {
-                    if (e.target.tagName !== 'A') {
-                        e.stopPropagation();
-                    }
-                };
-                return foundation;
-            };
-        }
-        this.mdcDrawer = new MDCTemporaryDrawer(this.elementDrawer);
+        this.mdcDrawer = new MDCDrawer(this.elementDrawer);
         this.elementDrawer.addEventListener('MDCTemporaryDrawer:open', this.onOpenEvent.bind(this));
         this.elementDrawer.addEventListener('MDCTemporaryDrawer:close', this.onCloseEvent.bind(this));
         this.openChanged(this.open);

@@ -7,8 +7,8 @@ export declare class MdcListDivider {
     private isUlDivider;
     private isNavDivider;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private attached();
-    private insetChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private insetChanged;
 }

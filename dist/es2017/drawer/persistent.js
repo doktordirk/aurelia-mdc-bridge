@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { inject, bindable, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCPersistentDrawer } from '@material/drawer';
+import { MDCDrawer } from '@material/drawer';
 import * as util from '../util';
 let MdcDrawerPersistent = class MdcDrawerPersistent {
     constructor(element) {
@@ -20,19 +20,7 @@ let MdcDrawerPersistent = class MdcDrawerPersistent {
     bind() { }
     unbind() { }
     attached() {
-        if (!MDCPersistentDrawer.prototype.getDefaultFoundation_) {
-            MDCPersistentDrawer.prototype.getDefaultFoundation_ = MDCPersistentDrawer.prototype.getDefaultFoundation;
-            MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
-                const foundation = this.getDefaultFoundation_();
-                foundation.drawerClickHandler_ = (e) => {
-                    if (e.target.tagName !== 'A') {
-                        e.stopPropagation();
-                    }
-                };
-                return foundation;
-            };
-        }
-        this.mdcDrawer = new MDCPersistentDrawer(this.elementDrawer);
+        this.mdcDrawer = new MDCDrawer(this.elementDrawer);
         this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
         this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));
         this.openChanged(this.open);

@@ -19,19 +19,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
         MdcDrawerPersistent.prototype.bind = function () { };
         MdcDrawerPersistent.prototype.unbind = function () { };
         MdcDrawerPersistent.prototype.attached = function () {
-            if (!drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation_) {
-                drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation_ = drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation;
-                drawer_1.MDCPersistentDrawer.prototype.getDefaultFoundation = function () {
-                    var foundation = this.getDefaultFoundation_();
-                    foundation.drawerClickHandler_ = function (e) {
-                        if (e.target.tagName !== 'A') {
-                            e.stopPropagation();
-                        }
-                    };
-                    return foundation;
-                };
-            }
-            this.mdcDrawer = new drawer_1.MDCPersistentDrawer(this.elementDrawer);
+            this.mdcDrawer = new drawer_1.MDCDrawer(this.elementDrawer);
             this.elementDrawer.addEventListener('MDCPersistentDrawer:open', this.onOpenEvent.bind(this));
             this.elementDrawer.addEventListener('MDCPersistentDrawer:close', this.onCloseEvent.bind(this));
             this.openChanged(this.open);

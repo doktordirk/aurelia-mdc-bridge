@@ -16,14 +16,14 @@ export declare class MdcTabBar {
     private mdcTabBar;
     private stopChangedEvent;
     constructor(element: Element, taskQueue: TaskQueue);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private onChange({detail: tabs});
-    private hasChildIcons();
-    private hasChildText();
-    private activeTabIndexChanged(newValue);
-    private iconChanged(newValue);
-    private textChanged(newValue);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private onChange;
+    private hasChildIcons;
+    private hasChildText;
+    private activeTabIndexChanged;
+    private iconChanged;
+    private textChanged;
 }

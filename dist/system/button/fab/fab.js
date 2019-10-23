@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "../../util"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "../../util", "../../dom-helper"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var aurelia_framework_1, aurelia_logging_1, ripple_1, util, dom_helper_1, MdcFab;
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, aurelia_logging_1, ripple_1, util, MdcFab;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -24,6 +24,9 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
             },
             function (util_1) {
                 util = util_1;
+            },
+            function (dom_helper_1_1) {
+                dom_helper_1 = dom_helper_1_1;
             }
         ],
         execute: function () {
@@ -32,6 +35,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     this.element = element;
                     this.mini = false;
                     this.exited = false;
+                    this.extended = false;
+                    this.label = '';
                     this.ariaLabel = '';
                     this.ripple = true;
                     this.icon = null;
@@ -40,31 +45,51 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     this.removeChildren();
                 }
                 MdcFab.prototype.attached = function () {
-                    this.element.classList.add('mdc-fab', 'material-icons');
-                    var spanNode = document.createElement('span');
-                    spanNode.classList.add('mdc-fab__icon');
-                    if (this.icon) {
-                        spanNode.appendChild(this.icon);
+                    this.element.classList.add('mdc-fab');
+                    if (!this.extended) {
+                        var iconNode = dom_helper_1.DOMHelper.createElement('span');
+                        iconNode.classList.add('mdc-fab__icon', 'material-icons');
+                        if (this.icon) {
+                            iconNode.appendChild(this.icon);
+                        }
+                        this.element.appendChild(iconNode);
                     }
-                    this.element.appendChild(spanNode);
+                    else {
+                        if (this.icon) {
+                            var iconNode = dom_helper_1.DOMHelper.createElement('span');
+                            iconNode.classList.add('mdc-fab__icon', 'material-icons');
+                            if (this.icon) {
+                                iconNode.appendChild(this.icon);
+                            }
+                            this.element.appendChild(iconNode);
+                        }
+                        var labelNode = dom_helper_1.DOMHelper.createElement('span');
+                        labelNode.classList.add('mdc-fab__label');
+                        if (this.label) {
+                            labelNode.innerText = this.label;
+                        }
+                        this.element.appendChild(labelNode);
+                    }
                     this.miniChanged(this.mini);
                     this.exitedChanged(this.exited);
+                    this.extendedChanged(this.extended);
                     this.ariaLabelChanged(this.ariaLabel);
                     if (util.getBoolean(this.ripple)) {
                         ripple_1.MDCRipple.attachTo(this.element);
                     }
                 };
                 MdcFab.prototype.detached = function () {
+                    var _a;
                     var classes = [
                         'mdc-fab',
                         'material-icons',
                         'mdc-fab--mini',
-                        'mdc-fab--exited'
+                        'mdc-fab--exited',
+                        'mdc-fab--extended'
                     ];
                     (_a = this.element.classList).remove.apply(_a, classes);
                     this.element.removeAttribute('aria-label');
                     this.removeChildren();
-                    var _a;
                 };
                 MdcFab.prototype.miniChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
@@ -73,6 +98,10 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                 MdcFab.prototype.exitedChanged = function (newValue) {
                     var value = util.getBoolean(newValue);
                     this.element.classList[value ? 'add' : 'remove']('mdc-fab--exited');
+                };
+                MdcFab.prototype.extendedChanged = function (newValue) {
+                    var value = util.getBoolean(newValue);
+                    this.element.classList[value ? 'add' : 'remove']('mdc-fab--extended');
                 };
                 MdcFab.prototype.ariaLabelChanged = function (newValue) {
                     this.element.setAttribute('aria-label', newValue);
@@ -90,6 +119,14 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/ripple", "..
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)
                 ], MdcFab.prototype, "exited", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable(),
+                    __metadata("design:type", Object)
+                ], MdcFab.prototype, "extended", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable(),
+                    __metadata("design:type", Object)
+                ], MdcFab.prototype, "label", void 0);
                 __decorate([
                     aurelia_framework_1.bindable(),
                     __metadata("design:type", Object)

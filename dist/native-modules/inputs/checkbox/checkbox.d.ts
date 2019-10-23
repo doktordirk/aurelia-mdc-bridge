@@ -12,10 +12,10 @@ export declare class MdcCheckbox {
     private elementCheckbox;
     private mdcCheckbox;
     constructor(element: Element);
-    private bind();
-    private unbind();
-    private handleChange(e);
-    private checkedChanged(newValue);
-    private disabledChanged(newValue);
-    private indeterminateChanged(newValue);
+    private bind;
+    private unbind;
+    private handleChange;
+    private checkedChanged;
+    private disabledChanged;
+    private indeterminateChanged;
 }

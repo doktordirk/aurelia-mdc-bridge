@@ -18,17 +18,13 @@ export declare class MdcSelect {
     private log;
     private internalValueChanged;
     constructor(element: Element, taskQueue: TaskQueue);
-    private bind();
-    private unbind();
-    private attached();
-    private detached();
-    private listItemsChanged();
-    private disabledChanged(newValue);
-    private boxChanged(newValue);
-    private valueChanged(newValue);
-    private findIndex(value);
-    private compareModels(model1, model2);
-    private raiseChangeEvent(e);
-    private getTextForOptionAtIndex(index);
-    private getValueForOptionAtIndex(index);
+    private bind;
+    private unbind;
+    private attached;
+    private detached;
+    private listItemsChanged;
+    private disabledChanged;
+    private boxChanged;
+    private compareModels;
+    private raiseChangeEvent;
 }

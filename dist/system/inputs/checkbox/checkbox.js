@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/checkbox", "
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, aurelia_logging_1, checkbox_1, util, MdcCheckbox;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -65,6 +65,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/checkbox", "
                 MdcCheckbox.prototype.indeterminateChanged = function (newValue) {
                     this.mdcCheckbox.indeterminate = util.getBoolean(newValue);
                 };
+                var MdcCheckbox_1;
                 MdcCheckbox.id = 0;
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
@@ -84,7 +85,6 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/checkbox", "
                     __metadata("design:paramtypes", [Element])
                 ], MdcCheckbox);
                 return MdcCheckbox;
-                var MdcCheckbox_1;
             }());
             exports_1("MdcCheckbox", MdcCheckbox);
         }

@@ -7,9 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var MdcDialog_1;
 import { inject, bindable, customElement } from 'aurelia-framework';
 import { getLogger } from 'aurelia-logging';
-import { MDCDialog, util as MDCUtil } from '@material/dialog';
+import { MDCDialog } from '@material/dialog';
 import * as util from '../util';
 let MdcDialog = MdcDialog_1 = class MdcDialog {
     constructor(element) {
@@ -28,7 +29,7 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
     }
     show(showDialog = true) {
         if (showDialog) {
-            this.mdcElement.show();
+            this.mdcElement.open();
         }
         else {
             this.mdcElement.close();
@@ -36,7 +37,7 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
     }
     get foundation() {
         if (this.mdcElement) {
-            return this.mdcElement.foundation_;
+            return this.mdcElement.getDefaultFoundation();
         }
         return null;
     }
@@ -46,8 +47,8 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.scrollableChanged(this.scrollable);
         this.headerChanged(this.header);
         this.mdcElement = new MDCDialog(this.diagElement);
-        this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
-        this.mdcDialogFoundation.registerTransitionEndHandler(this.onTransitionEnd.bind(this));
+        this.mdcElement.listen('MDCDialog:closed', this.onTransitionEnd.bind(this));
+        this.mdcElement.listen('MDCDialog:opened', this.onTransitionEnd.bind(this));
         if (this.acceptButtonElement) {
             this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
             this.acceptActionChanged(this.acceptAction);
@@ -57,14 +58,13 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
             this.cancelActionChanged(this.cancelAction);
         }
         if (this.focusAt) {
-            this.log.debug('this.focusAt:', this.focusAt);
-            this.mdcElement.focusTrap_ = MDCUtil.createFocusTrapInstance(this.mdcElement.dialogSurface_, this.focusAt);
         }
     }
     detached() {
         this.mdcElement.unlisten('MDCDialog:accept', this.onButtonAccept.bind(this));
         this.mdcElement.unlisten('MDCDialog:cancel', this.onButtonCancel.bind(this));
-        this.mdcDialogFoundation.deregisterTransitionEndHandler(this.onTransitionEnd.bind(this));
+        this.mdcElement.unlisten('MDCDialog:close', this.onTransitionEnd.bind(this));
+        this.mdcElement.unlisten('MDCDialog:open', this.onTransitionEnd.bind(this));
         this.mdcDialogFoundation = null;
         this.mdcElement.destroy();
     }
@@ -93,14 +93,12 @@ let MdcDialog = MdcDialog_1 = class MdcDialog {
         this.scrollable = util.getBoolean(newValue);
     }
     onTransitionEnd(evt) {
-        if (this.mdcDialogFoundation.isDialog(evt.target)) {
-            if (evt.propertyName === 'opacity') {
-                if (this.mdcElement.open) {
-                    util.fireEvent(this.diagElement, 'on-opened', {});
-                }
-                else {
-                    util.fireEvent(this.diagElement, 'on-closed', {});
-                }
+        if (evt.propertyName === 'opacity') {
+            if (this.mdcElement.open) {
+                util.fireEvent(this.diagElement, 'on-opened', {});
+            }
+            else {
+                util.fireEvent(this.diagElement, 'on-closed', {});
             }
         }
     }
@@ -144,4 +142,3 @@ MdcDialog = MdcDialog_1 = __decorate([
     __metadata("design:paramtypes", [Element])
 ], MdcDialog);
 export { MdcDialog };
-var MdcDialog_1;
