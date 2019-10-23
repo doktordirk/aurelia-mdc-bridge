@@ -22,7 +22,6 @@ var MdcDialog = (function () {
         this.acceptDisabled = false;
         this.scrollable = false;
         this.controlId = '';
-        this.showHeader = false;
         this.controlId = "mdc-dialog-" + MdcDialog_1.id++;
         this.log = getLogger('mdc-dialog');
     }
@@ -50,35 +49,23 @@ var MdcDialog = (function () {
     MdcDialog.prototype.unbind = function () { };
     MdcDialog.prototype.attached = function () {
         this.scrollableChanged(this.scrollable);
-        this.headerChanged(this.header);
         this.mdcElement = new MDCDialog(this.diagElement);
         this.mdcElement.listen('MDCDialog:closed', this.onTransitionEnd.bind(this));
         this.mdcElement.listen('MDCDialog:opened', this.onTransitionEnd.bind(this));
         if (this.acceptButtonElement) {
-            this.mdcElement.listen('MDCDialog:accept', this.onButtonAccept.bind(this));
             this.acceptActionChanged(this.acceptAction);
         }
         if (this.cancelButtonElement) {
-            this.mdcElement.listen('MDCDialog:cancel', this.onButtonCancel.bind(this));
             this.cancelActionChanged(this.cancelAction);
         }
         if (this.focusAt) {
         }
     };
     MdcDialog.prototype.detached = function () {
-        this.mdcElement.unlisten('MDCDialog:accept', this.onButtonAccept.bind(this));
-        this.mdcElement.unlisten('MDCDialog:cancel', this.onButtonCancel.bind(this));
         this.mdcElement.unlisten('MDCDialog:close', this.onTransitionEnd.bind(this));
         this.mdcElement.unlisten('MDCDialog:open', this.onTransitionEnd.bind(this));
         this.mdcDialogFoundation = null;
         this.mdcElement.destroy();
-    };
-    MdcDialog.prototype.headerChanged = function (newValue) {
-        var value = (newValue || '').length !== 0;
-        if (!this.titleElement) {
-            value = true;
-        }
-        this.showHeader = value;
     };
     MdcDialog.prototype.onButtonAccept = function () {
         util.fireEvent(this.diagElement, 'on-click', true);
@@ -104,6 +91,15 @@ var MdcDialog = (function () {
             }
             else {
                 util.fireEvent(this.diagElement, 'on-closed', {});
+            }
+            return;
+        }
+        if (evt.detail) {
+            if (evt.detail.action === 'ok') {
+                this.onButtonAccept();
+            }
+            if (evt.detail.action === 'cancel') {
+                this.onButtonCancel();
             }
         }
     };
