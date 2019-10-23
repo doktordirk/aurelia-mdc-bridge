@@ -3,24 +3,26 @@ template
     class="mdc-dialog"
     ref="diagElement"
     role="alertdialog"
+    aria-modal="true"
     aria-labelledby="${controlId}-label"
     aria-describedby="${controlId}-description")
 
-    .mdc-dialog__surface
-
-      // HEADER
-      header.mdc-dialog__header(show.bind="showHeader")
+    .mdc-dialog__container
+      .mdc-dialog__surface
+        // HEADER
         slot(name="header")
-          h2.mdc-dialog__header__title(id="${controlId}-label" ref="titleElement") ${header}
+          h2.mdc-dialog__title(id="${controlId}-label" if.bind="header") ${header}
 
-      // BODY
-      section.mdc-dialog__body(id="${controlId}-description" class.bind="scrollable ? 'mdc-dialog__body--scrollable' : ''")
-        slot
+        // BODY
+        section.mdc-dialog__content(id="${controlId}-description" class.bind="scrollable ? 'mdc-dialog--scrollable' : ''")
+          slot
 
-      // FOOTER
-      footer.mdc-dialog__footer
-        slot(name="footer")
-          button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--cancel(type="button" ref="cancelButtonElement") ${cancel}
-          button.mdc-button.mdc-dialog__footer__button.mdc-dialog__footer__button--accept(type="button" ref="acceptButtonElement" disabled.bind="acceptDisabled") ${accept}
+        // FOOTER
+        footer.mdc-dialog__actions
+          slot(name="footer")
+            button.mdc-button.mdc-dialog__button(type="button" ref="cancelButtonElement" data-mdc-dialog-action="cancel") 
+              span.mdc-button__label ${cancel}
+            button.mdc-button.mdc-dialog__button(type="button" ref="acceptButtonElement" data-mdc-dialog-action="ok" disabled.bind="acceptDisabled")
+              span.mdc-button__label ${accept}
 
-    .mdc-dialog__backdrop
+      .mdc-dialog__scrim
