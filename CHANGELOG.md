@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v2.2.0...v2.2.1) (2019-10-23)
+
+
+### Bug Fixes
+
+* **dialog:** update to work with dialog v2 ([c62ad3b](https://github.com/ullfis/aurelia-mdc-bridge/commit/c62ad3b))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.17.1...v0.18.0) (2019-10-23)
 
