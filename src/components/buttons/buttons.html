@@ -1,0 +1,187 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Buttons</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <mdc-checkbox checked.bind="aureliaDisabled">disabled</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="raised">raised</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="dense">dense</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="outlined">outlined</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="unelevated">unelevated</mdc-checkbox>
+    </mdc-grid-cell>
+    <!-- DEMO AREA-->
+    <mdc-grid-cell span="8">
+      <section class="components">
+        <h6>Example</h6>
+        <button mdc-button="raised.bind: raised; dense.bind: dense; outlined.bind: outlined; unelevated.bind: unelevated;" disabled.bind="aureliaDisabled">Button 1</button><br/><br/>
+      </section>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-button">Material components documentation</a><br/><a href="https://material.io/guidelines/components/buttons.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-button">Material design guidelines</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism>&lt;button
+  mdc-button="raised.bind: raised; dense.bind: dense; outlined.bind: outlined; unelevated.bind: unelevated;" 
+  disabled.bind="disabled"&gt;
+  Button text
+&lt;/button&gt;
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- RIPPLE-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Ripple</h5>
+        <p>By default the ripple effect is added automatically. To avoid that, set ripple to false:</p>
+        <pre>
+          <code-prism>&lt;button mdc-button="ripple: false;" ...&gt;
+  ...
+&lt;/button&gt;
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- ICON-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Icon</h5>
+        <p>Add <span class="mark-text">mdc-button__icon</span> class to icon tag:</p>
+        <button mdc-button="outlined: true;"><i class="material-icons mdc-button__icon">star</i>Button with icon</button><br/>
+        <pre>
+          <code-prism>&lt;button mdc-button="outlined: true;" ...&gt;
+  <i class="material-icons mdc-button__icon">star</i>
+  Button with icon              
+&lt;/button&gt;
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- SASS MIXINS-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Sass Mixins</h5>
+        <pre>
+          <code-prism language="css">button.secondary-text {
+  @include mdc-button-ink-color($mdc-theme-secondary);
+  @include mdc-states(secondary);
+}
+
+          </code-prism></pre>
+        <pre>
+          <code-prism>&lt;button mdc-button class="secondary-text"&gt;
+  secondary-text-button
+&lt;/button&gt;
+
+          </code-prism></pre>
+        <button class="secondary-text" mdc-button="mdc-button">secondary-text-button</button>
+        <pre>
+          <code-prism language="css">button.secondary-filled {
+  @include mdc-button-filled-accessible($mdc-theme-secondary);
+}
+
+          </code-prism></pre>
+        <pre>
+          <code-prism>&lt;button mdc-button class="secondary-filled"&gt;
+  secondary-filled-button
+&lt;/button&gt;
+
+          </code-prism></pre>
+        <button class="secondary-filled" mdc-button="mdc-button">secondary-filled-button          </button>
+        <pre>
+          <code-prism language="css">button.secondary-outline  {
+  @include mdc-button-ink-color($mdc-theme-secondary);
+  @include mdc-button-outlined-color($mdc-theme-secondary);
+  @include mdc-states(secondary);
+}
+
+          </code-prism></pre>
+        <pre>
+          <code-prism>&lt;button mdc-button="outlined: true;" class="secondary-outline "&gt;
+  secondary-outline-button
+&lt;/button&gt;
+
+          </code-prism></pre>
+        <button class="secondary-outline" mdc-button="outlined: true;">secondary-outline-button         </button>
+        <pre>
+          <code-prism language="css">button.big-round-corner-button {
+  @include mdc-button-corner-radius(8px);
+}
+
+          </code-prism></pre>
+        <pre>
+          <code-prism>&lt;button mdc-button="outlined: true;" class="big-round-corner"&gt;
+  big-round-corner-button
+&lt;/button&gt;
+
+          </code-prism></pre>
+        <button class="big-round-shape" mdc-button="outlined: true;">big-round-shape-button           </button>
+        <pre>
+          <code-prism language="css">button.thick-outline {
+  @include mdc-button-outline-width(4px);
+}            
+
+          </code-prism></pre>
+        <pre>
+          <code-prism>&lt;button mdc-button="outlined: true;" class="thick-outline"&gt;
+  thick-outlined-button
+&lt;/button&gt;
+
+          </code-prism></pre>
+        <button class="thick-outline" mdc-button="outlined: true;">thick-outline-button           </button>
+      </section>
+    </mdc-grid-cell>
+    <!-- WALL OF BUTTONS-->
+    <mdc-grid-cell span="12">
+      <hr/>
+      <mdc-checkbox checked.bind="disabled">Disable buttons (excluding links and divs)</mdc-checkbox>
+      <hr/>
+      <!-- BUTTONS-->
+      <section class="components">
+        <h5>Text Button</h5>
+        <fieldset disabled.bind="disabled">
+          <button mdc-button="raised: false; dense: false;">Default</button>
+          <button mdc-button="raised: false; dense: true;">Dense</button>
+          <button class="secondary-text" mdc-button="raised: false; dense: false;">Secondary</button>
+          <button mdc-button="raised: false; dense: false;"><i class="material-icons mdc-button__icon">favorite</i>Icon</button>
+          <div mdc-button="raised: false; dense: false;" role="button">Div</div><a href="#/components/buttons" mdc-button="raised: false; dense: false;">Link</a>
+          <hr/>
+        </fieldset>
+        <h5>Raised Button</h5>
+        <fieldset disabled.bind="disabled">
+          <button mdc-button="raised: true; dense: false;">Default</button>
+          <button mdc-button="raised: true; dense: true;">Dense</button>
+          <button class="secondary-filled" mdc-button="raised: true; dense: false;">Secondary</button>
+          <button mdc-button="raised: true; dense: false;"><i class="material-icons mdc-button__icon">favorite</i>Icon</button>
+          <div mdc-button="raised: true; dense: false;" role="button">Div</div><a href="#/components/buttons" mdc-button="raised: true; dense: false;">Link</a>
+          <hr/>
+        </fieldset>
+        <h5>Unelevated Button</h5>
+        <fieldset disabled.bind="disabled">
+          <button mdc-button="unelevated: true; raised: false; dense: false;">Default</button>
+          <button mdc-button="unelevated: true; raised: false; dense: true;">Dense</button>
+          <button class="secondary-filled" mdc-button="unelevated: true; raised: false; dense: false;">Secondary</button>
+          <button mdc-button="unelevated: true; raised: false; dense: false;"><i class="material-icons mdc-button__icon">favorite</i>Icon</button>
+          <div mdc-button="unelevated: true; raised: false; dense: false;" role="button">Div</div><a href="#/components/buttons" mdc-button="unelevated: true; raised: false; dense: false;">Link</a>
+          <hr/>
+        </fieldset>
+        <h5>Outlined Button</h5>
+        <fieldset disabled.bind="disabled">
+          <button mdc-button="outlined: true; raised: false; dense: false;">Default</button>
+          <button mdc-button="outlined: true; raised: false; dense: true;">Dense</button>
+          <button class="secondary-outline" mdc-button="outlined: true; raised: false; dense: false;">Secondary</button>
+          <button mdc-button="outlined: true; raised: false; dense: false;"><i class="material-icons mdc-button__icon">favorite</i>Icon</button>
+          <div mdc-button="outlined: true; raised: false; dense: false;" role="button">Div</div><a href="#/components/buttons" mdc-button="outlined: true; raised: false; dense: false;">Link</a>
+          <hr/>
+        </fieldset>
+      </section>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

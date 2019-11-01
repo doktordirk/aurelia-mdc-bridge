@@ -1,0 +1,228 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Select Menus</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <button mdc-button="raised: true;" click.delegate="addRow()">Add option</button><br/>
+      <mdc-checkbox checked.bind="disabled">disabled</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="box">box</mdc-checkbox><br/>
+      <mdc-text-field value.bind="labelText">label-text</mdc-text-field><br/>
+      <mdc-list dense="true">
+        <mdc-list-item><a href="#icons">Icons</a></mdc-list-item>
+        <mdc-list-item><a href="#disableditem">Disabled item          </a></mdc-list-item>
+        <mdc-list-item><a href="#divider">Divider</a></mdc-list-item>
+        <mdc-list-item><a href="#event">Event</a></mdc-list-item>
+        <mdc-list-item><a href="#customcolors">Custom colors</a></mdc-list-item>
+      </mdc-list>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="8">
+      <section class="components">
+        <h6>Example</h6><br/>
+        <mdc-select value.bind="selectedProductId" box.bind="box" disabled.bind="disabled" on-change.delegate="onChange($event)" label-text.bind="labelText">
+          <mdc-list-item repeat.for="product of products" model.bind="product.id"><span>${product.id} - ${product.name}</span></mdc-list-item>
+          <mdc-list-item model="998" disabled="true"><span>998 - Disabled</span></mdc-list-item>
+          <mdc-list-divider></mdc-list-divider>
+          <mdc-list-item model="999"><span>Something</span></mdc-list-item>
+        </mdc-select><br/>
+        <style>
+          .my-cont .mdc-select {
+            min-width: 250px;
+          }
+          .my-cont .mdc-select .mdc-list-item {
+            min-width: 250px;
+          }
+        </style>
+        <mdc-select class="my-cont" value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)" label-text.bind="labelText">
+          <mdc-list-item repeat.for="product of products" model.bind="product.id"><span>${product.id} - ${product.name}</span><span slot="start"><i class="material-icons" aria-hidden="true">${product.icon}</i></span></mdc-list-item>
+          <mdc-list-divider></mdc-list-divider>
+          <mdc-list-item model="998" disabled="true"><span>998 - Disabled</span></mdc-list-item>
+          <mdc-list-item model="999"><span>Something</span><span slot="start"><i class="material-icons" aria-hidden="true">gps_fixed</i></span></mdc-list-item>
+        </mdc-select><br/>
+      </section><span>Selected product Id: ${selectedProductId}</span>
+      <section class="components">
+        <h6>Custom colors</h6><br/>
+        <mdc-select class="my-custom-select" value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)" label-text.bind="labelText">
+          <mdc-list-item repeat.for="product of products" model.bind="product.id"><span>${product.id} - ${product.name}</span></mdc-list-item>
+          <mdc-list-item model="998" disabled="true"><span>998 - Disabled</span></mdc-list-item>
+          <mdc-list-divider></mdc-list-divider>
+          <mdc-list-item model="999"><span>Something</span></mdc-list-item>
+        </mdc-select>
+      </section>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/input-controls/select-menus/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-select-menus">Material components documentation</a><br/><a href="https://material.io/guidelines/components/text-fields.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-textfield">Material design guidelines text fields</a><br/><a href="https://material.io/guidelines/components/menus.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-menus">Material design guidelines menus</a><br/><a href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons">Icons    </a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism language="typescript">private products = [
+  { id: 0, name: 'WiFi' },
+  { id: 1, name: 'Bluetooth' },
+  { id: 2, name: 'USB' },
+];
+
+private selectedProductId = 1;
+        </code-prism></pre>
+      <pre>
+        <code-prism language="html">&lt;mdc-select value.bind="selectedProductId" label-text="Label text" disabled.bind="disabled" box.bind="box"&gt;
+  &lt;mdc-list-item
+    repeat.for="product of products"
+    model.bind="product.id"&gt;${product.id} - ${product.name}
+  &lt;/mdc-list-item&gt;
+&lt;/mdc-select&gt;  
+
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- ICONS-->
+    <mdc-grid-cell span="12">
+      <section id="icons">
+        <h5>Icons</h5>
+        <pre>
+          <code-prism>&lt;span slot="start"&gt;
+  &lt;i class="material-icons" aria-hidden="true"&gt;icon_name&lt;/i&gt;
+&lt;/span&gt;
+          </code-prism></pre>
+        <pre>
+          <code-prism language="typescript">private products = [
+  { id: 0, name: 'WiFi', icon: 'network_wifi' },
+  { id: 1, name: 'Bluetooth', icon: 'bluetooth' },
+  { id: 2, name: 'USB', icon: 'usb' },
+];
+
+private selectedProductId = 1;
+          </code-prism></pre>
+        <pre>
+          <code-prism language="html">&lt;mdc-select value.bind="selectedProductId"&gt;
+  &lt;mdc-list-item
+    repeat.for="product of products"
+    model.bind="product.id"&gt;
+    &lt;span&gt;${product.id} - ${product.name}&lt;/span&gt;
+    &lt;span slot="start"&gt;
+      &lt;i class="material-icons" aria-hidden="true"&gt;${product.icon}&lt;/i&gt;
+    &lt;/span&gt;
+  &lt;/mdc-list-item&gt;
+&lt;/mdc-select&gt;  
+
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- DISABLE ITEM-->
+    <mdc-grid-cell span="12">
+      <section id="disableditem">
+        <h5>Disabled item</h5>
+        <pre>
+          <code-prism>...
+&lt;mdc-list-item
+  disabled="true"
+  ...&gt;
+          </code-prism></pre>
+        <pre></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- DIVIDER-->
+    <mdc-grid-cell span="12">
+      <section id="divider">
+        <h5>Divider</h5>
+        <pre>
+          <code-prism language="html">&lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;</code-prism></pre>
+        <pre>
+          <code-prism language="html">&lt;mdc-select value.bind="value"&gt;
+  &lt;mdc-list-item model="1"&gt;Item 1&lt;/mdc-list-item&gt;
+  &lt;mdc-list-item model="2"&gt;Item 2&lt;/mdc-list-item&gt;
+  &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
+  &lt;mdc-list-item model="3"&gt;Item 3&lt;/mdc-list-item&gt;
+&lt;/mdc-select&gt;  
+
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- EVENT-->
+    <mdc-grid-cell span="12">
+      <section id="event">
+        <h5>Event</h5>
+        <pre>
+          <code-prism language="typescript">import { IMdcSelectChangeEvent } from 'aurelia-mdc-bridge';
+
+private onChange(e: IMdcSelectChangeEvent) {
+  // e.detail: MDCSelect
+}
+          </code-prism></pre>
+        <pre>
+          <code-prism language="html">&lt;mdc-select on-change.delegate="onChange($event)" ... &gt;
+  ...
+&lt;/mdc-select&gt;
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- CUSTOM WIDTH-->
+    <mdc-grid-cell span="12">
+      <section id="event">
+        <h5>Custom Width</h5>
+        <style>
+          .my-select-container .mdc-select {
+            min-width: 350px;
+          }
+          .my-select-container .mdc-select .mdc-list-item {
+            min-width: 350px;
+          }          
+        </style>
+        <mdc-select class="my-select-container">
+          <mdc-list-item>Item 1</mdc-list-item>
+          <mdc-list-item>Item 2</mdc-list-item>
+        </mdc-select>
+        <pre>
+          <code-prism language="css">.my-select-container .mdc-select {
+  min-width: 350px;
+}
+.my-select-container .mdc-select .mdc-list-item {
+  min-width: 350px;
+}
+          </code-prism></pre>
+        <pre>
+          <code-prism language="html">&lt;mdc-select class="my-select-container" ... &gt;
+  ...
+&lt;/mdc-select&gt;
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- CUSTOM COLORS-->
+    <mdc-grid-cell span="12">
+      <section id="customcolors">
+        <h5>Custom Colors</h5>
+        <mdc-select class="my-custom-select" value.bind="selectedProductId" disabled.bind="disabled" on-change.delegate="onChange($event)" label-text.bind="labelText">
+          <mdc-list-item repeat.for="product of products" model.bind="product.id"><span>${product.id} - ${product.name}</span></mdc-list-item>
+          <mdc-list-item model="998" disabled="true"><span>998 - Disabled</span></mdc-list-item>
+          <mdc-list-divider></mdc-list-divider>
+          <mdc-list-item model="999"><span>Something</span></mdc-list-item>
+        </mdc-select>
+        <pre>
+          <code-prism language="css">.my-custom-select {
+  @include mdc-select-ink-color(green);
+  @include mdc-select-container-fill-color(rgba(red, .1));
+  @include mdc-select-label-color(orange);
+  @include mdc-select-focused-label-color(blue);
+  @include mdc-select-bottom-line-color(black);
+  @include mdc-select-focused-bottom-line-color(brown);
+}         
+          </code-prism></pre>
+        <pre>
+          <code-prism language="html">&lt;mdc-select class="my-custom-select" ... &gt;
+  ...
+&lt;/mdc-select&gt;
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

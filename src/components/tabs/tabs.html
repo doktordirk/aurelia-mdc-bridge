@@ -1,0 +1,192 @@
+
+<template>
+  <require from="./tabs.css"></require>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Tabs</h4>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/tabs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-tabs">Material components documentation</a><br/><a href="https://material.io/guidelines/components/tabs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-tabs">Material design guidelines</a><br/><a href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons">Icons</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- BASIC-->
+    <mdc-grid-cell span="12">
+      <h5>Basic</h5>
+      <mdc-tab-bar>
+        <mdc-tab href="#">Home</mdc-tab>
+        <mdc-tab active="true" href="#">Merchandise</mdc-tab>
+        <mdc-tab href="#">About Us</mdc-tab>
+      </mdc-tab-bar>
+      <pre>
+        <code-prism><mdc-tab-bar>
+  <mdc-tab href="#">Home</mdc-tab>
+  <mdc-tab href="#" active="true">Merchandise</mdc-tab>
+  <mdc-tab href="#">About Us</mdc-tab>
+</mdc-tab-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- BINDING-->
+    <mdc-grid-cell span="12">
+      <h5>Binding</h5>
+      <mdc-tab-bar on-change.delegate="onChange($event)" active-tab-index.bind="index">
+        <mdc-tab href="#">Home</mdc-tab>
+        <mdc-tab href="#">Merchandise</mdc-tab>
+        <mdc-tab href="#">About Us</mdc-tab>
+      </mdc-tab-bar>
+      <mdc-text-field type="number" max="2" min="0" step="1" value.bind="index">index</mdc-text-field>
+      <p>event detail.activeTabIndex: ${eventDetail}</p>
+      <pre>
+        <code-prism><mdc-tab-bar active-tab-index.bind="index" on-change.delegate="onChange($event)">
+  <mdc-tab href="#">Home</mdc-tab>
+  <mdc-tab href="#">Merchandise</mdc-tab>
+  <mdc-tab href="#">About Us</mdc-tab>
+</mdc-tab-bar>
+        </code-prism></pre>
+      <pre>
+        <code-prism language="typescript">import { IMdcTabBarChangeEvent } from 'aurelia-mdc-bridge';
+
+private index = 2;
+
+onChange(e: IMdcTabBarChangeEvent) {
+  console.log(e.detail.activeTabIndex);
+}
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- ICONS-->
+    <mdc-grid-cell span="12">
+      <h5>Icons</h5>
+      <mdc-tab-bar>
+        <mdc-tab href="#" active="true"><i class="material-icons" slot="icon" aria-label="Recents">phone</i></mdc-tab>
+        <mdc-tab href="#"><i class="material-icons" slot="icon" aria-label="Favorite">favorite</i></mdc-tab>
+        <mdc-tab href="#"><i class="material-icons" slot="icon" aria-label="Nearby">person_pin</i></mdc-tab>
+      </mdc-tab-bar>
+      <pre>
+        <code-prism><mdc-tab-bar>
+  <mdc-tab href="#" active="true">
+    <i slot="icon" class="material-icons" aria-label="Recents">phone</i>
+  </mdc-tab>
+  <mdc-tab href="#">
+    <i slot="icon" class="material-icons" aria-label="Favorite">favorite</i>
+  </mdc-tab>
+  <mdc-tab href="#">
+    <i slot="icon" class="material-icons" aria-label="Nearby">person_pin</i>
+  </mdc-tab>
+</mdc-tab-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- ICONS AND TEXT-->
+    <mdc-grid-cell span="12">
+      <h5>Icons and text</h5>
+      <mdc-tab-bar>
+        <mdc-tab href="#" active="true"><i class="material-icons" slot="icon">phone</i><span slot="icon-text">Recents</span></mdc-tab>
+        <mdc-tab href="#"><i class="material-icons" slot="icon">favorite</i><span slot="icon-text">Favorite</span></mdc-tab>
+        <mdc-tab href="#"><i class="material-icons" slot="icon">person_pin</i><span slot="icon-text">Nearby</span></mdc-tab>
+      </mdc-tab-bar>
+      <pre>
+        <code-prism><mdc-tab-bar>
+  <mdc-tab href="#" active="true">
+    <i slot="icon" class="material-icons">phone</i>
+    <span slot="icon-text">Recents</span>
+  </mdc-tab>
+  <mdc-tab href="#">
+    <i slot="icon" class="material-icons">favorite</i>
+    <span slot="icon-text">Favorite</span>
+  </mdc-tab>
+  <mdc-tab href="#">
+    <i slot="icon" class="material-icons">person_pin</i>
+    <span slot="icon-text">Nearby</span>
+  </mdc-tab>
+</mdc-tab-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- SCROLLER-->
+    <mdc-grid-cell span="12">
+      <h5>Scroller</h5>
+      <mdc-tab-bar-scroller active-tab-index.bind="indexScroller">
+        <mdc-tab href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]">item ${itemNr}</mdc-tab>
+      </mdc-tab-bar-scroller>
+      <div class="panels">
+        <p class="panel" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel"> <span>Item ${itemNr}</span></p>
+      </div>
+      <pre>
+        <code-prism><mdc-tab-bar-scroller active-tab-index.bind="indexScroller">
+  <mdc-tab href="#" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]">item ${itemNr}</mdc-tab>
+</mdc-tab-bar-scroller>
+
+<div class="panels">
+  <p class="panel" repeat.for="itemNr of [0,1,2,3,4,5,6,7,8,9]" class.bind="indexScroller === itemNr ? 'active' : ''" role="tabpanel">
+    <span>Item ${itemNr}</span>
+  </p>
+</div>
+
+        </code-prism></pre>
+      <pre>
+        <code-prism language="css">.panels {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- COLORS-->
+    <mdc-grid-cell span="12">
+      <h5>Custom Colors</h5>
+      <h6>my-tab-cusom-color</h6>
+      <mdc-tab-bar class="my-tab-cusom-color">
+        <mdc-tab><i class="material-icons" slot="icon">phone</i><span slot="icon-text">Recents</span></mdc-tab>
+        <mdc-tab><i class="material-icons" slot="icon">favorite</i><span slot="icon-text">Favorites</span></mdc-tab>
+        <mdc-tab><i class="material-icons" slot="icon">person_pin</i><span slot="icon-text">Nearby</span></mdc-tab>
+      </mdc-tab-bar>
+      <pre>
+        <code-prism><mdc-tab-bar class="my-tab-custom-color">
+  ...
+</mdc-tab-bar>
+
+        </code-prism></pre>
+      <pre>
+        <code-prism language="css">.my-tab-cusom-color {
+  @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+
+  .mdc-tab:not(.mdc-tab--active) {
+    @include mdc-tab-ink-color($mdc-theme-primary);
+  }
+
+  .mdc-tab.mdc-tab--active {
+    @include mdc-tab-ink-color($mdc-theme-secondary);
+  }
+  .mdc-tab:hover {
+    @include mdc-tab-ink-color(yellow);
+  }
+}
+
+// // Use this mixin to set the color of all ink on the tab.
+// @include mdc-tab-ink-color($mdc-theme-primary);
+
+// // This mixin customizes the icon ink color.
+// @include mdc-tab-icon-ink-color($mdc-theme-primary);
+
+// // This mixin customizes the label ink color.
+// @include mdc-tab-label-ink-color($mdc-theme-primary);
+
+// // This mixin customizes the indicator ink color.
+// @include mdc-tab-bar-indicator-ink-color($mdc-theme-primary);
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

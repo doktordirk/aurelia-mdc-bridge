@@ -1,0 +1,247 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Radio Buttons</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <mdc-checkbox checked.bind="radioDisable" on-change.delegate="onChange($event)">Disable radio</mdc-checkbox>
+      <p class="mdc-typography--caption">event name: ${eventDetail['radio1'].name}</p>
+    </mdc-grid-cell>
+    <!-- DEMO AREA-->
+    <mdc-grid-cell span="8">
+      <!-- DEFAULT THEME-->
+      <section class="components">
+        <h6>Example</h6>
+        <mdc-radio checked.bind="radioChoise" disabled.bind="radioDisable" value="option1" name="radio1" on-change.delegate="onChange($event)">Option 1</mdc-radio>
+        <mdc-radio checked.bind="radioChoise" disabled.bind="radioDisable" value="option2" name="radio1" on-change.delegate="onChange($event)">Option 2</mdc-radio>
+        <mdc-radio checked.bind="radioChoise" disabled.bind="radioDisable" value="option3" name="radio1" on-change.delegate="onChange($event)">Option 3</mdc-radio>
+      </section>
+      <section class="components">
+        <table class="event-list">
+          <tbody>
+            <tr>
+              <td>selected value:</td>
+              <td>${radioChoise}</td>
+            </tr>
+            <tr>
+              <td>event value:</td>
+              <td>${eventDetail['radio1'].value}</td>
+            </tr>
+          </tbody>
+        </table><br/>
+      </section>
+      <!-- BOOLEAN-->
+      <section class="components">
+        <h6>Booleans</h6>
+        <mdc-radio checked.bind="likeCake3" model.bind="null" name="cake3" disabled.bind="radioDisable" on-change.delegate="onChange($event)">Don't Know</mdc-radio>
+        <mdc-radio checked.bind="likeCake3" model.bind="true" name="cake3" disabled.bind="radioDisable" on-change.delegate="onChange($event)">Yes</mdc-radio>
+        <mdc-radio checked.bind="likeCake3" model.bind="false" name="cake3" disabled.bind="radioDisable" on-change.delegate="onChange($event)">No</mdc-radio>
+        <table class="event-list">
+          <tbody>
+            <tr>
+              <td>selected value:</td>
+              <td>${likeCake3}</td>
+            </tr>
+            <tr>
+              <td>event value:</td>
+              <td>${eventDetail['cake3'].value}</td>
+            </tr>
+          </tbody>
+        </table><br/>
+      </section>
+      <!-- OBJECTS-->
+      <section class="components">
+        <h6>Binding to Objects</h6>
+        <mdc-radio repeat.for="color of colors" checked.bind="selectedColor" disabled.bind="radioDisable" model.bind="color" name="color" on-change.delegate="onChange($event)">${color.name}</mdc-radio>
+        <table class="event-list">
+          <tbody>
+            <tr>
+              <td>selected value:</td>
+              <td>${selectedColor | stringify}</td>
+            </tr>
+            <tr>
+              <td>event value:</td>
+              <td>${eventDetail['color'].value | stringify}</td>
+            </tr>
+          </tbody>
+        </table><br/>
+      </section>
+      <!-- OBJECTS WITH MATCHER-->
+      <section class="components">
+        <h6>Objects with Matcher</h6>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 0, name: 'Motherboard' }" matcher.bind="productMatcher" name="matcher" disabled.bind="radioDisable" on-change.delegate="onChange($event)">Motherboard</mdc-radio>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 1, name: 'CPU' }" matcher.bind="productMatcher" name="matcher" disabled.bind="radioDisable" on-change.delegate="onChange($event)">CPU</mdc-radio>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 2, name: 'Memory' }" matcher.bind="productMatcher" name="matcher" disabled.bind="radioDisable" on-change.delegate="onChange($event)">Memory</mdc-radio>
+        <table class="event-list">
+          <tbody>
+            <tr>
+              <td>selected value:</td>
+              <td>${selectedProduct | stringify}</td>
+            </tr>
+            <tr>
+              <td>event value:</td>
+              <td>${eventDetail['matcher'].value | stringify}</td>
+            </tr>
+          </tbody>
+        </table><br/>
+      </section>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/input-controls/radio-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-radio">Material components documentation</a><br/><a href="https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button" target="_blank" data-analytics-category="external" data-analytics-action="mdg-radio">Material design guidelines</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- MATCHER AND CHANGE EVENT-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism language="typescript">import { IMdcRadioEvent } from 'aurelia-mdc-bridge';
+
+private selectedProduct = { id: 1, name: 'CPU' };
+
+// matcher
+private productMatcher = (a, b) => a.id === b.id;
+
+private onChange(event: IMdcRadioEvent) {
+}
+
+        </code-prism></pre>
+      <!-- CONFIG-->
+      <pre>
+        <code-prism>&lt;mdc-radio
+  name="name"
+  checked.bind="checked"
+  value="value"
+  model.bind="model"
+  matcher.bind="matcher"
+  disabled.bind="disabled"
+  on-change.delegate="onChange($event)"&gt;
+
+  Title
+&lt;/mdc-radio&gt;
+
+
+        </code-prism></pre>
+      <!-- STRING-->
+      <hr/>
+      <section>
+        <h5>String</h5>
+        <mdc-radio checked.bind="dummy1" value="option1" name="stringChoise">Option 1</mdc-radio>
+        <mdc-radio checked.bind="dummy1" value="option2" name="stringChoise">Option 2</mdc-radio>
+        <p>Selected: ${dummy1}</p>
+        <!-- html-->
+        <pre>
+          <code-prism language="html">&lt;mdc-radio
+  name="radio1"
+  value="option1"
+  checked.bind="selectedValue"&gt;Option 1
+&lt;/mdc-radio&gt;
+
+&lt;mdc-radio
+  name="radio1"
+  value="option2"
+  checked.bind="selectedValue"&gt;Option 2
+&lt;/mdc-radio&gt;
+
+
+          </code-prism></pre>
+      </section>
+      <!-- BOOLEAN-->
+      <hr/>
+      <section>
+        <h5>Booleans</h5>
+        <mdc-radio checked.bind="likeCake2" model.bind="true" name="likecake2">Yes</mdc-radio>
+        <mdc-radio checked.bind="likeCake2" model.bind="false" name="likecake2">No</mdc-radio>
+        <mdc-radio checked.bind="likeCake2" model.bind="null" name="likecake2">Don't Know</mdc-radio>
+        <p>Selected: ${likeCake2}</p>
+      </section>
+      <pre>
+        <code-prism>likeCake = null;
+
+&lt;mdc-radio
+  name="likecake"
+  model.bind="true"
+  checked.bind="likeCake"&gt;Yes
+&lt;/mdc-radio&gt;
+
+&lt;mdc-radio
+  name="likecake"
+  model.bind="false"
+  checked.bind="likeCake"&gt;No
+&lt;/mdc-radio&gt;
+
+&lt;mdc-radio
+  name="likecake"
+  model.bind="null"
+  checked.bind="likeCake"&gt;Don't Know
+&lt;/mdc-radio&gt;
+
+
+        </code-prism></pre>
+      <!-- OBJECT-->
+      <hr/>
+      <section>
+        <h5>Object</h5>
+        <mdc-radio repeat.for="color of colors" checked.bind="selectedColor" model.bind="color" name="colorObject">${color.name}</mdc-radio>
+        <p>Selected: ${selectedColor | stringify}</p>
+      </section>
+      <pre>
+        <code-prism language="typescript">private colors = [
+  { name: 'red', hex: '#ff0000' },
+  { name: 'green', hex: '#00ff00' },
+  { name: 'blue', hex: '#0000ff' }
+];
+private selectedColor = this.colors[1];
+
+        </code-prism></pre>
+      <pre>
+        <code-prism>&lt;mdc-radio
+  repeat.for="color of colors"
+  name="colorObject"
+  model.bind="color"
+  checked.bind="selectedColor"&gt;$color.name}
+&lt;/mdc-radio&gt;
+
+
+        </code-prism></pre>
+      <!-- OBJECT WITH MATCHER-->
+      <hr/>
+      <section>
+        <h5>Object with Matcher</h5>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 0, name: 'Motherboard' }" matcher.bind="productMatcher" name="matcher2">Motherboard</mdc-radio>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 1, name: 'CPU' }" matcher.bind="productMatcher" name="matcher2">CPU</mdc-radio>
+        <mdc-radio checked.bind="selectedProduct" model.bind="{ id: 2, name: 'Memory' }" matcher.bind="productMatcher" name="matcher2">Memory</mdc-radio>
+        <p>Selected: ${selectedProduct | stringify}</p>
+      </section>
+      <pre>
+        <code-prism language="typescript">private selectedProduct = { id: 1, name: 'CPU' };
+private productMatcher = (a, b) => a.id === b.id;
+
+        </code-prism></pre>
+      <pre>
+        <code-prism>&lt;mdc-radio
+  name="matcher2"
+  model.bind="{ id: 0, name: 'Motherboard' }"
+  matcher.bind="productMatcher"
+  checked.bind="selectedProduct"&gt;Motherboard
+&lt;/mdc-radio&gt;
+
+&lt;mdc-radio
+  name="matcher2"
+  model.bind="{ id: 1, name: 'CPU' }"
+  matcher.bind="productMatcher"
+  checked.bind="selectedProduct"&gt;CPU
+&lt;/mdc-radio&gt;
+
+&lt;mdc-radio
+  name="matcher2"
+  model.bind="{ id: 2, name: 'Memory' }"
+  matcher.bind="productMatcher"
+  checked.bind="selectedProduct"&gt;Memory
+&lt;/mdc-radio&gt;
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

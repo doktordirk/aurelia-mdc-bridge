@@ -1,0 +1,245 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Dialogs</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="12">
+      <button mdc-button="raised: true;" click.delegate="showDialog()">Show Dialog</button>
+      <button mdc-button="raised: true;" click.delegate="showDialog4()">Show dialog with colored footer button</button>
+      <p>accept clicked: ${acceptClicked1}</p>
+      <button mdc-button="raised: true;" click.delegate="showDialog2()">Show Dialog - scrollable dialog</button>
+      <p>accept clicked: ${acceptClicked2}</p>
+      <p>event counter: ${eventCounter}</p>
+      <mdc-dialog view-model.ref="dialog" header="Dialog" scrollable="false" accept="OK" cancel="Cancel" on-click.delegate="onDialogClick1($event)"><span>Body elements</span></mdc-dialog>
+      <mdc-dialog view-model.ref="dialog2" header="Dialog with scrollable content" scrollable="true" accept="OK" cancel="Close" on-click.delegate="onDialogClick2($event)">
+        <mdc-list>
+          <mdc-list-item>item 0</mdc-list-item>
+          <mdc-list-item>item 1</mdc-list-item>
+          <mdc-list-item>item 2</mdc-list-item>
+          <mdc-list-item>item 3</mdc-list-item>
+          <mdc-list-item>item 4</mdc-list-item>
+          <mdc-list-item>item 5</mdc-list-item>
+          <mdc-list-item>item 6</mdc-list-item>
+          <mdc-list-item>item 7</mdc-list-item>
+          <mdc-list-item>item 8</mdc-list-item>
+          <mdc-list-item>item 9</mdc-list-item>
+        </mdc-list>
+      </mdc-dialog>
+      <mdc-dialog view-model.ref="dialog4" accept="Agree" accept-action="true" cancel="Disagree" on-click.delegate="onDialogClick1($event)">
+        <p>Colored footer button</p>
+      </mdc-dialog>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/dialogs/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-dialog">Material components documentation</a><br/><a href="https://material.io/guidelines/components/dialogs.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-dialog">Material design guidelines</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <!-- script-->
+      <pre>
+        <code-prism language="typescript">import { MdcDialog, IMdcDialogClickEvent } from 'aurelia-mdc-bridge';
+
+private dialog: MdcDialog;
+
+private showDialog() {
+  this.dialog.show(true);
+}
+
+private onDialogClick(event: IMdcDialogClickEvent) {
+  const acceptClicked = event.detail;
+}        
+
+        </code-prism></pre>
+      <!-- html-->
+      <pre>
+        <code-prism>&lt;mdc-dialog
+  header="Dialog header"
+  accept="OK"
+  cancel="Cancel"
+  view-model.ref="dialog"
+  on-click.delegate="onDialogClick($event)"&gt;
+
+  &lt;p&gt;Dialog content&lt;/p&gt;
+&lt;/mdc-dialog&gt;
+
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- SCROLLABLE-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Scrollable</h5>
+        <p>Set <span class="mark-text">scrollable</span> attribute to <span class="mark-text">true</span> to enable scrollable content:</p>
+        <pre>
+          <code-prism>&lt;mdc-dialog
+  scrollable="true"
+  header="Dialog header"
+  accept="OK"
+  cancel="Cancel"
+  view-model.ref="dialog"
+  on-click.delegate="onDialogClick($event)"&gt;
+
+  &lt;mdc-list&gt;
+    &lt;mdc-list-item&gt;Item 0&lt;/mdc-list-item&gt;
+    ...
+  &lt;/mdc-list&gt;
+&lt;/mdc-dialog&gt;
+
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- DIALOG ACTION COLOR-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Dialog Action Color</h5>
+        <p>
+          Dialog actions use system colors by default, but you can use a contrasting color, such as the palette’s secondary color, 
+          to distinguish dialog actions from dialog content.
+        </p>
+        <p>To apply secondary color use attribute <span class="mark-text">accept-action="true"</span> for accept button
+          and <span class="mark-text">cancel-action="true"</span> for cancel button:
+          
+        </p>
+      </section>
+      <pre>
+        <code-prism>&lt;mdc-dialog
+  accept="OK"
+  accept-action="true"
+  cancel="Cancel"
+  view-model.ref="dialog"&gt;
+
+  &lt;p&gt;Dialog content&lt;/p&gt;
+&lt;/mdc-dialog&gt;
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- DISABLE ACCEPT BUTTON-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Disable Accept Button</h5>
+        <p>
+          It is possible to disable affirmative action until a choise is made. 
+          This can be useful if you need to validate before accepting dialog.
+        </p>
+        <p>To disable accept button set attribute <span class="mark-text">accept-disabled="true"</span>:</p>
+      </section>
+      <pre>
+        <code-prism>&lt;mdc-dialog
+  accept="OK"
+  cancel="Cancel"
+  accept-disabled.bind="!isValid"
+  view-model.ref="dialog"&gt;
+
+  &lt;p&gt;Dialog content&lt;/p&gt;
+&lt;/mdc-dialog&gt;
+
+        </code-prism></pre>
+      <!-- DISABLE ACCEPT EXAMPLE-->
+      <button mdc-button="raised: true;" click.delegate="showDialog5()">Disable Accept Button Example</button>
+      <mdc-dialog view-model.ref="dialog5" header="Access permission" accept="OK" cancel="Cancel" accept-action="true" accept-disabled.bind="!accessPermission">
+        <mdc-radio name="parentPermission" value="sister" checked.bind="accessPermission">Give sister access to room</mdc-radio><br/>
+        <mdc-radio name="parentPermission" value="brother" checked.bind="accessPermission">Give brother access to room</mdc-radio>
+      </mdc-dialog>
+    </mdc-grid-cell>
+    <!-- CUSTOM ACCEPT FUNCTION-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Custom Accept Function</h5>
+        <p>
+          If you have to to send a API request to validate before closing the
+          dialog, you must create a custom accept function. 
+        </p>
+        <p>Custom accept function:</p>
+      </section>
+      <pre>
+        <code-prism language="typescript">private onAccept() {
+  apiRequest(..).then(() => {
+    this.dialog.show(false);
+  })
+}
+
+        </code-prism></pre>
+      <p>Replace accept function:</p>
+      <pre>
+        <code-prism language="typescript">this.dialog.foundation.accept = this.onAccept.bind(this);
+
+        </code-prism></pre>
+      <!-- CUSTOM ACCEPT FUNCTION EXAMPLE-->
+      <button mdc-button="raised: true;" click.delegate="showDialog6()">Example</button>
+      <mdc-dialog view-model.ref="dialog6" accept="Accept" cancel="Cancel">
+        <p>Press Accept button to start close counter</p>
+        <p>Counter: ${dialog6Counter}</p>
+      </mdc-dialog>
+    </mdc-grid-cell>
+    <!-- OPEN / CLOSED EVENTS-->
+    <mdc-grid-cell span="12">
+      <h5>Opened / Closed events</h5>
+      <p>These events fire after the dialog has beed opened / closed.</p>
+      <pre>
+        <code-prism><mdc-dialog on-opened.delegate="onOpened()" on-closed.delegate="onClosed()"></mdc-dialog></code-prism></pre>
+      <button mdc-button="raised: true;" click.delegate="showDialog3()">Open dialog</button>
+      <mdc-dialog view-model.ref="dialog3" header="Dialog" accept="OK" cancel="Cancel" on-opened.delegate="onOpened3()" on-closed.delegate="onClosed3()">
+        <mdc-text-field view-model.ref="focusMeElement">Should be focused</mdc-text-field>
+      </mdc-dialog>
+      <p>Event: ${openCloseStatus3}</p>
+      <pre>
+        <code-prism>&lt;mdc-dialog
+  header="Dialog"
+  accept="OK"
+  cancel="Cancel"
+  on-opened.delegate="onOpened()"&gt;
+  &lt;mdc-text-field view-model.ref="focusMe"&gt;Should be focused&lt;/mdc-text-field&gt;
+&lt;/mdc-dialog&gt;
+        </code-prism></pre>
+      <pre>
+        <code-prism language="typescript">import { TaskQueue, autoinject } from 'aurelia-framework';
+import { MdcTextField } from 'aurelia-mdc-bridge';
+...
+private focusMe: MdcTextField;
+
+constructor(private taskQueue: TaskQueue) {}
+
+private onOpened() {
+  this.taskQueue.queueTask(() => {
+    this.focusMe.focus();
+  });
+}
+
+
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- USE SLOTS FOR DIALOG BOXES-->
+    <mdc-grid-cell span="12">
+      <h5>Use header and footer slots</h5>
+      <p>If you want to customize the content of the header and footer, use slots:</p>
+      <pre>
+        <code-prism><mdc-dialog>
+  <span slot="header">
+    <i class="material-icons md-24 primary">star</i>
+    <span class="mdc-dialog__header__title">Header</span>
+  </span>
+  
+  <span slot="footer">
+    <button mdc-button class="mdc-dialog__footer__button mdc-dialog__footer__button--accept">
+      Accept
+    </button>
+  </span>
+
+  <p>Body</p>
+</mdc-dialog>
+
+        </code-prism></pre>
+      <button mdc-button="raised: true;" click.delegate="showDialog7()">Open Dialog</button><br/>
+      <mdc-dialog view-model.ref="dialog7"><span slot="header"><i class="material-icons md-24 primary">star</i><span class="mdc-dialog__header__title">Header</span></span><span slot="footer">
+          <button class="mdc-dialog__footer__button mdc-dialog__footer__button--accept" mdc-button="mdc-button">Accept</button></span>
+        <p>Body</p>
+      </mdc-dialog>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

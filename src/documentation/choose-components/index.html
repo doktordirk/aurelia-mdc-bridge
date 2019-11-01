@@ -1,0 +1,80 @@
+
+<template>
+  <!-- DOCUMENTATION-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Choose Components</h4>
+      <p>
+        When you register the plugin in main.js in src folder, the default 
+        action of the library is to use all components. You can choose to
+        use only the components you want by configure the plugin like this:
+        
+        
+      </p>
+    </mdc-grid-cell>
+    <!-- DEFAULT-->
+    <mdc-grid-cell span="12">
+      <h5>Default</h5>
+      <pre>
+        <code-prism language="typescript">export function configure(aurelia) {
+  ...
+    aurelia.use.plugin('aurelia-mdc-bridge');
+  ...
+}
+
+        </code-prism></pre>
+      <p>This is the same as default</p>
+      <pre>
+        <code-prism language="typescript">aurelia.use.plugin('aurelia-mdc-bridge', b => b.useAll());
+
+        </code-prism></pre>
+      <p>To use only <span class="mark-text">Text Fields</span> and <span class="mark-text">Buttons</span>:</p>
+      <pre>
+        <code-prism language="typescript">aurelia.use.plugin('aurelia-mdc-bridge', b => b.useTextFields().useButtons());
+
+        </code-prism></pre>
+      <p>IntelliSense</p>
+      <pre>
+        <code-prism language="typescript">import { ConfigBuilder } from 'aurelia-mdc-bridge';
+
+export function configure(aurelia) {
+  ...
+    aurelia.use.plugin('aurelia-mdc-bridge', (b: ConfigBuilder) => b.useTextFields().useButtons());
+  ...
+}
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- COMPLETE LIST-->
+    <mdc-grid-cell span="12">
+      <h5>Complete list</h5>
+      <pre>
+        <code-prism language="typescript">.useAll()
+.useButtons()
+.useCards()
+.useCheckboxes()
+.useChips()
+.useDialogs()
+.useFab()
+.useGridLists()
+.useIconToggle()
+.useLayoutGrids()
+.useLinearProgress()
+.useLists()
+.useMenus()
+.usePermanentDrawer()
+.usePersistentDrawer()
+.useRadioButtons()
+.useRipples()
+.useSelectMenus()
+.useSliders()
+.useSnackbars()
+.useSwitches()
+.useTabs()
+.useTemporaryDrawer()
+.useTextFields()
+.useToolbars()
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

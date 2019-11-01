@@ -1,0 +1,65 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Linear Progress</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <mdc-checkbox checked.bind="open">open</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="indeterminate">indeterminate</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="reversed">reversed</mdc-checkbox><br/>
+      <mdc-text-field type="number" max="1" min="0" step="0.1" value.bind="buffer">buffer</mdc-text-field>
+      <p>A number between 0 and 1</p><br/>
+      <mdc-text-field type="number" max="1" min="0" step="0.1" value.bind="progress">progress</mdc-text-field>
+      <p>A number between 0 and 1</p>
+    </mdc-grid-cell>
+    <!-- DEMO AREA-->
+    <mdc-grid-cell span="8">
+      <section class="components">
+        <mdc-linear-progress open.bind="open" indeterminate.bind="indeterminate" reversed.bind="reversed" buffer.bind="buffer" progress.bind="progress"></mdc-linear-progress>
+      </section>
+      <section class="linear-progress-secondary components">
+        <mdc-linear-progress open.bind="open" indeterminate.bind="indeterminate" reversed.bind="reversed" buffer.bind="buffer" progress.bind="progress"></mdc-linear-progress>
+      </section>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/linear-progress/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-linear-progress">Material components documentation</a><br/><a href="https://material.io/guidelines/components/progress-activity.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-linear-progress">Material design guidelines</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism>&lt;mdc-linear-progress
+  open.bind="open" 
+  indeterminate.bind="indeterminate"
+  reversed.bind="reversed"
+  buffer.bind="buffer"
+  progress.bind="progress"&gt;
+&lt;/mdc-linear-progress&gt;
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="12">
+      <h5>Themed</h5>
+      <pre>
+        <code-prism language="css">.linear-progress-secondary {
+  // Sets the color of the progress bar
+  @include mdc-linear-progress-bar-color($mdc-theme-secondary);
+
+  // Sets the color of the buffer bar and dots
+  @include mdc-linear-progress-buffer-color(#eee);
+}
+
+        </code-prism></pre>
+      <pre>
+        <code-prism>&lt;mdc-linear-progress
+  class="linear-progress-secondary"
+  ...&gt;
+&lt;/mdc-linear-progress&gt;
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

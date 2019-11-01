@@ -1,0 +1,20 @@
+
+<template>
+  <!-- TOOLBAR LINKS-->
+  <require from="../../toolbar-links"></require>
+  <!-- TOOLBAR TITLE-->
+  <require from="../../toolbar-title"></require>
+  <!-- TOOLBAR-->
+  <mdc-toolbar fixed.bind="fixed" waterfall.bind="waterfall">
+    <mdc-toolbar-row>
+      <!-- HEADER-->
+      <mdc-toolbar-section start="true">
+        <toolbar-title show-menu.bind="showMenu"></toolbar-title>
+      </mdc-toolbar-section>
+      <!-- MAIN NAV-->
+      <mdc-toolbar-section end="true" fit="true">
+        <toolbar-links doc="false" comp="true"></toolbar-links>
+      </mdc-toolbar-section>
+    </mdc-toolbar-row>
+  </mdc-toolbar>
+</template>

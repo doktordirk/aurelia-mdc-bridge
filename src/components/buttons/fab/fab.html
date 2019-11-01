@@ -1,0 +1,114 @@
+
+<template>
+  <require from="./fab.css"></require>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Floating Action Buttons</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <mdc-checkbox checked.bind="mini">mini</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="exited">exited</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="extended">extended</mdc-checkbox><br/>
+      <mdc-checkbox checked.bind="shaped">shaped</mdc-checkbox>
+    </mdc-grid-cell>
+    <!-- DEMO AREA-->
+    <mdc-grid-cell span="8">
+      <button class="${shaped ? 'fab-shaped' : ''}" if.bind="!extended" mdc-fab="exited.bind: exited; mini.bind: mini; aria-label: Star;">star</button>
+      <button class="${shaped ? 'fab-shaped-extended' : ''}" if.bind="extended" mdc-fab="exited.bind: exited; extended.bind: extended; aria-label: Star; label: Favorite;">star</button>
+      <button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;">accessibility</button>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/buttons/floating-action-buttons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-fab">Material components documentation</a><br/><a href="https://material.io/guidelines/components/buttons-floating-action-button.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-fab">Material design guidelines</a><br/><a href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons">Icons</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism>&lt;button mdc-fab="aria-label: Star; mini: true; exited: false;"&gt;
+  favorite_border
+&lt;/button&gt;
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Extended</h5>
+      </section>
+      <pre>
+        <code-prism>&lt;button mdc-fab="extended: true; exited: exited; label: Favorite; aria-label: Star;"&gt;
+  favorite_border
+&lt;/button&gt;
+
+        </code-prism>
+        <!-- EXAMPLE--></pre>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Shaped</h5>
+      </section>
+      <pre>
+        <code-prism>&lt;button class="fab-shaped-extended" mdc-fab="extended: true; label: Favorite; aria-label: Star;"&gt;
+  favorite_border
+&lt;/button&gt;
+        </code-prism></pre>
+      <pre>
+        <code-prism language="css">.fab-shaped {
+  @include mdc-fab-shape-radius(8px);
+}
+
+.fab-shaped-extended {
+  @include mdc-fab-extended-shape-radius(50% 0);
+}
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- RIPPLE-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Ripple</h5>
+        <p>By default the ripple effect is added automatically. To avoid that, set ripple to false:</p>
+        <pre>
+          <code-prism>&lt;button mdc-fab="ripple: false;" ...&gt;
+  ...
+&lt;/button&gt;
+
+
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+    <!-- POSITION-->
+    <mdc-grid-cell span="12">
+      <section>
+        <h5>Position</h5>
+        <p>
+          By default the FAB rests in the page where it sits in the content flow. 
+          Developers must position it as-needed within their applications designs.
+        </p>
+        <pre>
+          <code-prism>&lt;style&gt;
+  .my-fab--fixed {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  @media(min-width: 1024px) {
+    .my-fab--fixed {
+      bottom: 3rem;
+      right: 5rem;
+    }
+  }
+&lt;/style&gt;
+
+&lt;button class="my-fab--fixed" mdc-fab="aria-label: Accessibility;"&gt;
+  favorite_border
+&lt;/button&gt;     
+          </code-prism></pre>
+      </section>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

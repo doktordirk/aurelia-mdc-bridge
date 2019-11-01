@@ -1,0 +1,72 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="12">
+      <h4>Switches</h4>
+    </mdc-grid-cell>
+    <!-- CONFIG AREA-->
+    <mdc-grid-cell span="4">
+      <section>
+        <mdc-checkbox checked.bind="switchDisable">Disable switch</mdc-checkbox>
+      </section>
+    </mdc-grid-cell>
+    <!-- DEMO AREA-->
+    <mdc-grid-cell span="8">
+      <section class="components">
+        <h6>Default theme</h6>
+        <mdc-switch disabled.bind="switchDisable" checked.bind="switch1" on-change.delegate="onChange($event)">On/off</mdc-switch>
+        <table class="event-list">
+          <tbody>
+            <tr>
+              <td>checked:</td>
+              <td>${switch1}</td>
+            </tr>
+            <tr>
+              <td>event value:</td>
+              <td>${isChecked}</td>
+            </tr>
+          </tbody>
+        </table><br/>
+        <mdc-switch disabled.bind="switchDisable" checked.bind="switch2" label-on="On" label-off="Off"></mdc-switch>
+        <p>checked: ${switch2}</p>
+      </section>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/input-controls/switches/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-switch">Material components documentation</a><br/><a href="https://material.io/guidelines/components/selection-controls.html#selection-controls-switch" target="_blank" data-analytics-category="external" data-analytics-action="mdg-switch">Material design guidelines</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- EXAMPLE-->
+    <mdc-grid-cell span="12">
+      <pre>
+        <code-prism language="css">// z-index under toolbar
+
+.mdc-switch__background {
+  z-index: 0;
+}    
+        </code-prism></pre>
+      <pre>
+        <code-prism language="typescript">import { IMdcSwitchEvent } from 'aurelia-mdc-bridge';
+
+private onChange(event: IMdcSwitchEvent) {
+  this.isChecked = event.detail;
+  this.eventCounter++;
+}
+        </code-prism></pre>
+      <pre>
+        <code-prism language="html">&lt;mdc-switch checked.bind="switch1"&gt;
+  On/off
+&lt;/mdc-switch&gt;
+
+&lt;mdc-switch 
+  checked.bind="switch1"
+  disabled.bind="switchDisable"
+  label-on="On"
+  label-off="Off"
+  on-change.delegate="onChange($event)"&gt;
+&lt;/mdc-switch&gt;
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

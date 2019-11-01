@@ -1,0 +1,36 @@
+
+<template>
+  <!-- TOOLBAR LINKS-->
+  <require from="../toolbar-links"></require>
+  <!-- TOOLBAR TITLE-->
+  <require from="../toolbar-title"></require>
+  <!-- ELEMENTS -MENU LIST-->
+  <require from="./app-menu.html"></require>
+  <!-- TOOLBAR-->
+  <mdc-toolbar fixed="true" waterfall="true">
+    <mdc-toolbar-row>
+      <!-- HEADER-->
+      <mdc-toolbar-section start="true">
+        <toolbar-title></toolbar-title>
+      </mdc-toolbar-section>
+      <!-- MAIN NAV-->
+      <mdc-toolbar-section end="true" fit="true">
+        <toolbar-links doc="false" comp="true"></toolbar-links>
+      </mdc-toolbar-section>
+    </mdc-toolbar-row>
+  </mdc-toolbar>
+  <!-- adjust for fixed toolbar-->
+  <div class="mdc-toolbar-fixed-adjust">
+    <!-- make drawer and main area stay side by side-->
+    <div class="container-permanent">
+      <!-- NAV BAR-->
+      <mdc-drawer-permanent class="mdc-show-drawer" spacer="false">
+        <app-menu></app-menu>
+      </mdc-drawer-permanent>
+      <!-- MAIN AREA-->
+      <main>
+        <router-view>     </router-view>
+      </main>
+    </div>
+  </div>
+</template>
