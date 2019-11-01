@@ -6,7 +6,6 @@ import * as gulp from 'gulp';
 import * as path from 'path';
 import * as plumber from 'gulp-plumber';
 import * as notify from 'gulp-notify';
-import * as pug from 'gulp-pug';
 import * as sass from 'gulp-sass';
 import { build } from 'aurelia-cli';
 
@@ -22,20 +21,6 @@ const AUTOPREFIXER_BROWSERS = {
   ],
   cascade: false
 };
-
-function buildPug() {
-  return gulp.src('src/bridge/**/*.pug')
-    .pipe(plumber({ errorHandler: notify['onError']('Error: <%= error.message %>') }))
-    .pipe(pug({
-      pretty: true
-    }))
-    .pipe(gulp.dest('dist/amd/'))
-    .pipe(gulp.dest('dist/commonjs/'))
-    .pipe(gulp.dest('dist/es2015/'))
-    .pipe(gulp.dest('dist/es2017/'))
-    .pipe(gulp.dest('dist/native-modules/'))
-    .pipe(gulp.dest('dist/system/'));
-}
 
 function buildScss() {
   return gulp.src('src/bridge/**/*.scss')
@@ -66,6 +51,5 @@ function copyFiles() {
 
 export default gulp.series(
   copyFiles,
-  buildPug,
   buildScss
 );

@@ -4,7 +4,6 @@ import * as gulp from 'gulp';
 import * as path from 'path';
 import * as plumber from 'gulp-plumber';
 import * as notify from 'gulp-notify';
-import * as pug from 'gulp-pug';
 import * as htmlreplace from 'gulp-html-replace';
 import { build } from 'aurelia-cli';
 

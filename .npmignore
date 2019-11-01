@@ -9,7 +9,6 @@ docs
 images
 
 # general project files
-index.pug
 index.html
 index.scss
 index.css

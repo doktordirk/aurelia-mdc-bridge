@@ -23,12 +23,6 @@
     "fileExtension": ".html",
     "source": "src/**/*.html"
   },
-  "markupPug": {
-    "id": "pugminimum",
-    "displayName": "Minimal Minification",
-    "fileExtension": ".pug",
-    "source": "src/**/*.pug"
-  },
   "cssProcessor": {
     "id": "sass",
     "displayName": "Sass",

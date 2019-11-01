@@ -4,8 +4,6 @@ import * as gulp from 'gulp';
 import { CLIOptions, build as buildCLI } from 'aurelia-cli';
 import transpile from './transpile';
 import processMarkup from './process-markup';
-import processPug from './process-pug';
-import processIndexPug from './process-pug-index';
 import processCSS from './process-css';
 import processCSSIndex from './process-css-index';
 import copyFiles from './copy-files';
@@ -15,9 +13,7 @@ const build = gulp.series(
   readProjectConfiguration,
   gulp.parallel(
     transpile,
-    processIndexPug,
     processMarkup,
-    processPug,
     processCSS,
     processCSSIndex,
     copyFiles
