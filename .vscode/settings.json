@@ -1,0 +1,30 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "html.suggest.angular1": false,
+  "html.suggest.ionic": false,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/target/**": true,
+    "**/build_tools/**": true,
+    "**/build/**": true,
+    "**/bin/**": true,
+    "**/coverage-karma/**": true,
+    "**/.gradle/**": true
+  },
+  "search.exclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "html.format.maxPreserveNewLines": 1,
+  "html.format.endWithNewline": true,
+  "html.format.wrapLineLength": 100,
+	"html.format.wrapAttributes": "force-expand-multiline",
+  "aurelia.autocomplete.quotes": "single"
+}
