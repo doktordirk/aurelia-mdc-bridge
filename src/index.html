@@ -1,20 +1,20 @@
 
 <template>
-  <require from="./toolbar-links"></require>
-  <require from="./toolbar-title"></require>
-  <!-- TOOLBAR-->
-  <mdc-toolbar fixed="true" waterfall="false">
-    <mdc-toolbar-row>
-      <mdc-toolbar-section start="true">
-        <toolbar-title></toolbar-title>
-      </mdc-toolbar-section>
-      <mdc-toolbar-section end="true" fit="true">
-        <toolbar-links doc="false" comp="false"></toolbar-links>
-      </mdc-toolbar-section>
-    </mdc-toolbar-row>
-  </mdc-toolbar>
+  <require from="./top-app-bar-links"></require>
+  <require from="./top-app-bar-title"></require>
+  <!-- TOP-APP-BAR-->
+  <mdc-top-app-bar fixed="true" waterfall="false">
+    <mdc-top-app-bar-row>
+      <mdc-top-app-bar-section start="true">
+        <top-app-bar-title></top-app-bar-title>
+      </mdc-top-app-bar-section>
+      <mdc-top-app-bar-section end="true" fit="true">
+        <top-app-bar-links doc="false" comp="false"></top-app-bar-links>
+      </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+  </mdc-top-app-bar>
   <!-- MAIN-->
-  <main class="mdc-toolbar-fixed-adjust">
+  <main class="mdc-top-app-bar-fixed-adjust">
     <mdc-grid>
       <mdc-grid-cell span="12">
         <h4>What is Aurelia Mdc Bridge?</h4>

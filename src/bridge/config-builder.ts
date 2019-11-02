@@ -34,7 +34,7 @@ export class ConfigBuilder {
       .useRipples()
       .useSnackbars()
       .useTabs()
-      .useToolbars();
+      .useTopAppBars();
   }
 
   public useButtons(): ConfigBuilder {
@@ -144,11 +144,11 @@ export class ConfigBuilder {
     this.globalResources.push(PLATFORM.moduleName('./tab/tab'));
     return this;
   }
-  public useToolbars(): ConfigBuilder {
-    this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-row'));
-    this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-section'));
-    this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-title'));
-    this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar'));
+  public useTopAppBars(): ConfigBuilder {
+    this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-row'));
+    this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-section'));
+    this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-title'));
+    this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar'));
     return this;
   }
 

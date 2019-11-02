@@ -4,8 +4,8 @@
   <require from="../../app-menu"></require>
   <!-- STYLES FOR LAYOUT-->
   <require from="./drawer.css"></require>
-  <!-- TOOLBAR-->
-  <require from="../sample-toolbar"></require>
+  <!-- TOP-APP-BAR-->
+  <require from="../sample-top-app-bar"></require>
   <div class="container-persistent-body"> 
     <mdc-drawer-persistent view-model.ref="mdcDrawer" open.bind="open" on-open.delegate="onOpen()" on-close.delegate="onClose()">
       <mdc-drawer-spacer class="mdc-typography--headline">Spacer</mdc-drawer-spacer>
@@ -13,8 +13,8 @@
       <app-menu></app-menu>
     </mdc-drawer-persistent>
     <div class="container-persistent-content">
-      <!-- TOOLBAR-->
-      <sample-toolbar fixed="false" show-menu="true" on-menu.delegate="onClick()"></sample-toolbar>
+      <!-- TOP-APP-BAR-->
+      <sample-top-app-bar fixed="false" show-menu="true" on-menu.delegate="onClick()"></sample-top-app-bar>
       <!-- MAIN AREA-->
       <main>
         <mdc-grid>
@@ -37,7 +37,7 @@
           <!-- LINKS-->
           <mdc-grid-cell span="12">
             <hr/><a href="https://material.io/components/web/catalog/drawers/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-drawer">Material components documentation</a><br/><a href="https://material.io/guidelines/patterns/navigation-drawer.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer">Material design guidelines</a>
-            <hr/><a href="#/components/toolbars">mdc-toolbar</a><br/><a href="#/components/lists">mdc-list</a>
+            <hr/><a href="#/components/top-app-bars">mdc-top-app-bar</a><br/><a href="#/components/lists">mdc-list</a>
             <hr/>
           </mdc-grid-cell>
           <!-- BASIC-->
@@ -82,17 +82,17 @@
   &lt;mdc-drawer-persistent&gt;
 
 
-  &lt;!-- stack toolbar and main on top of each other. --&gt;
+  &lt;!-- stack top-app-bar and main on top of each other. --&gt;
   <div class="container-persistent-content">
 
-    &lt;!-- TOOLBAR --&gt;
-    <mdc-toolbar>
-      <mdc-toolbar-row>
-        <mdc-toolbar-section start="true">
-          <a click.delegate="onTrigger()" class="material-icons mdc-toolbar__menu-icon" href="#">menu</a>
-        </mdc-toolbar-section>
-      </mdc-toolbar-row>
-    </mdc-toolbar>
+    &lt;!-- TOP-APP-BAR --&gt;
+    <mdc-top-app-bar>
+      <mdc-top-app-bar-row>
+        <mdc-top-app-bar-section start="true">
+          <a click.delegate="onTrigger()" class="material-icons mdc-top-app-bar__menu-icon" href="#">menu</a>
+        </mdc-top-app-bar-section>
+      </mdc-top-app-bar-row>
+    </mdc-top-app-bar>
 
     &lt;!-- MAIN AREA --&gt;
     <main class="container-persistent-main">
@@ -114,7 +114,7 @@
   width: 100%;
 }
 
-/* Stack toolbar and main on top of each other. */
+/* Stack top-app-bar and main on top of each other. */
 .container-persistent-content {
   display: inline-flex;
   flex-direction: column;
@@ -203,7 +203,7 @@ mdc-drawer-header {
             <section>
               <h5>Spacer</h5>
               <p>
-                A toolbar spacer with the correct amount of space to match the toolbar height. You can place content inside the toolbar spacer.
+                A top-app-bar spacer with the correct amount of space to match the top-app-bar height. You can place content inside the top-app-bar spacer.
                 
               </p>
               <pre>

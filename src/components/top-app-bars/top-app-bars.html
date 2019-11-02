@@ -1,0 +1,242 @@
+
+<template>
+  <!-- SAMPLE-->
+  <mdc-grid>
+    <mdc-grid-cell span="4">
+      <h4>TopAppBars</h4>
+    </mdc-grid-cell>
+    <!-- LINKS-->
+    <mdc-grid-cell span="12">
+      <hr/><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">Material components documentation</a><br/><a href="https://material.io/guidelines/components/top-app-bars.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-top-app-bar">Material design guidelines</a><br/><a href="https://material.io/icons/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-icons">Icons</a>
+      <hr/>
+    </mdc-grid-cell>
+    <!-- BASIC-->
+    <mdc-grid-cell span="12">
+      <h5>Basic</h5>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="12">
+      <mdc-top-app-bar>
+        <mdc-top-app-bar-row>
+          <mdc-top-app-bar-section start="true"><a class="material-icons mdc-top-app-bar__menu-icon" href="#/components/top-app-bars">menu</a>
+            <mdc-top-app-bar-title>Title</mdc-top-app-bar-title>
+          </mdc-top-app-bar-section>
+        </mdc-top-app-bar-row>
+      </mdc-top-app-bar>
+      <pre>
+        <code-prism><mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section start="true">
+      <a class="material-icons mdc-top-app-bar__menu-icon" href="#/components/top-app-bars">menu</a>
+      <mdc-top-app-bar-title>Title</mdc-top-app-bar-title>
+    </mdc-top-app-bar-section>              
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- MULTIROW-->
+    <mdc-grid-cell span="12">
+      <h5>Multi row</h5>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <pre>
+        <code-prism><mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <span>row 1</span>
+  </mdc-top-app-bar-row>
+  <mdc-top-app-bar-row>
+    <span>row 2</span>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <mdc-top-app-bar>
+        <mdc-top-app-bar-row><span>row 1</span></mdc-top-app-bar-row>
+        <mdc-top-app-bar-row><span>row 2</span></mdc-top-app-bar-row>
+      </mdc-top-app-bar>
+    </mdc-grid-cell>
+    <!-- SECTIONS-->
+    <mdc-grid-cell span="12">
+      <h5>Sections</h5>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <pre>
+        <code-prism><mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section start="true">start</mdc-top-app-bar-section>
+    <mdc-top-app-bar-section>center</mdc-top-app-bar-section>
+    <mdc-top-app-bar-section end="true">end</mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <mdc-top-app-bar>
+        <mdc-top-app-bar-row>
+          <mdc-top-app-bar-section start="true">start</mdc-top-app-bar-section>
+          <mdc-top-app-bar-section>center</mdc-top-app-bar-section>
+          <mdc-top-app-bar-section end="true">end</mdc-top-app-bar-section>
+        </mdc-top-app-bar-row>
+      </mdc-top-app-bar>
+    </mdc-grid-cell>
+    <!-- SHRINK TO FIT-->
+    <mdc-grid-cell span="12">
+      <h5>Shrink to fit</h5>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <pre>
+        <code-prism><mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section start="true">
+      <mdc-top-app-bar-title>This is a super super super super super super super super long title</mdc-top-app-bar-title>
+    </mdc-top-app-bar-section>
+    <mdc-top-app-bar-section end="true" fit="true">end</mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <mdc-grid-cell span="6">
+      <mdc-top-app-bar>
+        <mdc-top-app-bar-row>
+          <mdc-top-app-bar-section start="true">
+            <mdc-top-app-bar-title>This is a super super super super super super super super long title</mdc-top-app-bar-title>
+          </mdc-top-app-bar-section>
+          <mdc-top-app-bar-section fit="true" end="true">end</mdc-top-app-bar-section>
+        </mdc-top-app-bar-row>
+      </mdc-top-app-bar>
+    </mdc-grid-cell>
+    <!-- ICONS-->
+    <mdc-grid-cell span="12">
+      <h5>Icons</h5>
+      <p>Icons can be added as anchor tags, spans, or buttons to <span class="mark-text">mdc-top-app-bar</span>. There are two types of icons, 
+        <span class="mark-text">mdc-top-app-bar__menu-icon</span> represents the left most icon in <span class="mark-text">mdc-top-app-bar</span>
+        usually to the left of <span class="mark-text">mdc-top-app-bar__title</span>. <span class="mark-text">mdc-top-app-bar__icon</span>
+        represents any icons placed on the right side of an <span class="mark-text">mdc-top-app-bar</span>.
+        
+      </p>
+      <mdc-top-app-bar>
+        <mdc-top-app-bar-row>
+          <mdc-top-app-bar-section start="true"><a class="material-icons mdc-top-app-bar__menu-icon" href="#/components/top-app-bars">menu</a>
+            <mdc-top-app-bar-title>Title</mdc-top-app-bar-title>
+          </mdc-top-app-bar-section>
+          <mdc-top-app-bar-section end="true"><span class="material-icons mdc-top-app-bar__icon">star</span>
+            <button class="mdc-top-app-bar__icon"><i class="material-icons">star</i></button><a class="material-icons mdc-top-app-bar__icon" href="#/components/top-app-bars">star</a>
+          </mdc-top-app-bar-section>
+        </mdc-top-app-bar-row>
+      </mdc-top-app-bar>
+      <pre>
+        <code-prism><mdc-top-app-bar>
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section start="true">
+      <a class="material-icons mdc-top-app-bar__menu-icon" href="#/components/top-app-bars">menu</a>
+      <mdc-top-app-bar-title>Title</mdc-top-app-bar-title>
+    </mdc-top-app-bar-section>
+    <mdc-top-app-bar-section end="true" fit="true">
+      <span class="material-icons mdc-top-app-bar__icon">star</span>
+      <button class="mdc-top-app-bar__icon">
+        <i class="material-icons">star</i>
+      </button>
+      <a class="material-icons mdc-top-app-bar__icon" href="#/components/top-app-bars">star</a>
+    </mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- FIXED-->
+    <mdc-grid-cell span="12">
+      <h5>Fixed top-app-bars</h5>
+      <p>
+        By default, top-app-bars scroll with the page content. To keep the top-app-bar fixed to the 
+        top of the screen, add <span class="mark-text">fixed="true"</span> to the top-app-bar element
+        
+      </p><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">More here: Material components documentation</a>
+      <pre>
+        <code-prism><mdc-top-app-bar fixed="true">
+  ...
+</mdc-top-app-bar>
+
+<main class="mdc-top-app-bar-fixed-adjust">
+  ...
+</main>              
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- WATERFALL-->
+    <mdc-grid-cell span="12">
+      <h5>Waterfall top-app-bars</h5>
+      <p>By adding <span class="mark-text">waterfall="true"</span> to <span class="mark-text">fixed top-app-bars</span>, fixed top-app-bars 
+        become waterfall top-app-bars. Waterfall top-app-bar is initially static and has no elevation, and then 
+        when the user starts scrolling becomes fixed and gains elevation.
+      </p><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">More here: Material components documentation</a>
+      <pre>
+        <code-prism><mdc-top-app-bar fixed="true" waterfall="true">
+  ...
+</mdc-top-app-bar>
+
+<main class="mdc-top-app-bar-fixed-adjust">
+  ...
+</main>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- FIXED LAST ROW-->
+    <mdc-grid-cell span="12">
+      <h5>Fixed last row top-app-bars</h5>
+      <p>By adding <span class="mark-text">fixed-lastrow-only="true"</span> to <span class="mark-text">fixed top-app-bars</span>, 
+        fixed top-app-bars will anchor only the last row to the top.
+      </p><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">More here: Material components documentation</a>
+      <pre>
+        <code-prism><mdc-top-app-bar fixed="true" fixed-lastrow-only="true">
+  ...
+</mdc-top-app-bar>
+
+<main class="mdc-top-app-bar-fixed-adjust">
+  ...
+</main>
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- FLEXIBLE-->
+    <mdc-grid-cell span="12">
+      <h5>Flexible top-app-bars</h5>
+      <p>Flexible behavior can be added to mdc-top-app-bar, whose height changes as the user scrolls.</p><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">More here: Material components documentation</a>
+      <pre>
+        <code-prism><mdc-top-app-bar flexible="true" on-change.delegate="onChange($event)">
+  ...
+</mdc-top-app-bar>
+        </code-prism></pre>
+      <p>
+        Flexible top-app-bars emit a change custom event with a detail object containing flexibleExpansionRatio property. 
+        The flexibleExpansionRatio property is a number from 0-1 representing the ratio of flexible space that 
+        has already been collapsed divided by the total amount of flexible space.
+      </p>
+      <pre>
+        <code-prism language="typescript">import { IMdcTopAppBarFlexibleChangeEvent } from 'aurelia-mdc-bridge';
+
+private onChange(e: IMdcTopAppBarFlexibleChangeEvent) {
+  console.log(e.detail.flexibleExpansionRatio.toFixed(2));
+}
+
+        </code-prism></pre>
+    </mdc-grid-cell>
+    <!-- FLEXIBLE DEFAULT BEHAVIOR-->
+    <mdc-grid-cell span="12">
+      <h5>Flexible Default Behavior</h5>
+      <p>Set the most common use cases:</p>
+      <ul>
+        <li>Flexible has a fixed initial height 4 times the default size of mdc-top-app-bar-row.</li>
+        <li>It further defines the background and title movement behavior.</li>
+      </ul><a href="https://material.io/components/web/catalog/top-app-bar/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-top-app-bar">More here: Material components documentation</a>
+      <pre>
+        <code-prism><mdc-top-app-bar flexible="true" flexible-default="true" on-change.delegate="onChange($event)">
+  ...
+</mdc-top-app-bar>
+        </code-prism></pre>
+    </mdc-grid-cell>
+  </mdc-grid>
+</template>

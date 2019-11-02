@@ -1,6 +1,6 @@
 import { bindable, containerless } from 'aurelia-framework';
 
 @containerless()
-export class MdcToolbarRow {
+export class MdcTopAppBarRow {
   @bindable() public class: string;
 }

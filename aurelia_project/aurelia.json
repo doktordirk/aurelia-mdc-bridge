@@ -190,9 +190,9 @@
             "main": "mdc.textfield"
           },
           {
-            "name": "@material/toolbar",
-            "path": "../node_modules/@material/toolbar/dist",
-            "main": "mdc.toolbar"
+            "name": "@material/top-app-bar",
+            "path": "../node_modules/@material/top-app-bar/dist",
+            "main": "mdc.topAppBar"
           }
         ]
       },

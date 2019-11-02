@@ -4,12 +4,12 @@
   <require from="../../app-menu"></require>
   <!-- STYLES FOR LAYOUT-->
   <require from="./drawer.css"></require>
-  <!-- TOOLBAR-->
-  <require from="../sample-toolbar"></require>
+  <!-- TOP-APP-BAR-->
+  <require from="../sample-top-app-bar"></require>
   <div class="container-permanent-body">
-    <!-- TOOLBAR-->
-    <sample-toolbar fixed="true"></sample-toolbar>
-    <div class="mdc-toolbar-fixed-adjust">
+    <!-- TOP-APP-BAR-->
+    <sample-top-app-bar fixed="true"></sample-top-app-bar>
+    <div class="mdc-top-app-bar-fixed-adjust">
       <div class="container-permanent-content">
         <!-- NAV BAR-->
         <mdc-drawer-permanent>
@@ -21,7 +21,7 @@
         <main>
           <mdc-grid>
             <mdc-grid-cell span="12">
-              <h4>Permanent Drawer Below Toolbar</h4>
+              <h4>Permanent Drawer Below TopAppBar</h4>
               <p>
                 A permanent drawer is always open, sitting to the side of the content. 
                 It is appropriate for any display size larger than mobile.
@@ -31,7 +31,7 @@
             <!-- LINKS-->
             <mdc-grid-cell span="12">
               <hr/><a href="https://material.io/components/web/catalog/drawers/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-drawer">Material components documentation</a><br/><a href="https://material.io/guidelines/patterns/navigation-drawer.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer">Material design guidelines</a>
-              <hr/><a href="#/components/toolbars">mdc-toolbar</a><br/><a href="#/components/lists">mdc-list</a>
+              <hr/><a href="#/components/top-app-bars">mdc-top-app-bar</a><br/><a href="#/components/lists">mdc-list</a>
               <hr/>
             </mdc-grid-cell>
             <!-- BASIC-->
@@ -49,14 +49,14 @@
               <section>
                 <h5>Layout</h5>
                 <pre>
-                  <code-prism>&lt;!-- stack toolbar and content on top of each other. --&gt;
+                  <code-prism>&lt;!-- stack top-app-bar and content on top of each other. --&gt;
 <div class="container-permanent-body">
 
-  &lt;!-- TOOLBAR --&gt;
-  <mdc-toolbar fixed="true"></mdc-toolbar>
+  &lt;!-- TOP-APP-BAR --&gt;
+  <mdc-top-app-bar fixed="true"></mdc-top-app-bar>
 
-  &lt;!-- REMOVE this class if NOT using FIXED toolbar  --&gt;
-  <div class="mdc-toolbar-fixed-adjust">
+  &lt;!-- REMOVE this class if NOT using FIXED top-app-bar  --&gt;
+  <div class="mdc-top-app-bar-fixed-adjust">
 
     &lt;!-- place drawer and main next to each other. --&gt;
     <div class="container-permanent-content">
@@ -91,7 +91,7 @@
 </div>
                   </code-prism></pre>
                 <pre>
-                  <code-prism language="css">/* Stack toolbar and content on top of each other. */
+                  <code-prism language="css">/* Stack top-app-bar and content on top of each other. */
 .container-permanent-body {
   display: flex;
   flex-direction: column;
@@ -175,7 +175,7 @@ mdc-drawer-header {
               <section>
                 <h5>Spacer</h5>
                 <p>
-                  A toolbar spacer with the correct amount of space to match the toolbar height. You can place content inside the toolbar spacer.
+                  A top-app-bar spacer with the correct amount of space to match the top-app-bar height. You can place content inside the top-app-bar spacer.
                   
                 </p>
                 <pre>

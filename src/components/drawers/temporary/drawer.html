@@ -2,18 +2,18 @@
 <template>
   <!-- MENU LIST-->
   <require from="../../app-menu"></require>
-  <!-- TOOLBAR-->
-  <require from="../sample-toolbar"></require>
+  <!-- TOP-APP-BAR-->
+  <require from="../sample-top-app-bar"></require>
   <!-- DRAWER-->
   <mdc-drawer-temporary view-model.ref="mdcDrawer" open.bind="open" on-open.delegate="onOpen()" on-close.delegate="onClose()">
     <mdc-drawer-spacer class="mdc-typography--headline">Spacer</mdc-drawer-spacer>
     <mdc-drawer-header class="mdc-typography--headline">Header</mdc-drawer-header>
     <app-menu></app-menu>
   </mdc-drawer-temporary>
-  <!-- TOOLBAR-->
-  <sample-toolbar fixed.bind="fixed" show-menu="true" on-menu.delegate="onClick()"></sample-toolbar>
+  <!-- TOP-APP-BAR-->
+  <sample-top-app-bar fixed.bind="fixed" show-menu="true" on-menu.delegate="onClick()"></sample-top-app-bar>
   <!-- MAIN AREA-->
-  <main class.bind="fixed ? 'mdc-toolbar-fixed-adjust' : ''">
+  <main class.bind="fixed ? 'mdc-top-app-bar-fixed-adjust' : ''">
     <mdc-grid>
       <mdc-grid-cell span="12">
         <section>
@@ -23,14 +23,14 @@
           <p>It is appropriate for any display size.</p>
         </section>
       </mdc-grid-cell>
-      <!-- FIXED TOOLBAR-->
+      <!-- FIXED TOP-APP-BAR-->
       <mdc-grid-cell span="12">
-        <mdc-checkbox checked.bind="fixed">Fixed toolbar</mdc-checkbox>
+        <mdc-checkbox checked.bind="fixed">Fixed top-app-bar</mdc-checkbox>
       </mdc-grid-cell>
       <!-- LINKS-->
       <mdc-grid-cell span="12">
         <hr/><a href="https://material.io/components/web/catalog/drawers/" target="_blank" data-analytics-category="external" data-analytics-action="mdc-drawer">Material components documentation</a><br/><a href="https://material.io/guidelines/patterns/navigation-drawer.html" target="_blank" data-analytics-category="external" data-analytics-action="mdg-drawer">Material design guidelines</a>
-        <hr/><a href="#/components/toolbars">mdc-toolbar</a><br/><a href="#/components/lists">mdc-list</a>
+        <hr/><a href="#/components/top-app-bars">mdc-top-app-bar</a><br/><a href="#/components/lists">mdc-list</a>
         <hr/>
       </mdc-grid-cell>
       <!-- BASIC-->
@@ -71,14 +71,14 @@
 
 &lt;/mdc-drawer-temporary&gt;
 
-&lt;!-- TOOLBAR --&gt;
-<mdc-toolbar fixed="false">
-  <mdc-toolbar-row>
-    <mdc-toolbar-section start="true">
-      <a click.delegate="onTrigger()" class="material-icons mdc-toolbar__menu-icon" href="#">menu</a>
-    </mdc-toolbar-section>
-  </mdc-toolbar-row>
-</mdc-toolbar>
+&lt;!-- TOP-APP-BAR --&gt;
+<mdc-top-app-bar fixed="false">
+  <mdc-top-app-bar-row>
+    <mdc-top-app-bar-section start="true">
+      <a click.delegate="onTrigger()" class="material-icons mdc-top-app-bar__menu-icon" href="#">menu</a>
+    </mdc-top-app-bar-section>
+  </mdc-top-app-bar-row>
+</mdc-top-app-bar>
 
 &lt;!-- MAIN AREA --&gt;
 <main class="container-temporary-main">
@@ -166,7 +166,7 @@ mdc-drawer-header {
         <section>
           <h5>Spacer</h5>
           <p>
-            A toolbar spacer with the correct amount of space to match the toolbar height. You can place content inside the toolbar spacer.
+            A top-app-bar spacer with the correct amount of space to match the top-app-bar height. You can place content inside the top-app-bar spacer.
             
           </p>
           <pre>

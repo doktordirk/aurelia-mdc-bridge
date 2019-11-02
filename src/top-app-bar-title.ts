@@ -2,7 +2,7 @@ import { inject, bindable, containerless } from 'aurelia-framework';
 import { App } from './app';
 
 @containerless()
-export class ToolbarTitle {
+export class TopAppBarTitle {
   @bindable() public showMenu = false;
   private title = App.title;
   private titleSmall = App.titleSmall;

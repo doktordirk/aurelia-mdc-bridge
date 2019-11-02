@@ -1,26 +1,26 @@
 
 <template>
-  <!-- TOOLBAR LINKS-->
-  <require from="../toolbar-links"></require>
-  <!-- TOOLBAR TITLE-->
-  <require from="../toolbar-title"></require>
+  <!-- TOP-APP-BAR LINKS-->
+  <require from="../top-app-bar-links"></require>
+  <!-- TOP-APP-BAR TITLE-->
+  <require from="../top-app-bar-title"></require>
   <!-- ELEMENTS -MENU LIST-->
   <require from="./app-menu.html"></require>
-  <!-- TOOLBAR-->
-  <mdc-toolbar fixed="true" waterfall="true">
-    <mdc-toolbar-row>
+  <!-- TOP-APP-BAR-->
+  <mdc-top-app-bar fixed="true" waterfall="true">
+    <mdc-top-app-bar-row>
       <!-- HEADER-->
-      <mdc-toolbar-section start="true">
-        <toolbar-title></toolbar-title>
-      </mdc-toolbar-section>
+      <mdc-top-app-bar-section start="true">
+        <top-app-bar-title></top-app-bar-title>
+      </mdc-top-app-bar-section>
       <!-- MAIN NAV-->
-      <mdc-toolbar-section end="true" fit="true">
-        <toolbar-links doc="false" comp="true"></toolbar-links>
-      </mdc-toolbar-section>
-    </mdc-toolbar-row>
-  </mdc-toolbar>
-  <!-- adjust for fixed toolbar-->
-  <div class="mdc-toolbar-fixed-adjust">
+      <mdc-top-app-bar-section end="true" fit="true">
+        <top-app-bar-links doc="false" comp="true"></top-app-bar-links>
+      </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+  </mdc-top-app-bar>
+  <!-- adjust for fixed top-app-bar-->
+  <div class="mdc-top-app-bar-fixed-adjust">
     <!-- make drawer and main area stay side by side-->
     <div class="container-permanent">
       <!-- NAV BAR-->

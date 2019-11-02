@@ -1,7 +1,7 @@
 import { bindable, containerless, customElement } from 'aurelia-framework';
 
-@customElement('mdc-toolbar-title')
+@customElement('mdc-top-app-bar-title')
 @containerless()
-export class MdcToolbarTitle {
+export class MdcTopAppBarTitle {
   @bindable() public class: string;
 }

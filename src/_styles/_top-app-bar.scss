@@ -1,19 +1,19 @@
 /* 
- * TOOLBAR TITLE
+ * TOP-APP-BAR TITLE
  *
 */
-.mdc-toolbar__title-link {
+.mdc-top-app-bar__title-link {
   color: $my-white-on-dark-color;
   text-decoration: none;
 }
 
 @media(min-width: 680px) {
-  .mdc-toolbar__title--small {
+  .mdc-top-app-bar__title--small {
     display: none;
   }  
 }
 @media(max-width: 679px) {
-  .mdc-toolbar__title--full {
+  .mdc-top-app-bar__title--full {
     display: none;
   }  
 }
@@ -25,7 +25,7 @@
 */
 
 /* Different styles on buttons between Chrome/Firefox */
-.toolbar-link__button {
+.top-app-bar-link__button {
   height: 36px;
   margin-top: 10px;
   &:not(.active) {
@@ -36,23 +36,23 @@
   }
 }
 
-/* Hide/show toolbar buttons/icons */
+/* Hide/show top-app-bar buttons/icons */
 @media(min-width: 570px) {
-  a.toolbar-link__small {
+  a.top-app-bar-link__small {
     display: none;
   }
 }
 @media(max-width: 569px) {
-  a.toolbar-link__full {
+  a.top-app-bar-link__full {
     display: none;
   }  
-  a.toolbar-link__small {
+  a.top-app-bar-link__small {
     display: block;
   }  
 }
 
-/* Color and size for toolbar svg icons */
-a.toolbar-link__svg {
+/* Color and size for top-app-bar svg icons */
+a.top-app-bar-link__svg {
   height: 24px;
   width: 24px;
   align-items: center;
@@ -62,18 +62,18 @@ a.toolbar-link__svg {
     fill: rgba(255, 255, 255, 1); 
   }
 }
-a.toolbar-link__svg.secondary {
+a.top-app-bar-link__svg.secondary {
   path:not([fill]) {
     fill: $mdc-theme-secondary; 
   }
 }
-a.toolbar-link__svg.primary {
+a.top-app-bar-link__svg.primary {
   path:not([fill]) {
     fill: $mdc-theme-primary; 
   }
 }
 
-/* Switches z-index under toolbar */
+/* Switches z-index under top-app-bar */
 .mdc-switch__background {
   z-index: 0;
 }

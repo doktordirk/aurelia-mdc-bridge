@@ -2,7 +2,7 @@ import { bindable, containerless } from 'aurelia-framework';
 import * as util from '../util';
 
 @containerless()
-export class MdcToolbarSection {
+export class MdcTopAppBarSection {
   @bindable() public class: string;
   @bindable() public start = false;
   @bindable() public end = false;
@@ -20,16 +20,16 @@ export class MdcToolbarSection {
 
   private startChanged(newValue: boolean) {
     const value = util.getBoolean(newValue);
-    this.elementSection.classList[value ? 'add' : 'remove']('mdc-toolbar__section--align-start');
+    this.elementSection.classList[value ? 'add' : 'remove']('mdc-top-app-bar__section--align-start');
   }
 
   private endChanged(newValue: boolean) {
     const value = util.getBoolean(newValue);
-    this.elementSection.classList[value ? 'add' : 'remove']('mdc-toolbar__section--align-end');
+    this.elementSection.classList[value ? 'add' : 'remove']('mdc-top-app-bar__section--align-end');
   }
 
   private fitChanged(newValue: boolean) {
     const value = util.getBoolean(newValue);
-    this.elementSection.classList[value ? 'add' : 'remove']('mdc-toolbar__section--shrink-to-fit');
+    this.elementSection.classList[value ? 'add' : 'remove']('mdc-top-app-bar__section--shrink-to-fit');
   }
 }

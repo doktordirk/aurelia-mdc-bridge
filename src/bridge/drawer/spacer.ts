@@ -14,6 +14,6 @@ export class MdcDrawerSpacer {
   private unbind() { /** */ }
 
   private attached() {
-    this.elementSpacer.classList.add('mdc-drawer__toolbar-spacer');
+    this.elementSpacer.classList.add('mdc-drawer__top-app-bar-spacer');
   }
 }

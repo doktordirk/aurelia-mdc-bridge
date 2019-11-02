@@ -231,9 +231,9 @@
               "main": "mdc.textfield"
             },
             {
-              "name": "@material/toolbar",
-              "path": "../node_modules/@material/toolbar/dist",
-              "main": "mdc.toolbar"
+              "name": "@material/top-app-bar",
+              "path": "../node_modules/@material/top-app-bar/dist",
+              "main": "mdc.topAppBar"
             },
             {
               "name": "material-components-web",
@@ -310,10 +310,10 @@
         "aurelia-mdc-bridge/tab/tab-bar-scroller",
         "aurelia-mdc-bridge/tab/tab-bar",
         "aurelia-mdc-bridge/tab/tab",
-        "aurelia-mdc-bridge/toolbar/toolbar-row",
-        "aurelia-mdc-bridge/toolbar/toolbar-section",
-        "aurelia-mdc-bridge/toolbar/toolbar-title",
-        "aurelia-mdc-bridge/toolbar/toolbar",
+        "aurelia-mdc-bridge/top-app-bar/top-app-bar-row",
+        "aurelia-mdc-bridge/top-app-bar/top-app-bar-section",
+        "aurelia-mdc-bridge/top-app-bar/top-app-bar-title",
+        "aurelia-mdc-bridge/top-app-bar/top-app-bar",
         "aurelia-mdc-bridge/util"
       ]
     }

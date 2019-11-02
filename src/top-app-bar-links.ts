@@ -2,7 +2,7 @@ import { bindable, containerless } from 'aurelia-framework';
 import * as util from './bridge/util';
 
 @containerless()
-export class ToolbarLinks {
+export class TopAppBarLinks {
   @bindable() public doc = false;
   @bindable() public comp = false;
 

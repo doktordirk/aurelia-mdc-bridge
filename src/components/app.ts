@@ -20,7 +20,7 @@ export class App {
       { route: 'ripples',         moduleId: './ripples/ripples',                 nav: true, title: 'Ripples' },
       { route: 'snackbars',       moduleId: './snackbars/snackbars',             nav: true, title: 'Snackbars' },
       { route: 'tabs',            moduleId: './tabs/tabs',                       nav: true, title: 'Tabs' },
-      { route: 'toolbars',        moduleId: './toolbars/toolbars',               nav: true, title: 'Toolbars' },
+      { route: 'top-app-bars',        moduleId: './top-app-bars/top-app-bars',               nav: true, title: 'TopAppBars' },
       { route: 'typography',      moduleId: './typography/typography',           nav: true, title: 'Typography' }
     ]);
     this.router = router;

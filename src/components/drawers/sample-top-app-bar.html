@@ -1,0 +1,20 @@
+
+<template>
+  <!-- TOP-APP-BAR LINKS-->
+  <require from="../../top-app-bar-links"></require>
+  <!-- TOP-APP-BAR TITLE-->
+  <require from="../../top-app-bar-title"></require>
+  <!-- TOP-APP-BAR-->
+  <mdc-top-app-bar fixed.bind="fixed" waterfall.bind="waterfall">
+    <mdc-top-app-bar-row>
+      <!-- HEADER-->
+      <mdc-top-app-bar-section start="true">
+        <top-app-bar-title show-menu.bind="showMenu"></top-app-bar-title>
+      </mdc-top-app-bar-section>
+      <!-- MAIN NAV-->
+      <mdc-top-app-bar-section end="true" fit="true">
+        <top-app-bar-links doc="false" comp="true"></top-app-bar-links>
+      </mdc-top-app-bar-section>
+    </mdc-top-app-bar-row>
+  </mdc-top-app-bar>
+</template>
