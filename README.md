@@ -95,6 +95,9 @@ Build and watch
 npm start
 ```
 
+### Trouble-shooting
+In case of ENOSPC error, see https://stackoverflow.com/questions/22475849/node-js-what-is-enospc-error-and-how-to-solve
+
 Lint
 
 ```bash
