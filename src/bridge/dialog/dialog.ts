@@ -62,6 +62,7 @@ export class MdcDialog {
   private attached() {
     this.scrollableChanged(this.scrollable);
     this.headerChanged(this.header);
+    return; // FIXME: temp disable dialog as it screws the hmtl that way
     this.mdcElement = new MDCDialog(this.diagElement);
     //this.mdcDialogFoundation = this.mdcElement.foundation_.adapter_;
     //this.mdcDialogFoundation = 
