@@ -1,5 +1,5 @@
 import { ViewCompiler, ViewResources, BehaviorInstruction } from 'aurelia-framework';
-import { FEATURE } from 'aurelia-pal';
+import { FEATURE } from 'aurelia-pal';
 import { DOMHelper } from '../dom-helper';
 
 //  LIST
@@ -90,13 +90,15 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
   const startSlot = DOMHelper.createElement('div');
   const endSlot = DOMHelper.createElement('div');
   const textSlot = DOMHelper.createElement('span');
+  const primarySlot = DOMHelper.createElement('span');
   const secondarySlot = DOMHelper.createElement('span');
-  const noSlot = DOMHelper.createElement('div');
+  const noSlot = DOMHelper.createElement('span');
 
   // loop child nodes
-  while (node.firstElementChild) {
-    const childNode = node.firstElementChild;
-    if (childNode.attributes) {
+  while (node.firstChild) {
+    const childNode = node.firstChild as Element;
+
+    if (childNode.nodeType === Node.ELEMENT_NODE && childNode.attributes) {
 
       const slotAtr = childNode.attributes.getNamedItem('slot');
 
@@ -139,7 +141,7 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
         } else if (slotAtr.value === 'text') {
           if (childNode.hasChildNodes()) {
             while (childNode.firstChild) {
-              textSlot.appendChild(childNode.firstChild);
+              primarySlot.appendChild(childNode.firstChild);
             }
           }
 
@@ -159,7 +161,7 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
         noSlot.appendChild(childNode);
       }
     } else {
-      // element without attribute?
+      // non-element node. eg text node
       noSlot.appendChild(childNode);
     }
   }
@@ -170,15 +172,19 @@ function moveSlotElements(node: HTMLElement, base: HTMLElement) {
   }
   // build and add noSlot element
   if (secondarySlot.hasChildNodes()) {
+    textSlot.classList.add('mdc-list-item__text');
+    base.appendChild(textSlot);
+
+    primarySlot.classList.add('mdc-list-item__primary-text');
+    textSlot.appendChild(primarySlot);
+
     secondarySlot.classList.add('mdc-list-item__secondary-text');
     textSlot.appendChild(secondarySlot);
-  }
-  if (textSlot.hasChildNodes()) {
-    textSlot.classList.add('mdc-list-item__text');
-    noSlot.appendChild(textSlot);
-  }
-  if (noSlot.hasChildNodes()) {
-    noSlot.classList.add('amb-mdc-list-item-text');
+  } else if (primarySlot.hasChildNodes()) {
+    primarySlot.classList.add('mdc-list-item__text');
+    base.appendChild(primarySlot);
+  } else if (noSlot.hasChildNodes()) {
+    noSlot.classList.add('mdc-list-item__text');
     base.appendChild(noSlot);
   }
   // end

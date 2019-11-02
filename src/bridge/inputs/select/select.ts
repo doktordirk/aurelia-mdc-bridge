@@ -144,7 +144,7 @@ export class MdcSelect {
   // private getTextForOptionAtIndex(index: number): string {
   //   const item = this.mdcSelect.options[index];
   //   if (!item) {  return null; }
-  //   const textArea = item.getElementsByClassName('amb-mdc-list-item-text');
+  //   const textArea = item.getElementsByClassName('-mdc-list-item__text');
   //   if (textArea && textArea.length > 0) {
   //     return (textArea[0] as HTMLElement).innerText;
   //   } else {
