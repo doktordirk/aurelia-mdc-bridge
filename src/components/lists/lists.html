@@ -8,7 +8,6 @@
     <!-- CONFIG AREA-->
     <mdc-grid-cell span="4">
       <mdc-checkbox checked.bind="dense">dense</mdc-checkbox><br />
-      <mdc-checkbox checked.bind="avatar">avatar</mdc-checkbox><br />
       <mdc-checkbox checked.bind="inset">inset (divider)</mdc-checkbox><br />
       <mdc-list dense="true">
         <mdc-list-item><a href="#dense">Dense and Ripple</a></mdc-list-item>
@@ -25,10 +24,7 @@
       <section class="components">
         <mdc-list-group>
           <mdc-list-group-header>&lt;ul&gt; list and &lt;li&gt; items</mdc-list-group-header>
-          <mdc-list
-            dense.bind="dense"
-            avatar.bind="avatar"
-          >
+          <mdc-list dense.bind="dense">
             <!-- start detail-->
             <mdc-list-item>
               start detail
@@ -68,22 +64,28 @@
             <mdc-list-divider inset.bind="inset"></mdc-list-divider>
             <mdc-list-item ripple="true">Simple List item ripple</mdc-list-item>
             <mdc-list-divider inset.bind="inset"></mdc-list-divider>
+          </mdc-list>
+
+          <mdc-list-group-header>avatar</mdc-list-group-header>
+          <mdc-list
+            dense.bind="dense"
+            avatar="true"
+          >
             <mdc-list-item ripple="true">
               <div slot="start"><img
                   src="images/1-1.jpeg"
                   alt="Picture of Janet Perkins"
                 /></div>Avatar
             </mdc-list-item>
+            <mdc-list-divider inset.bind="inset"></mdc-list-divider>
           </mdc-list>
 
           <mdc-list-group-header>two line</mdc-list-group-header>
           <mdc-list
             dense.bind="dense"
             two-line="true"
-            avatar.bind="avatar"
           >
             <!-- two line-->
-            <mdc-list-divider inset.bind="inset"></mdc-list-divider>
             <mdc-list-item>
               <span slot="text">Two-line item</span>
               <span slot="secondary">Secondary
@@ -102,13 +104,13 @@
                   aria-hidden="true"
                 >star </i></div>
             </mdc-list-item>
+            <mdc-list-divider inset.bind="inset"></mdc-list-divider>
           </mdc-list>
 
           <mdc-list-group-header>&lt;nav&gt; list and &lt;a&gt; items</mdc-list-group-header>
           <mdc-list
             tag="nav"
             dense.bind="dense"
-            avatar.bind="avatar"
           >
             <mdc-list-item
               href="#/components/lists"

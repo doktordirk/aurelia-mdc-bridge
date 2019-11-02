@@ -2,7 +2,6 @@ import { MdcDialog, IMdcListItemClickEvent } from '../../bridge/index';
 
 export class Lists {
   private dense = true;
-  private avatar = false;
   private dialog: MdcDialog;
 
   // List item
