@@ -17,7 +17,7 @@ const SASS_INCLUDE_PATHS = [
 const AUTOPREFIXER_BROWSERS = {
   browsers: [
     'last 2 version',
-    'not ie <= 8'
+    'not ie <= 10'
   ],
   cascade: false
 };
