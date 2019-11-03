@@ -1,4 +1,3 @@
-
 <template>
   <require from="./menus.css"></require>
   <!-- SAMPLE-->
@@ -89,13 +88,13 @@ private onCancel() {
 
         </code-prism></pre>
       <pre>
-        <code-prism language="html">&lt;mdc-menu view-model.ref="menuElement" on-select.delegate="onSelect($event)" on-cancel.delegate="onCancel()"&gt;
-  &lt;mdc-list-item&gt;Item 1&lt;/mdc-list-item&gt;
-  &lt;mdc-list-item disabled="true"&gt;Item 2&lt;/mdc-list-item&gt;
-  &lt;mdc-list-item&gt;Item 3&lt;/mdc-list-item&gt;
-  &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
-  &lt;mdc-list-item&gt;Item 4&lt;/mdc-list-item&gt;
-&lt;/mdc-menu&gt;
+        <code-prism language="html"><mdc-menu view-model.ref="menuElement" on-select.delegate="onSelect($event)" on-cancel.delegate="onCancel()">
+  <mdc-list-item>Item 1</mdc-list-item>
+  <mdc-list-item disabled="true">Item 2</mdc-list-item>
+  <mdc-list-item>Item 3</mdc-list-item>
+  <mdc-list-divider></mdc-list-divider>
+  <mdc-list-item>Item 4</mdc-list-item>
+</mdc-menu>
 
 
         </code-prism></pre>
@@ -142,14 +141,14 @@ private showMenu() {
     </mdc-grid-cell>
     <mdc-grid-cell span="12">
       <pre>
-        <code-prism>&lt;mdc-menu view-model.ref="menuElement" value.bind="selectedMenuItem"&gt;
-  &lt;mdc-list-item 
+        <code-prism><mdc-menu view-model.ref="menuElement" value.bind="selectedMenuItem">
+  <mdc-list-item 
     repeat.for="item of menuItems" 
-    model.bind="item"&gt;${item.text}
-  &lt;/mdc-list-item&gt;
-&lt;/mdc-menu&gt;
+    model.bind="item">${item.text}
+  </mdc-list-item>
+</mdc-menu>
 
-&lt;p&gt;${selectedMenuItem}&lt;/p&gt;
+<p>${selectedMenuItem}</p>
 
 
         </code-prism></pre>
@@ -207,21 +206,21 @@ private showMenu() {
         </p>
         <p>The anchor can either be a visible element that the menu is a child of:</p>
         <pre>
-          <code-prism>&lt;mdc-top-app-bar class="mdc-menu-anchor"&gt;
-  &lt;mdc-menu&gt;
+          <code-prism><mdc-top-app-bar class="mdc-menu-anchor">
+  <mdc-menu>
     ...
-  &lt;/mdc-menu&gt;
-&lt;/mdc-top-app-bar&gt;
+  </mdc-menu>
+</mdc-top-app-bar>
 
           </code-prism></pre>
         <p>or a wrapper element that contains the actual visible element to attach to:</p>
         <pre>
-          <code-prism>&lt;div class="mdc-menu-anchor"&gt;
-  &lt;button mdc-button&gt;Open menu&lt;/button&gt;
-  &lt;mdc-menu&gt;
+          <code-prism><div class="mdc-menu-anchor">
+  <button mdc-button>Open menu</button>
+  <mdc-menu>
     ...
-  &lt;/mdc-menu&gt;
-&lt;/div&gt;
+  </mdc-menu>
+</div>
           </code-prism></pre>
         <p>Note: <span class="mark-text">overflow: visible</span> and <span class="mark-text">position: relative</span> will be set 
           on the element with <span class="mark-text">mdc-menu-anchor</span> to ensure that the menu is positioned and 
@@ -278,13 +277,13 @@ private showMenu() {
 
         </code-prism></pre>
       <pre>
-        <code-prism>&lt;div class="demo-menu-manual"&gt;
-  &lt;mdc-menu class="demo-menu-topright"&gt;
+        <code-prism><div class="demo-menu-manual">
+  <mdc-menu class="demo-menu-topright">
     ...
-  &lt;/mdc-menu&gt;
-&lt;/div&gt;
+  </mdc-menu>
+</div>
 
-&lt;button mdc-button&gt;Open menu&lt;/button&gt;
+<button mdc-button>Open menu</button>
 
         </code-prism></pre>
     </mdc-grid-cell>
@@ -353,14 +352,14 @@ private showMenu() {
     </mdc-grid-cell>
     <mdc-grid-cell span="12">
       <pre>
-        <code-prism>&lt;div class="mdc-menu-anchor"&gt;
-  &lt;button mdc-button click.delegate="showMenu()"&gt;Open menu&lt;/button&gt;
-  &lt;mdc-menu 
+        <code-prism><div class="mdc-menu-anchor">
+  <button mdc-button click.delegate="showMenu()">Open menu</button>
+  <mdc-menu 
     anchor-corner="top-left / top-right / bottom-left / bottom-right"
-    view-model.ref="menuElement"&gt;
+    view-model.ref="menuElement">
     ...
-  &lt;/mdc-menu&gt;
-&lt;/div&gt;
+  </mdc-menu>
+</div>
 
         </code-prism></pre>
       <pre>
@@ -376,20 +375,20 @@ private showMenu() {
     </mdc-grid-cell>
     <mdc-grid-cell span="8">
       <pre>
-        <code-prism>&lt;mdc-menu ...&gt;
-  &lt;mdc-list-item&gt;
+        <code-prism><mdc-menu ...>
+  <mdc-list-item>
     Item 1
-    &lt;span slot="start"&gt;
-      &lt;i class="material-icons" aria-hidden="true"&gt;network_wifi&lt;/i&gt;
-    &lt;/span&gt;
-  &lt;/mdc-list-item&gt;
-  &lt;mdc-list-item&gt;
+    <span slot="start">
+      <i class="material-icons" aria-hidden="true">network_wifi</i>
+    </span>
+  </mdc-list-item>
+  <mdc-list-item>
     Item 2
-    &lt;span slot="start"&gt;
-      &lt;i class="material-icons" aria-hidden="true"&gt;star&lt;/i&gt;
-    &lt;/span&gt;
-  &lt;/mdc-list-item&gt;
-&lt;/mdc-menu&gt;
+    <span slot="start">
+      <i class="material-icons" aria-hidden="true">star</i>
+    </span>
+  </mdc-list-item>
+</mdc-menu>
 
         </code-prism></pre>
     </mdc-grid-cell>

@@ -23,7 +23,7 @@
     <mdc-grid-cell span="8">
       <section class="components">
         <mdc-list-group>
-          <mdc-list-group-header>&lt;ul&gt; list and &lt;li&gt; items</mdc-list-group-header>
+          <mdc-list-group-header><ul> list and <li> items</mdc-list-group-header>
           <mdc-list dense.bind="dense">
             <!-- start detail-->
             <mdc-list-item>
@@ -107,7 +107,7 @@
             <mdc-list-divider inset.bind="inset"></mdc-list-divider>
           </mdc-list>
 
-          <mdc-list-group-header>&lt;nav&gt; list and &lt;a&gt; items</mdc-list-group-header>
+          <mdc-list-group-header><nav> list and <a> items</mdc-list-group-header>
           <mdc-list
             tag="nav"
             dense.bind="dense"
@@ -166,7 +166,7 @@
     </mdc-grid-cell>
     <!-- BASIC-->
     <mdc-grid-cell span="8">
-      <h5>Basic (&lt;ul&gt; list and &lt;li&gt; items)</h5>
+      <h5>Basic (<ul> list and <li> items)</h5>
       <pre>
         <code-prism><mdc-list>
   <mdc-list-item>List item 1</mdc-list-item>
@@ -182,18 +182,18 @@
     </mdc-grid-cell>
     <!-- NAV-->
     <mdc-grid-cell span="12">
-      <h5>&lt;nav&gt; list and &lt;a&gt; list item</h5>
+      <h5><nav> list and <a> list item</h5>
       <p>
-        Use tag="nav" attribute on mdc-list element to convert the list to a &lt;nav&gt; element
+        Use tag="nav" attribute on mdc-list element to convert the list to a <nav> element
         list.
-        href attribute on mdc-list-item create a &lt;a&gt; list item element.
+        href attribute on mdc-list-item create a <a> list item element.
       </p>
     </mdc-grid-cell>
     <mdc-grid-cell span="8">
       <pre>
-        <code-prism>&lt;mdc-list tag="nav"&gt;</code-prism></pre>
+        <code-prism><mdc-list tag="nav"></code-prism></pre>
       <pre>
-        <code-prism>&lt;mdc-list-item href="#"&gt;      </code-prism></pre>
+        <code-prism><mdc-list-item href="#">      </code-prism></pre>
       <pre>
         <code-prism><mdc-list tag="nav">
   <mdc-list-item href="#">List item 1</mdc-list-item>
@@ -228,9 +228,9 @@ private onClick(e: IMdcListItemClickEvent) {
     <mdc-grid-cell span="8">
       <h5 id="dense">Dense and ripple</h5>
       <pre>
-        <code-prism>&lt;mdc-list dense="true"&gt;</code-prism></pre>
+        <code-prism><mdc-list dense="true"></code-prism></pre>
       <pre>
-        <code-prism>&lt;mdc-list-item ripple="true"&gt;</code-prism></pre>
+        <code-prism><mdc-list-item ripple="true"></code-prism></pre>
       <pre>
         <code-prism><mdc-list dense="true">
   <mdc-list-item>List item 1</mdc-list-item>
@@ -277,7 +277,7 @@ slot="secondary"
     <mdc-grid-cell span="8">
       <h5 id="twoline">Two line</h5>
       <pre>
-        <code-prism>&lt;mdc-list two-line="true"&gt;
+        <code-prism><mdc-list two-line="true">
 
         </code-prism></pre>
       <pre>
@@ -406,10 +406,10 @@ slot="secondary"
     <mdc-grid-cell span="8">
       <h5 id="listgroup">List group</h5>
       <pre>
-        <code-prism>&lt;mdc-list-group&gt;
-  &lt;mdc-list-group-header&gt;Header 1&lt;/mdc-list-group-header&gt;
-  &lt;mdc-list&gt;
-    &lt;mdc-list-item&gt;
+        <code-prism><mdc-list-group>
+  <mdc-list-group-header>Header 1</mdc-list-group-header>
+  <mdc-list>
+    <mdc-list-item>
       ...
 
         </code-prism></pre>
@@ -489,22 +489,23 @@ slot="secondary"
     <mdc-grid-cell span="8">
       <h5 id="templaterepeat">Template repeat</h5>
       <pre>
-        <code-prism>&lt;mdc-list&gt;
-  &lt;template repeat.for="item of [1,2,3,4,5]"&gt;
-    &lt;mdc-list-item&gt;Item ${item}&lt;/mdc-list-item&gt;
-    &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
-  &lt;/template&gt;
-&lt;/mdc-list&gt;
+        <code-prism><mdc-list>
+  <template repeat.for="item of [1,2,3,4,5]">
+    <mdc-list-item>Item ${item}</mdc-list-item>
+    <mdc-list-divider></mdc-list-divider>
+  </template>
+</mdc-list>
 
-        </code-prism></pre>
-    </mdc-grid-cell>
-    <mdc-grid-cell span="4">
-      <mdc-list>
+</code-prism>
+</pre>
+</mdc-grid-cell>
+<mdc-grid-cell span="4">
+    <mdc-list>
         <template repeat.for="item of [1,2,3,4,5]">
           <mdc-list-item>Item ${item}</mdc-list-item>
           <mdc-list-divider></mdc-list-divider>
         </template>
-</mdc-list>
+    </mdc-list>
 </mdc-grid-cell>
 </mdc-grid>
 </template>

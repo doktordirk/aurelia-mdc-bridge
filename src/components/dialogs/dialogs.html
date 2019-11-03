@@ -1,4 +1,3 @@
-
 <template>
   <!-- SAMPLE-->
   <mdc-grid>
@@ -56,15 +55,15 @@ private onDialogClick(event: IMdcDialogClickEvent) {
         </code-prism></pre>
       <!-- html-->
       <pre>
-        <code-prism>&lt;mdc-dialog
+        <code-prism><mdc-dialog
   header="Dialog header"
   accept="OK"
   cancel="Cancel"
   view-model.ref="dialog"
-  on-click.delegate="onDialogClick($event)"&gt;
+  on-click.delegate="onDialogClick($event)">
 
-  &lt;p&gt;Dialog content&lt;/p&gt;
-&lt;/mdc-dialog&gt;
+  <p>Dialog content</p>
+</mdc-dialog>
 
 
         </code-prism></pre>
@@ -75,19 +74,19 @@ private onDialogClick(event: IMdcDialogClickEvent) {
         <h5>Scrollable</h5>
         <p>Set <span class="mark-text">scrollable</span> attribute to <span class="mark-text">true</span> to enable scrollable content:</p>
         <pre>
-          <code-prism>&lt;mdc-dialog
+          <code-prism><mdc-dialog
   scrollable="true"
   header="Dialog header"
   accept="OK"
   cancel="Cancel"
   view-model.ref="dialog"
-  on-click.delegate="onDialogClick($event)"&gt;
+  on-click.delegate="onDialogClick($event)">
 
-  &lt;mdc-list&gt;
-    &lt;mdc-list-item&gt;Item 0&lt;/mdc-list-item&gt;
+  <mdc-list>
+    <mdc-list-item>Item 0</mdc-list-item>
     ...
-  &lt;/mdc-list&gt;
-&lt;/mdc-dialog&gt;
+  </mdc-list>
+</mdc-dialog>
 
 
           </code-prism></pre>
@@ -107,14 +106,14 @@ private onDialogClick(event: IMdcDialogClickEvent) {
         </p>
       </section>
       <pre>
-        <code-prism>&lt;mdc-dialog
+        <code-prism><mdc-dialog
   accept="OK"
   accept-action="true"
   cancel="Cancel"
-  view-model.ref="dialog"&gt;
+  view-model.ref="dialog">
 
-  &lt;p&gt;Dialog content&lt;/p&gt;
-&lt;/mdc-dialog&gt;
+  <p>Dialog content</p>
+</mdc-dialog>
 
         </code-prism></pre>
     </mdc-grid-cell>
@@ -129,14 +128,14 @@ private onDialogClick(event: IMdcDialogClickEvent) {
         <p>To disable accept button set attribute <span class="mark-text">accept-disabled="true"</span>:</p>
       </section>
       <pre>
-        <code-prism>&lt;mdc-dialog
+        <code-prism><mdc-dialog
   accept="OK"
   cancel="Cancel"
   accept-disabled.bind="!isValid"
-  view-model.ref="dialog"&gt;
+  view-model.ref="dialog">
 
-  &lt;p&gt;Dialog content&lt;/p&gt;
-&lt;/mdc-dialog&gt;
+  <p>Dialog content</p>
+</mdc-dialog>
 
         </code-prism></pre>
       <!-- DISABLE ACCEPT EXAMPLE-->
@@ -188,13 +187,13 @@ private onDialogClick(event: IMdcDialogClickEvent) {
       </mdc-dialog>
       <p>Event: ${openCloseStatus3}</p>
       <pre>
-        <code-prism>&lt;mdc-dialog
+        <code-prism><mdc-dialog
   header="Dialog"
   accept="OK"
   cancel="Cancel"
-  on-opened.delegate="onOpened()"&gt;
-  &lt;mdc-text-field view-model.ref="focusMe"&gt;Should be focused&lt;/mdc-text-field&gt;
-&lt;/mdc-dialog&gt;
+  on-opened.delegate="onOpened()">
+  <mdc-text-field view-model.ref="focusMe">Should be focused</mdc-text-field>
+</mdc-dialog>
         </code-prism></pre>
       <pre>
         <code-prism language="typescript">import { TaskQueue, autoinject } from 'aurelia-framework';

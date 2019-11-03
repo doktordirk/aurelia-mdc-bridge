@@ -1,4 +1,3 @@
-
 <template>
   <!-- SAMPLE-->
   <mdc-grid>
@@ -71,12 +70,12 @@
 private selectedProductId = 1;
         </code-prism></pre>
       <pre>
-        <code-prism language="html">&lt;mdc-select value.bind="selectedProductId" label-text="Label text" disabled.bind="disabled" box.bind="box"&gt;
-  &lt;mdc-list-item
+        <code-prism language="html"><mdc-select value.bind="selectedProductId" label-text="Label text" disabled.bind="disabled" box.bind="box">
+  <mdc-list-item
     repeat.for="product of products"
-    model.bind="product.id"&gt;${product.id} - ${product.name}
-  &lt;/mdc-list-item&gt;
-&lt;/mdc-select&gt;  
+    model.bind="product.id">${product.id} - ${product.name}
+  </mdc-list-item>
+</mdc-select>  
 
 
         </code-prism></pre>
@@ -86,9 +85,9 @@ private selectedProductId = 1;
       <section id="icons">
         <h5>Icons</h5>
         <pre>
-          <code-prism>&lt;span slot="start"&gt;
-  &lt;i class="material-icons" aria-hidden="true"&gt;icon_name&lt;/i&gt;
-&lt;/span&gt;
+          <code-prism><span slot="start">
+  <i class="material-icons" aria-hidden="true">icon_name</i>
+</span>
           </code-prism></pre>
         <pre>
           <code-prism language="typescript">private products = [
@@ -100,16 +99,16 @@ private selectedProductId = 1;
 private selectedProductId = 1;
           </code-prism></pre>
         <pre>
-          <code-prism language="html">&lt;mdc-select value.bind="selectedProductId"&gt;
-  &lt;mdc-list-item
+          <code-prism language="html"><mdc-select value.bind="selectedProductId">
+  <mdc-list-item
     repeat.for="product of products"
-    model.bind="product.id"&gt;
-    &lt;span&gt;${product.id} - ${product.name}&lt;/span&gt;
-    &lt;span slot="start"&gt;
-      &lt;i class="material-icons" aria-hidden="true"&gt;${product.icon}&lt;/i&gt;
-    &lt;/span&gt;
-  &lt;/mdc-list-item&gt;
-&lt;/mdc-select&gt;  
+    model.bind="product.id">
+    <span>${product.id} - ${product.name}</span>
+    <span slot="start">
+      <i class="material-icons" aria-hidden="true">${product.icon}</i>
+    </span>
+  </mdc-list-item>
+</mdc-select>  
 
 
           </code-prism></pre>
@@ -121,9 +120,9 @@ private selectedProductId = 1;
         <h5>Disabled item</h5>
         <pre>
           <code-prism>...
-&lt;mdc-list-item
+<mdc-list-item
   disabled="true"
-  ...&gt;
+  ...>
           </code-prism></pre>
         <pre></pre>
       </section>
@@ -133,14 +132,14 @@ private selectedProductId = 1;
       <section id="divider">
         <h5>Divider</h5>
         <pre>
-          <code-prism language="html">&lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;</code-prism></pre>
+          <code-prism language="html"><mdc-list-divider></mdc-list-divider></code-prism></pre>
         <pre>
-          <code-prism language="html">&lt;mdc-select value.bind="value"&gt;
-  &lt;mdc-list-item model="1"&gt;Item 1&lt;/mdc-list-item&gt;
-  &lt;mdc-list-item model="2"&gt;Item 2&lt;/mdc-list-item&gt;
-  &lt;mdc-list-divider&gt;&lt;/mdc-list-divider&gt;
-  &lt;mdc-list-item model="3"&gt;Item 3&lt;/mdc-list-item&gt;
-&lt;/mdc-select&gt;  
+          <code-prism language="html"><mdc-select value.bind="value">
+  <mdc-list-item model="1">Item 1</mdc-list-item>
+  <mdc-list-item model="2">Item 2</mdc-list-item>
+  <mdc-list-divider></mdc-list-divider>
+  <mdc-list-item model="3">Item 3</mdc-list-item>
+</mdc-select>  
 
 
           </code-prism></pre>
@@ -158,9 +157,9 @@ private onChange(e: IMdcSelectChangeEvent) {
 }
           </code-prism></pre>
         <pre>
-          <code-prism language="html">&lt;mdc-select on-change.delegate="onChange($event)" ... &gt;
+          <code-prism language="html"><mdc-select on-change.delegate="onChange($event)" ... >
   ...
-&lt;/mdc-select&gt;
+</mdc-select>
 
           </code-prism></pre>
       </section>
@@ -190,9 +189,9 @@ private onChange(e: IMdcSelectChangeEvent) {
 }
           </code-prism></pre>
         <pre>
-          <code-prism language="html">&lt;mdc-select class="my-select-container" ... &gt;
+          <code-prism language="html"><mdc-select class="my-select-container" ... >
   ...
-&lt;/mdc-select&gt;
+</mdc-select>
 
           </code-prism></pre>
       </section>
@@ -218,9 +217,9 @@ private onChange(e: IMdcSelectChangeEvent) {
 }         
           </code-prism></pre>
         <pre>
-          <code-prism language="html">&lt;mdc-select class="my-custom-select" ... &gt;
+          <code-prism language="html"><mdc-select class="my-custom-select" ... >
   ...
-&lt;/mdc-select&gt;
+</mdc-select>
           </code-prism></pre>
       </section>
     </mdc-grid-cell>
