@@ -39,7 +39,7 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                         .useRipples()
                         .useSnackbars()
                         .useTabs()
-                        .useToolbars();
+                        .useTopAppBars();
                 };
                 ConfigBuilder.prototype.useButtons = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./button/button'));
@@ -148,11 +148,11 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./tab/tab'));
                     return this;
                 };
-                ConfigBuilder.prototype.useToolbars = function () {
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./toolbar/toolbar-row'));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./toolbar/toolbar-section'));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./toolbar/toolbar-title'));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./toolbar/toolbar'));
+                ConfigBuilder.prototype.useTopAppBars = function () {
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./top-app-bar/top-app-bar-row'));
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./top-app-bar/top-app-bar-section'));
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./top-app-bar/top-app-bar-title'));
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName('./top-app-bar/top-app-bar'));
                     return this;
                 };
                 ConfigBuilder.prototype.withoutGlobalResources = function () {

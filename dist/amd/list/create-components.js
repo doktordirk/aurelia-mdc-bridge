@@ -52,11 +52,12 @@ define(["require", "exports", "aurelia-pal", "../dom-helper"], function (require
         var startSlot = dom_helper_1.DOMHelper.createElement('div');
         var endSlot = dom_helper_1.DOMHelper.createElement('div');
         var textSlot = dom_helper_1.DOMHelper.createElement('span');
+        var primarySlot = dom_helper_1.DOMHelper.createElement('span');
         var secondarySlot = dom_helper_1.DOMHelper.createElement('span');
-        var noSlot = dom_helper_1.DOMHelper.createElement('div');
-        while (node.firstElementChild) {
-            var childNode = node.firstElementChild;
-            if (childNode.attributes) {
+        var noSlot = dom_helper_1.DOMHelper.createElement('span');
+        while (node.firstChild) {
+            var childNode = node.firstChild;
+            if (childNode.nodeType === Node.ELEMENT_NODE && childNode.attributes) {
                 var slotAtr = childNode.attributes.getNamedItem('slot');
                 if (slotAtr) {
                     if (slotAtr.value === 'start') {
@@ -94,7 +95,7 @@ define(["require", "exports", "aurelia-pal", "../dom-helper"], function (require
                     else if (slotAtr.value === 'text') {
                         if (childNode.hasChildNodes()) {
                             while (childNode.firstChild) {
-                                textSlot.appendChild(childNode.firstChild);
+                                primarySlot.appendChild(childNode.firstChild);
                             }
                         }
                     }
@@ -121,15 +122,19 @@ define(["require", "exports", "aurelia-pal", "../dom-helper"], function (require
             }
         }
         if (secondarySlot.hasChildNodes()) {
+            textSlot.classList.add('mdc-list-item__text');
+            base.appendChild(textSlot);
+            primarySlot.classList.add('mdc-list-item__primary-text');
+            textSlot.appendChild(primarySlot);
             secondarySlot.classList.add('mdc-list-item__secondary-text');
             textSlot.appendChild(secondarySlot);
         }
-        if (textSlot.hasChildNodes()) {
-            textSlot.classList.add('mdc-list-item__text');
-            noSlot.appendChild(textSlot);
+        else if (primarySlot.hasChildNodes()) {
+            primarySlot.classList.add('mdc-list-item__text');
+            base.appendChild(primarySlot);
         }
-        if (noSlot.hasChildNodes()) {
-            noSlot.classList.add('amb-mdc-list-item-text');
+        else if (noSlot.hasChildNodes()) {
+            noSlot.classList.add('mdc-list-item__text');
             base.appendChild(noSlot);
         }
         if (endSlot.hasChildNodes()) {

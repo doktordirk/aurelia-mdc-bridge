@@ -25,7 +25,7 @@ export declare class ConfigBuilder {
     useRipples(): ConfigBuilder;
     useSnackbars(): ConfigBuilder;
     useTabs(): ConfigBuilder;
-    useToolbars(): ConfigBuilder;
+    useTopAppBars(): ConfigBuilder;
     withoutGlobalResources(): ConfigBuilder;
     private addDrawerAddons;
 }

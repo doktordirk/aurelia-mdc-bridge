@@ -17,7 +17,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging"], function 
         MdcDrawerSpacer.prototype.bind = function () { };
         MdcDrawerSpacer.prototype.unbind = function () { };
         MdcDrawerSpacer.prototype.attached = function () {
-            this.elementSpacer.classList.add('mdc-drawer__toolbar-spacer');
+            this.elementSpacer.classList.add('mdc-drawer__top-app-bar-spacer');
         };
         MdcDrawerSpacer = __decorate([
             aurelia_framework_1.customElement('mdc-drawer-spacer'),

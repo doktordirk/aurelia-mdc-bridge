@@ -16,7 +16,7 @@ let MdcDrawerSpacer = class MdcDrawerSpacer {
     bind() { }
     unbind() { }
     attached() {
-        this.elementSpacer.classList.add('mdc-drawer__toolbar-spacer');
+        this.elementSpacer.classList.add('mdc-drawer__top-app-bar-spacer');
     }
 };
 MdcDrawerSpacer = __decorate([

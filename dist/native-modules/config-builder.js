@@ -29,7 +29,7 @@ var ConfigBuilder = (function () {
             .useRipples()
             .useSnackbars()
             .useTabs()
-            .useToolbars();
+            .useTopAppBars();
     };
     ConfigBuilder.prototype.useButtons = function () {
         this.globalResources.push(PLATFORM.moduleName('./button/button'));
@@ -138,11 +138,11 @@ var ConfigBuilder = (function () {
         this.globalResources.push(PLATFORM.moduleName('./tab/tab'));
         return this;
     };
-    ConfigBuilder.prototype.useToolbars = function () {
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-row'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-section'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-title'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar'));
+    ConfigBuilder.prototype.useTopAppBars = function () {
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-row'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-section'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-title'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar'));
         return this;
     };
     ConfigBuilder.prototype.withoutGlobalResources = function () {

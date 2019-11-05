@@ -29,7 +29,7 @@ export class ConfigBuilder {
             .useRipples()
             .useSnackbars()
             .useTabs()
-            .useToolbars();
+            .useTopAppBars();
     }
     useButtons() {
         this.globalResources.push(PLATFORM.moduleName('./button/button'));
@@ -138,11 +138,11 @@ export class ConfigBuilder {
         this.globalResources.push(PLATFORM.moduleName('./tab/tab'));
         return this;
     }
-    useToolbars() {
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-row'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-section'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar-title'));
-        this.globalResources.push(PLATFORM.moduleName('./toolbar/toolbar'));
+    useTopAppBars() {
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-row'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-section'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar-title'));
+        this.globalResources.push(PLATFORM.moduleName('./top-app-bar/top-app-bar'));
         return this;
     }
     withoutGlobalResources() {

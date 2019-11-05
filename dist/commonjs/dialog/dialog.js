@@ -53,6 +53,7 @@ var MdcDialog = (function () {
     MdcDialog.prototype.attached = function () {
         this.scrollableChanged(this.scrollable);
         this.headerChanged(this.header);
+        return;
         this.mdcElement = new dialog_1.MDCDialog(this.diagElement);
         this.mdcElement.listen('MDCDialog:closed', this.onTransitionEnd.bind(this));
         this.mdcElement.listen('MDCDialog:opened', this.onTransitionEnd.bind(this));

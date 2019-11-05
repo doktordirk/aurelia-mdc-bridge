@@ -49,11 +49,12 @@ function moveSlotElements(node, base) {
     const startSlot = DOMHelper.createElement('div');
     const endSlot = DOMHelper.createElement('div');
     const textSlot = DOMHelper.createElement('span');
+    const primarySlot = DOMHelper.createElement('span');
     const secondarySlot = DOMHelper.createElement('span');
-    const noSlot = DOMHelper.createElement('div');
-    while (node.firstElementChild) {
-        const childNode = node.firstElementChild;
-        if (childNode.attributes) {
+    const noSlot = DOMHelper.createElement('span');
+    while (node.firstChild) {
+        const childNode = node.firstChild;
+        if (childNode.nodeType === Node.ELEMENT_NODE && childNode.attributes) {
             const slotAtr = childNode.attributes.getNamedItem('slot');
             if (slotAtr) {
                 if (slotAtr.value === 'start') {
@@ -91,7 +92,7 @@ function moveSlotElements(node, base) {
                 else if (slotAtr.value === 'text') {
                     if (childNode.hasChildNodes()) {
                         while (childNode.firstChild) {
-                            textSlot.appendChild(childNode.firstChild);
+                            primarySlot.appendChild(childNode.firstChild);
                         }
                     }
                 }
@@ -118,15 +119,19 @@ function moveSlotElements(node, base) {
         }
     }
     if (secondarySlot.hasChildNodes()) {
+        textSlot.classList.add('mdc-list-item__text');
+        base.appendChild(textSlot);
+        primarySlot.classList.add('mdc-list-item__primary-text');
+        textSlot.appendChild(primarySlot);
         secondarySlot.classList.add('mdc-list-item__secondary-text');
         textSlot.appendChild(secondarySlot);
     }
-    if (textSlot.hasChildNodes()) {
-        textSlot.classList.add('mdc-list-item__text');
-        noSlot.appendChild(textSlot);
+    else if (primarySlot.hasChildNodes()) {
+        primarySlot.classList.add('mdc-list-item__text');
+        base.appendChild(primarySlot);
     }
-    if (noSlot.hasChildNodes()) {
-        noSlot.classList.add('amb-mdc-list-item-text');
+    else if (noSlot.hasChildNodes()) {
+        noSlot.classList.add('mdc-list-item__text');
         base.appendChild(noSlot);
     }
     if (endSlot.hasChildNodes()) {

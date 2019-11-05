@@ -1,4 +1,4 @@
-System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-button/icon-button", "./card/card-actions", "./card/card-media", "./card/card", "./chip/chip", "./chip/chip-set", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./toolbar/toolbar-row", "./toolbar/toolbar-section", "./toolbar/toolbar-title", "./toolbar/toolbar"], function (exports_1, context_1) {
+System.register(["./config-builder", "./button/button", "./button/fab/fab", "./button/icon-button/icon-button", "./card/card-actions", "./card/card-media", "./card/card", "./chip/chip", "./chip/chip-set", "./dialog/dialog", "./drawer/header", "./drawer/permanent", "./drawer/persistent", "./drawer/spacer", "./drawer/temporary", "./grid/grid-cell", "./grid/grid", "./grid-list/grid-list", "./grid-list/grid-tile", "./inputs/checkbox/checkbox", "./inputs/radio/radio", "./inputs/select/select", "./inputs/slider/slider", "./inputs/switch/switch", "./inputs/textfield/textfield", "./list/list-divider", "./list/list-item", "./list/list", "./menu/menu", "./progress/linear", "./ripple/ripple", "./snackbar/snackbar", "./tab/tab-bar-scroller", "./tab/tab-bar", "./tab/tab", "./top-app-bar/top-app-bar-row", "./top-app-bar/top-app-bar-section", "./top-app-bar/top-app-bar-title", "./top-app-bar/top-app-bar"], function (exports_1, context_1) {
     "use strict";
     var config_builder_1;
     var __moduleName = context_1 && context_1.id;
@@ -133,17 +133,17 @@ System.register(["./config-builder", "./button/button", "./button/fab/fab", "./b
             function (tab_1_1) {
                 exportStar_1(tab_1_1);
             },
-            function (toolbar_row_1_1) {
-                exportStar_1(toolbar_row_1_1);
+            function (top_app_bar_row_1_1) {
+                exportStar_1(top_app_bar_row_1_1);
             },
-            function (toolbar_section_1_1) {
-                exportStar_1(toolbar_section_1_1);
+            function (top_app_bar_section_1_1) {
+                exportStar_1(top_app_bar_section_1_1);
             },
-            function (toolbar_title_1_1) {
-                exportStar_1(toolbar_title_1_1);
+            function (top_app_bar_title_1_1) {
+                exportStar_1(top_app_bar_title_1_1);
             },
-            function (toolbar_1_1) {
-                exportStar_1(toolbar_1_1);
+            function (top_app_bar_1_1) {
+                exportStar_1(top_app_bar_1_1);
             }
         ],
         execute: function () {
