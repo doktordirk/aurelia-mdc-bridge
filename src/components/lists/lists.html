@@ -23,7 +23,7 @@
     <mdc-grid-cell span="8">
       <section class="components">
         <mdc-list-group>
-          <mdc-list-group-header><ul> list and <li> items</mdc-list-group-header>
+          <mdc-list-group-header>&lt;ul&gt; list and &lt;li&gt; items</mdc-list-group-header>
           <mdc-list dense.bind="dense">
             <!-- start detail-->
             <mdc-list-item>
@@ -107,7 +107,7 @@
             <mdc-list-divider inset.bind="inset"></mdc-list-divider>
           </mdc-list>
 
-          <mdc-list-group-header><nav> list and <a> items</mdc-list-group-header>
+          <mdc-list-group-header>&lt;nav&gt; list and &lt;a&gt; items</mdc-list-group-header>
           <mdc-list
             tag="nav"
             dense.bind="dense"
@@ -139,23 +139,28 @@
     </mdc-grid-cell>
     <!-- LINKS-->
     <mdc-grid-cell span="12">
-      <hr /><a
+      <hr>
+      <a
         href="https://material.io/components/web/catalog/lists/"
         target="_blank"
         data-analytics-category="external"
         data-analytics-action="mdc-list"
-      >Material components documentation</a><br /><a
+      >Material components documentation</a>
+      <br />
+      <a
         href="https://material.io/guidelines/components/lists.html"
         target="_blank"
         data-analytics-category="external"
         data-analytics-action="mdg-list"
-      >Material design guidelines</a><br /><a
+      >Material design guidelines</a>
+      <br />
+      <a
         href="https://material.io/icons/"
         target="_blank"
         data-analytics-category="external"
         data-analytics-action="mdc-icons"
       >Icons</a>
-      <hr />
+      <hr>
       <!-- CLICK DIALOG-->
       <mdc-dialog
         view-model.ref="dialog"
@@ -166,7 +171,7 @@
     </mdc-grid-cell>
     <!-- BASIC-->
     <mdc-grid-cell span="8">
-      <h5>Basic (<ul> list and <li> items)</h5>
+      <h5>Basic (&lt;ul&gt; list and &lt;li&gt; items)</h5>
       <pre>
         <code-prism><mdc-list>
   <mdc-list-item>List item 1</mdc-list-item>
@@ -182,11 +187,13 @@
     </mdc-grid-cell>
     <!-- NAV-->
     <mdc-grid-cell span="12">
-      <h5><nav> list and <a> list item</h5>
+      <h5>
+        &lt;nav&gt; list and &lt;a&gt; list item
+      </h5>
       <p>
-        Use tag="nav" attribute on mdc-list element to convert the list to a <nav> element
-        list.
-        href attribute on mdc-list-item create a <a> list item element.
+        Use tag="nav" attribute on mdc-list element to convert the list to a &lt;nav&gt; element
+          list.
+          href attribute on mdc-list-item create a &lt;a&gt; list item element.
       </p>
     </mdc-grid-cell>
     <mdc-grid-cell span="8">
