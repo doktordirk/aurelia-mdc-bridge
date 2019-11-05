@@ -72,7 +72,7 @@
     "___end-docs___": ""
   },
   "dependencies": {
-    "material-components-web": "^3.2.0"
+    "material-components-web": "^4.0.0"
   },
   "peerDependencies": {},
   "devDependencies": {
