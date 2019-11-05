@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v2.2.0...v4.0.0) (2019-11-05)
+
+
+### Bug Fixes
+
+* **mdc-list:** slot text, don't nest two-line, no extra div ([0968f48](https://github.com/ullfis/aurelia-mdc-bridge/commit/0968f48))
+* **top-app-bar:** rename toolbar to top-app-bar ([9827669](https://github.com/ullfis/aurelia-mdc-bridge/commit/9827669))
+
+
+### Features
+
+* update to material 3.2.0 ([135fa5b](https://github.com/ullfis/aurelia-mdc-bridge/commit/135fa5b))
+* **mdc-dialog:** disable as it screws the hmtl that way ([a479546](https://github.com/ullfis/aurelia-mdc-bridge/commit/a479546))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v0.17.1...v0.18.0) (2019-10-23)
 
