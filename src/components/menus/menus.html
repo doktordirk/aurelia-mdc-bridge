@@ -21,7 +21,7 @@
       <!-- default theme-->
       <section class="components">
         <h5>Example</h5>
-        <div class="mdc-menu-anchor">
+        <div class="mdc-menu-surface--anchor">
           <button mdc-button="raised: true;" click.delegate="showMenu1()">Button 1</button>
           <mdc-menu view-model.ref="menuElement1" on-cancel.delegate="onCancel1()" on-select.delegate="onSelect1($event)">
             <mdc-list-item>
@@ -34,7 +34,7 @@
           </mdc-menu>
         </div><br/>
         <p>Last event menu 1: ${lastEvent1 | stringify}</p>
-        <div class="mdc-menu-anchor">
+        <div class="mdc-menu-surface--anchor">
           <button mdc-button="raised: true;" click.delegate="showMenu2()">Button 2</button>
           <mdc-menu view-model.ref="menuElement2" on-cancel.delegate="onCancel2()" on-select.delegate="onSelect2($event)">
             <mdc-list-item>Item 1</mdc-list-item>
@@ -131,7 +131,7 @@ private showMenu() {
         </code-prism></pre>
     </mdc-grid-cell>
     <mdc-grid-cell span="6">
-      <div class="mdc-menu-anchor">
+      <div class="mdc-menu-surface--anchor">
         <button mdc-button="raised: true;" click.delegate="showMenu3()">Show Menu</button>
         <mdc-menu view-model.ref="menuElement3" value.bind="selectedMenuItem">
           <mdc-list-item repeat.for="item of menuItems3" model.bind="item">${item.text}</mdc-list-item>
@@ -177,7 +177,7 @@ private showMenu() {
         <p>To open menu without animation add <span class="mark-text">quick-open="true"</span> attribute to the <span class="mark-text">mdc-menu</span> element.
           
         </p>
-        <div class="mdc-menu-anchor">
+        <div class="mdc-menu-surface--anchor">
           <button mdc-button="raised: true;" click.delegate="showMenuQO()">Show Menu</button>
           <mdc-menu quick-open="true" view-model.ref="menuElementQO">
             <mdc-list-item>Item 1</mdc-list-item>
@@ -206,7 +206,7 @@ private showMenu() {
         </p>
         <p>The anchor can either be a visible element that the menu is a child of:</p>
         <pre>
-          <code-prism><mdc-top-app-bar class="mdc-menu-anchor">
+          <code-prism><mdc-top-app-bar class="mdc-menu-surface--anchor">
   <mdc-menu>
     ...
   </mdc-menu>
@@ -215,7 +215,7 @@ private showMenu() {
           </code-prism></pre>
         <p>or a wrapper element that contains the actual visible element to attach to:</p>
         <pre>
-          <code-prism><div class="mdc-menu-anchor">
+          <code-prism><div class="mdc-menu-surface--anchor">
   <button mdc-button>Open menu</button>
   <mdc-menu>
     ...
@@ -223,11 +223,11 @@ private showMenu() {
 </div>
           </code-prism></pre>
         <p>Note: <span class="mark-text">overflow: visible</span> and <span class="mark-text">position: relative</span> will be set 
-          on the element with <span class="mark-text">mdc-menu-anchor</span> to ensure that the menu is positioned and 
+          on the element with <span class="mark-text">mdc-menu-surface--anchor</span> to ensure that the menu is positioned and 
           displayed correctly.
           
         </p>
-        <p>The menu will check if its parent element has the <span class="mark-text">mdc-menu-anchor</span> class set, 
+        <p>The menu will check if its parent element has the <span class="mark-text">mdc-menu-surface--anchor</span> class set, 
           and if so, it will automatically position itself relative to this anchor element. 
           It will open from the top left (top right in RTL) corner of the anchor by default, 
           but will choose an appropriate different corner if close to the edge of the screen.
@@ -336,12 +336,12 @@ private showMenu() {
     </mdc-grid-cell>
     <mdc-grid-cell span="9">
       <style>
-        .my-mdc-menu-anchor {
+        .my-mdc-menu-surface--anchor {
           position: absolute;
         }
         
       </style>
-      <div class="mdc-menu-anchor my-mdc-menu-anchor">
+      <div class="mdc-menu-surface--anchor my-mdc-menu-surface--anchor">
         <button mdc-button="raised: true;" click.delegate="showMenu51()">Open Menu</button>
         <mdc-menu view-model.ref="menuElement51" anchor-corner.bind="menuPosition">
           <mdc-list-item>Item 1</mdc-list-item>
@@ -352,7 +352,7 @@ private showMenu() {
     </mdc-grid-cell>
     <mdc-grid-cell span="12">
       <pre>
-        <code-prism><div class="mdc-menu-anchor">
+        <code-prism><div class="mdc-menu-surface--anchor">
   <button mdc-button click.delegate="showMenu()">Open menu</button>
   <mdc-menu 
     anchor-corner="top-left / top-right / bottom-left / bottom-right"
@@ -363,7 +363,7 @@ private showMenu() {
 
         </code-prism></pre>
       <pre>
-        <code-prism language="css">.mdc-menu-anchor {
+        <code-prism language="css">.mdc-menu-surface--anchor {
   position: absolute;
 }          
 
@@ -393,7 +393,7 @@ private showMenu() {
         </code-prism></pre>
     </mdc-grid-cell>
     <mdc-grid-cell span="4">
-      <div class="mdc-menu-anchor">
+      <div class="mdc-menu-surface--anchor">
         <button mdc-button="raised: true;" click.delegate="showMenu6()">Open menu</button>
         <mdc-menu view-model.ref="menuElement6">
           <mdc-list-item>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mdc-menu"
+    class="mdc-menu-surface mdc-menu"
     tabindex="-1"
     ref="elementMenu"
     class.bind="class"
@@ -9,6 +9,8 @@
       class="mdc-menu__items mdc-list"
       role="menu"
       aria-hidden="true"
+      aria-orientation="vertical"
+      tabindex="-1"
     >
       <slot></slot>
     </ul>
