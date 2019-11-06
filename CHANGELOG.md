@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/ullfis/aurelia-mdc-bridge/compare/v4.0.0...v4.0.1) (2019-11-06)
+
+
+### Bug Fixes
+
+* **menu:** update to 4.0.0 ([47ad49b](https://github.com/ullfis/aurelia-mdc-bridge/commit/47ad49b))
+* **select:** update to 4.0.0 ([e86c393](https://github.com/ullfis/aurelia-mdc-bridge/commit/e86c393))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/ullfis/aurelia-mdc-bridge/compare/v2.2.0...v4.0.0) (2019-11-05)
 
