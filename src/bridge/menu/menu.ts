@@ -189,7 +189,7 @@ export class MdcMenu {
     }
     const index = this.findIndex(newValue);
     if (index === -1) { return; }
-    this.mdcMenu.items[index].setAttribute("focous", "true");
+    this.mdcMenu.items[index].setAttribute("focus", "true");
   }
   private findIndex(value): number {
     for (let index = 0; index < this.mdcMenu.items.length; index++) {

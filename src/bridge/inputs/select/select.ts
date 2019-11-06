@@ -13,6 +13,8 @@ export interface IMdcSelectChangeEvent extends CustomEvent {
   detail: MDCSelect;
 }
 
+let selectId = 0;
+
 @customElement('mdc-select')
 @inject(Element, TaskQueue)
 export class MdcSelect {
@@ -27,6 +29,7 @@ export class MdcSelect {
   private mdcSelect: MDCSelect;
   private log: Logger;
   private internalValueChanged = false;
+  public id = selectId++;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     this.log = getLogger('mdc-select');

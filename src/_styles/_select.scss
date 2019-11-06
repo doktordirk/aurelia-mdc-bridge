@@ -6,3 +6,7 @@
   @include mdc-select-bottom-line-color(black);
   @include mdc-select-focused-bottom-line-color(brown);
 }
+.mdc-list-item--disabled {
+  color: var(--mdc-theme-text-disabled-on-background, rgba(0,0,0,.38));
+  pointer-events: none;
+}
