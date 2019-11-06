@@ -13,6 +13,7 @@ var aurelia_framework_1 = require("aurelia-framework");
 var aurelia_logging_1 = require("aurelia-logging");
 var select_1 = require("@material/select");
 var util = require("../../util");
+var selectId = 0;
 var MdcSelect = (function () {
     function MdcSelect(element, taskQueue) {
         this.element = element;
@@ -20,6 +21,7 @@ var MdcSelect = (function () {
         this.disabled = false;
         this.box = false;
         this.internalValueChanged = false;
+        this.id = selectId++;
         this.log = aurelia_logging_1.getLogger('mdc-select');
     }
     MdcSelect.prototype.bind = function () { };

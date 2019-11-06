@@ -11,6 +11,7 @@ import { children, inject, bindable, bindingMode, customElement, TaskQueue } fro
 import { getLogger } from 'aurelia-logging';
 import { MDCSelect } from '@material/select';
 import * as util from '../../util';
+var selectId = 0;
 var MdcSelect = (function () {
     function MdcSelect(element, taskQueue) {
         this.element = element;
@@ -18,6 +19,7 @@ var MdcSelect = (function () {
         this.disabled = false;
         this.box = false;
         this.internalValueChanged = false;
+        this.id = selectId++;
         this.log = getLogger('mdc-select');
     }
     MdcSelect.prototype.bind = function () { };

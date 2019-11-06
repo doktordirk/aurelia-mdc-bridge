@@ -69,6 +69,7 @@ var MdcListItem = (function () {
         if (this.isMenuItem || this.isSelectMenuItem) {
             this.elementListItem.setAttribute('tabindex', value ? '-1' : '0');
             this.elementListItem.setAttribute('aria-disabled', value ? 'true' : 'false');
+            this.elementListItem.classList.toggle('mdc-list-item--disabled', value);
         }
     };
     MdcListItem.prototype.selectedChanged = function (newValue) {

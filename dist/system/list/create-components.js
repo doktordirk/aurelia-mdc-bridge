@@ -34,6 +34,7 @@ System.register(["aurelia-pal", "../dom-helper"], function (exports_1, context_1
         base.setAttribute('href.bind', 'href');
         base.setAttribute('target.bind', 'target');
         base.setAttribute('model.bind', 'model');
+        base.setAttribute('data-value.bind', 'model || $index');
         base.setAttribute('click.delegate', 'elementClick($event)');
         moveSlotElements(element, base);
         var templateEl = document.createDocumentFragment();

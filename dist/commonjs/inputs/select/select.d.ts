@@ -17,6 +17,7 @@ export declare class MdcSelect {
     private mdcSelect;
     private log;
     private internalValueChanged;
+    id: number;
     constructor(element: Element, taskQueue: TaskQueue);
     private bind;
     private unbind;

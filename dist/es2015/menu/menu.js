@@ -123,7 +123,7 @@ let MdcMenu = class MdcMenu {
         if (index === -1) {
             return;
         }
-        this.mdcMenu.items[index].setAttribute("focous", "true");
+        this.mdcMenu.items[index].setAttribute("focus", "true");
     }
     findIndex(value) {
         for (let index = 0; index < this.mdcMenu.items.length; index++) {

@@ -144,7 +144,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/menu", "../u
                     if (index === -1) {
                         return;
                     }
-                    this.mdcMenu.items[index].setAttribute("focous", "true");
+                    this.mdcMenu.items[index].setAttribute("focus", "true");
                 };
                 MdcMenu.prototype.findIndex = function (value) {
                     for (var index = 0; index < this.mdcMenu.items.length; index++) {

@@ -1,18 +1,30 @@
 <template>
-  <div
-    class="mdc-select"
-    role="listbox"
-    tabindex="0"
+  <div class="mdc-select" 
     ref="elementSelect"
     class.bind="class"
+    ref="staticSelect"
   >
-    <div class="mdc-select__surface">
-      <div class="mdc-select__label">${labelText}</div>
-      <div class="mdc-select__selected-text"></div>
-      <div class="mdc-select__bottom-line"></div>
+  <div class="mdc-select__anchor">
+      <i class="mdc-select__dropdown-icon"></i>
+      <div
+        id="mdc-select-text-id-${id}"
+        class="mdc-select__selected-text"
+        role="button"
+        aria-haspopup="listbox"
+        aria-labelledby="mdc-select-label-id-${id} mdc-select-text-id-${id}"
+      ></div>
+      <span
+        id="mdc-select-label-id-${id}"
+        class="mdc-floating-label mdc-floating-label--float-above"
+      >${labelText}</span>
+      <div class="mdc-line-ripple"></div>
     </div>
-    <div class="mdc-menu mdc-select__menu">
-      <ul class="mdc-list mdc-menu__items">
+
+    <div
+      class="mdc-select__menu mdc-menu mdc-menu-surface"
+      role="listbox"
+    >
+      <ul class="mdc-list">
         <slot></slot>
       </ul>
     </div>

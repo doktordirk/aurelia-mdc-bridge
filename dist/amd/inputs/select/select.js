@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material/select", "../../util"], function (require, exports, aurelia_framework_1, aurelia_logging_1, select_1, util) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var selectId = 0;
     var MdcSelect = (function () {
         function MdcSelect(element, taskQueue) {
             this.element = element;
@@ -17,6 +18,7 @@ define(["require", "exports", "aurelia-framework", "aurelia-logging", "@material
             this.disabled = false;
             this.box = false;
             this.internalValueChanged = false;
+            this.id = selectId++;
             this.log = aurelia_logging_1.getLogger('mdc-select');
         }
         MdcSelect.prototype.bind = function () { };

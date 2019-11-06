@@ -9,7 +9,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/select", "..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var aurelia_framework_1, aurelia_logging_1, select_1, util, MdcSelect;
+    var aurelia_framework_1, aurelia_logging_1, select_1, util, selectId, MdcSelect;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -27,6 +27,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/select", "..
             }
         ],
         execute: function () {
+            selectId = 0;
             MdcSelect = (function () {
                 function MdcSelect(element, taskQueue) {
                     this.element = element;
@@ -34,6 +35,7 @@ System.register(["aurelia-framework", "aurelia-logging", "@material/select", "..
                     this.disabled = false;
                     this.box = false;
                     this.internalValueChanged = false;
+                    this.id = selectId++;
                     this.log = aurelia_logging_1.getLogger('mdc-select');
                 }
                 MdcSelect.prototype.bind = function () { };
